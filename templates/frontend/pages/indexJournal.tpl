@@ -29,9 +29,9 @@
   <div class="row justify-content-center">
 
     {if $showJournalDescription && $currentJournal->getLocalizedDescription()}
-    <section class="col-11 col-lg-9 page-issue">
+    <section class="col-11 col-lg-9 page">
       <div class="container">
-        <header class="row">
+        <header class="row page-header">
           <h2 class="col-md-6">
             {translate key="navigation.about"}
           </h2>
@@ -39,13 +39,13 @@
         {$currentJournal->getLocalizedDescription()}
         <p>
           {capture assign="aboutPageUrl"}{url router=$smarty.const.ROUTE_PAGE page="about"}{/capture}
-          <a href="{$aboutPageUrl}" class="btn">{translate key="common.readMore"}</a>
+          <a href="{$aboutPageUrl}">{translate key="common.readMore"}</a>
         </p>
       </div>
     </section>
     {/if}
 
-    <div class="col-11 col-lg-9 page-issue">
+    <section class="col-11 col-lg-9 page">
       <header class="page-header page-issue-header">
         {if $issue}
           <p>{translate key="journal.currentIssue"}</p>
@@ -137,7 +137,7 @@
       {if $issue}
         {include file="frontend/objects/issue_toc.tpl" sectionHeading="h3"}
       {/if}
-    </div>
+    </section>
   </div><!-- .row -->
 
   <p class="text-center">
@@ -148,7 +148,7 @@
 
   {* Additional Homepage Content *}
   {if $additionalHomeContent}
-    <div class="col-12 col-lg-9">{$additionalHomeContent}</div>
+    <div class="col-12 col-lg-9 page">{$additionalHomeContent}</div>
   {/if}
 </main>
 

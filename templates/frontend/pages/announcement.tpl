@@ -11,24 +11,28 @@
  *}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$announcement->getLocalizedTitle()|escape}
 
-<main class="container page-announcement">
-	<header class="row page-header justify-content-md-center">
-		<div class="col-md-8">
-			<h1>{$announcement->getLocalizedTitle()|escape}</h1>
-	    <time class="announcement-date" datetime="{$announcement->getDatePosted()}">
-	      {$announcement->getDatePosted()|date_format:$dateFormatLong}
-	    </time>
-		</div>
-	</header>
-	<div class="row justify-content-md-center">
-    <article class="col-md-8 page-content page-announcement-content">
-      {if $announcement->getLocalizedDescription()}
-        {$announcement->getLocalizedDescription()|strip_unsafe_html}
-      {else}
-        {$announcement->getLocalizedDescriptionShort()|strip_unsafe_html}
-      {/if}
-    </article>
-	</div>
+
+<main class="container">
+  <div class="row justify-content-center">
+
+    <section class="col-11 col-lg-9 page">
+      <header class="page-header">
+        <h1>{$announcement->getLocalizedTitle()|escape}</h1>
+        <time class="announcement-date" datetime="{$announcement->getDatePosted()}">
+          {$announcement->getDatePosted()|date_format:$dateFormatLong}
+        </time>
+      </header>
+
+      <article class="page-content">
+        {if $announcement->getLocalizedDescription()}
+          {$announcement->getLocalizedDescription()|strip_unsafe_html}
+        {else}
+          {$announcement->getLocalizedDescriptionShort()|strip_unsafe_html}
+        {/if}
+      </article>
+    </section>
+
+  </div>
 </main>
 
 {include file="frontend/components/footer.tpl"}

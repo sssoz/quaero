@@ -19,7 +19,7 @@
 
   <div class="row justify-content-center">
 
-    <div class="col-11 col-lg-9 page-issue">
+    <div class="col-11 col-lg-9 page">
 
     	{* Display a message if no current issue exists *}
     	{if !$issue}

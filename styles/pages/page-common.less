@@ -8,20 +8,23 @@
  * @brief general page layout
  */
 
-.page-header {
-	margin-top: 3rem;
-	margin-bottom: 3rem;
+.page {
+  margin-top: 1.5rem;
+  padding: 2rem;
+  background-color: @parchment;
+}
 
-	h1 {
-    margin-bottom: 1rem;
-		font-size: 2.25rem;
+.page-header {
+
+	h1, h2 {
+    margin-top: 0;
 	}
+
 }
 
 .page-content {
 	margin-bottom: 3rem;
 	padding-top: 3rem;
-	border-top: 1px solid @light-grey;
 	font-size: 20px;
 	line-height: 30px;
 
@@ -44,4 +47,15 @@
 	h2 .btn-edit-link {
 		border: none;
 	}
+}
+
+@media (min-width: 992px) {
+
+  .page {
+    margin-bottom: 3rem;
+
+    &:first-of-type {
+      margin-top: -75px;
+    }
+  }
 }

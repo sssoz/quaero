@@ -29,8 +29,8 @@
  *   included with published articles.
  * @uses $ccLicenseBadge string An image and text with details about the license
  *}
-<article class="col-11 col-lg-9 page-issue article-details">
-	<header class="page-header row">
+<article class="col-11 col-lg-9 page">
+	<header class="row page-header">
 		<div class="article-meta-mobile">
 			{* Notification that this is an old version *}
 			{if $currentPublication->getId() !== $publication->getId()}
@@ -171,7 +171,90 @@
 	</header><!-- .page-header -->
 
 	<div class="row justify-content-md-center" id="mainArticleContent">
-		<div class="col-lg-3 order-lg-2" id="articleDetailsWrapper">
+    <div class="col-lg-9" id="articleMainWrapper">
+			<div class="article-details-main" id="articleMain">
+
+				{* Abstract *}
+				{if $publication->getLocalizedData('abstract')}
+					<div class="article-details-block article-details-abstract">
+						<h2 class="article-details-heading">{translate key="article.abstract"}</h2>
+						{$publication->getLocalizedData('abstract')|strip_unsafe_html}
+					</div>
+				{/if}
+
+				{* DOI for small screens only *}
+				{foreach from=$pubIdPlugins item=pubIdPlugin}
+					{if $pubIdPlugin->getPubIdType() != 'doi'}
+						{continue}
+					{/if}
+					{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
+					{if $pubId}
+						{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
+						<div class="article-details-block article-details-doi small-screen">
+							<a href="{$doiUrl}">{$doiUrl}</a>
+						</div>
+					{/if}
+				{/foreach}
+
+				{* Article Galleys (bottom) *}
+				{if $primaryGalleys}
+					<div class="article-details-block article-details-galleys article-details-galleys-btm">
+						{foreach from=$primaryGalleys item=galley}
+							<div class="article-details-galley">
+								{include file="frontend/objects/galley_link.tpl" parent=$article galley=$galley purchaseFee=$currentJournal->getSetting('purchaseArticleFee') purchaseCurrency=$currentJournal->getSetting('currency')}
+							</div>
+						{/foreach}
+					</div>
+				{/if}
+
+				{* References *}
+				{if $parsedCitations || $publication->getData('citationsRaw')}
+					<div class="article-details-block article-details-references">
+						<h2 class="article-details-heading">
+							{translate key="submission.citations"}
+						</h2>
+						<div class="article-details-references-value">
+							{if $parsedCitations}
+								{foreach from=$parsedCitations item=parsedCitation}
+									<p>{$parsedCitation->getCitationWithLinks()|strip_unsafe_html}</p>
+								{/foreach}
+							{else}
+								{$publication->getData('citationsRaw')|escape|nl2br}
+							{/if}
+						</div>
+					</div>
+				{/if}
+
+				{* Licensing info *}
+				{if $copyright || $licenseUrl}
+					<div class="article-details-block article-details-license">
+						{if $licenseUrl}
+							{if $ccLicenseBadge}
+								{$ccLicenseBadge}
+									{if $copyrightHolder}
+										<p>{translate key="submission.copyrightStatement" copyrightHolder=$copyrightHolder copyrightYear=$copyrightYear}</p>
+									{/if}
+							{else}
+								<a href="{$licenseUrl|escape}" class="copyright">
+									{if $copyrightHolder}
+										{translate key="submission.copyrightStatement" copyrightHolder=$copyrightHolder|escape copyrightYear=$copyrightYear|escape}
+									{else}
+										{translate key="submission.license"}
+									{/if}
+								</a>
+							{/if}
+						{else}
+							{$copyright}
+						{/if}
+					</div>
+				{/if}
+
+				{call_hook name="Templates::Article::Main"}
+
+			</div>
+		</div>
+
+		<aside class="col-lg-3" id="articleDetailsWrapper">
 			<div class="article-details-sidebar" id="articleDetails">
 
 				{* Article/Issue cover image *}
@@ -333,89 +416,8 @@
 
 				{call_hook name="Templates::Article::Details"}
 			</div>
-		</div>
-		<div class="col-lg-9 order-lg-1" id="articleMainWrapper">
-			<div class="article-details-main" id="articleMain">
+		</aside>
 
-				{* Abstract *}
-				{if $publication->getLocalizedData('abstract')}
-					<div class="article-details-block article-details-abstract">
-						<h2 class="article-details-heading">{translate key="article.abstract"}</h2>
-						{$publication->getLocalizedData('abstract')|strip_unsafe_html}
-					</div>
-				{/if}
-
-				{* DOI for small screens only *}
-				{foreach from=$pubIdPlugins item=pubIdPlugin}
-					{if $pubIdPlugin->getPubIdType() != 'doi'}
-						{continue}
-					{/if}
-					{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
-					{if $pubId}
-						{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
-						<div class="article-details-block article-details-doi small-screen">
-							<a href="{$doiUrl}">{$doiUrl}</a>
-						</div>
-					{/if}
-				{/foreach}
-
-				{* Article Galleys (bottom) *}
-				{if $primaryGalleys}
-					<div class="article-details-block article-details-galleys article-details-galleys-btm">
-						{foreach from=$primaryGalleys item=galley}
-							<div class="article-details-galley">
-								{include file="frontend/objects/galley_link.tpl" parent=$article galley=$galley purchaseFee=$currentJournal->getSetting('purchaseArticleFee') purchaseCurrency=$currentJournal->getSetting('currency')}
-							</div>
-						{/foreach}
-					</div>
-				{/if}
-
-				{* References *}
-				{if $parsedCitations || $publication->getData('citationsRaw')}
-					<div class="article-details-block article-details-references">
-						<h2 class="article-details-heading">
-							{translate key="submission.citations"}
-						</h2>
-						<div class="article-details-references-value">
-							{if $parsedCitations}
-								{foreach from=$parsedCitations item=parsedCitation}
-									<p>{$parsedCitation->getCitationWithLinks()|strip_unsafe_html}</p>
-								{/foreach}
-							{else}
-								{$publication->getData('citationsRaw')|escape|nl2br}
-							{/if}
-						</div>
-					</div>
-				{/if}
-
-				{* Licensing info *}
-				{if $copyright || $licenseUrl}
-					<div class="article-details-block article-details-license">
-						{if $licenseUrl}
-							{if $ccLicenseBadge}
-								{$ccLicenseBadge}
-									{if $copyrightHolder}
-										<p>{translate key="submission.copyrightStatement" copyrightHolder=$copyrightHolder copyrightYear=$copyrightYear}</p>
-									{/if}
-							{else}
-								<a href="{$licenseUrl|escape}" class="copyright">
-									{if $copyrightHolder}
-										{translate key="submission.copyrightStatement" copyrightHolder=$copyrightHolder|escape copyrightYear=$copyrightYear|escape}
-									{else}
-										{translate key="submission.license"}
-									{/if}
-								</a>
-							{/if}
-						{else}
-							{$copyright}
-						{/if}
-					</div>
-				{/if}
-
-				{call_hook name="Templates::Article::Main"}
-
-			</div>
-		</div>
 
 		<div class="col-lg-12 order-lg-3 article-footer-hook">
 			{call_hook name="Templates::Article::Footer::PageFooter"}

@@ -12,20 +12,21 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="announcement.announcements"}
 
-<main class="container page-announcement">
-	<header class="row page-header justify-content-md-center">
-		<div class="col-md-8">
-			<h1>{translate key="announcement.announcements"}</h1>
-		</div>
-	</header>
-	<div class="row justify-content-md-center">
-    <div class="col-md-8 page-content">
-      {$announcementsIntroduction|strip_unsafe_html}
-      {include file="frontend/components/editLink.tpl" page="management" op="settings" path="website" anchor="announcements" sectionTitleKey="announcement.announcements"}
+<main class="container">
+  <div class="row justify-content-center">
+
+    <section class="col-11 col-lg-9 page">
+      <header class="page-header">
+        <h1>{translate key="announcement.announcements"}</h1>
+        <p>{$announcementsIntroduction|strip_unsafe_html}</p>
+        {include file="frontend/components/editLink.tpl" page="management" op="settings" path="website" anchor="announcements" sectionTitleKey="announcement.announcements"}
+      </header>
+
       {foreach from=$announcements item=announcement}
         {include file="frontend/objects/announcement_summary.tpl"}
       {/foreach}
-    </div>
+
+    </section>
 	</div>
 </main>
 
