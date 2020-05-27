@@ -9,12 +9,12 @@
  *}
 {include file="frontend/components/header.tpl"}
 
-<div class="container page-register-complete">
-	<div class="row page-header justify-content-md-center">
+<main class="container page-register-complete">
+	<header class="row page-header justify-content-md-center">
 		<div class="col-md-8">
 			<h1>{translate key=$pageTitle}</h1>
 		</div>
-	</div>
+	</header>
 	<div class="row justify-content-md-center">
     <div class="col-md-8 page-content">
       <p>
@@ -48,6 +48,6 @@
       </ul>
     </div>
 	</div>
-</div>
+</main>
 
 {include file="frontend/components/footer.tpl"}

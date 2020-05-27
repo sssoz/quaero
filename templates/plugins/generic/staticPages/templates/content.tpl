@@ -10,17 +10,17 @@
 
 {include file="frontend/components/header.tpl" pageTitleTranslated=$title}
 
-<div class="container page-static">
-	<div class="row page-header justify-content-md-center">
+<main class="container page-static">
+	<header class="row page-header justify-content-md-center">
 		<div class="col-md-8">
 			<h1>{$title|escape}</h1>
 		</div>
-	</div>
+	</header>
 	<div class="row justify-content-md-center">
     <div class="col-md-8 page-content">
       {$content}
     </div>
 	</div>
-</div>
+</main>
 
 {include file="frontend/components/footer.tpl"}

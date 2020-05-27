@@ -10,12 +10,12 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="user.subscriptions.purchaseInstitutionalSubscription"}
 
-<div class="container page-institutional-subscription">
-	<div class="row page-header justify-content-md-center">
+<main class="container page-institutional-subscription">
+	<header class="row page-header justify-content-md-center">
 		<div class="col-md-8">
 			<h1>{translate key="user.subscriptions.purchaseInstitutionalSubscription"}</h1>
 		</div>
-	</div>
+	</header>
 
 	<div class="row justify-content-md-center">
     <div class="col-md-8 page-content">
@@ -90,6 +90,6 @@
       </form>
     </div>
 	</div>
-</div>
+</main>
 
 {include file="frontend/components/footer.tpl"}

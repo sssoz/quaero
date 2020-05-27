@@ -10,12 +10,12 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="user.login.resetPassword"}
 
-<div class="container page-lost-password">
-	<div class="row page-header justify-content-md-center">
+<main class="container page-lost-password">
+	<header class="row page-header justify-content-md-center">
 		<div class="col-md-8">
 			<h1 class="text-md-center">{translate key="user.login.resetPassword"}</h1>
 		</div>
-	</div>
+	</header>
 	<div class="row justify-content-md-center">
     <div class="col-md-8 page-content">
       <p>{translate key="user.login.resetPasswordInstructions"}</p>
@@ -53,6 +53,6 @@
       </div>
     </div>
 	</div>
-</div>
+</main>
 
 {include file="frontend/components/footer.tpl"}

@@ -18,8 +18,8 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="common.search"}
 
-<div class="container page-search">
-	<div class="page-header">
+<main class="container page-search">
+	<header class="page-header">
 		<h1>
 			{if $query}
 				{translate key="plugins.themes.healthSciencesPIE.search.resultsFor" query=$query|escape}
@@ -29,7 +29,7 @@
 				{translate key="common.search"}
 			{/if}
 		</h1>
-	</div>
+	</header>
 	<div class="row justify-content-lg-center">
 		<div class="col-lg-8 search-col-results">
 			<div class="search-results">
@@ -100,6 +100,6 @@
 			</div>
 		</div>
 	</div>
-</div>
+</main>
 
 {include file="frontend/components/footer.tpl"}

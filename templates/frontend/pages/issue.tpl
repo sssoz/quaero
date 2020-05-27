@@ -23,9 +23,9 @@
 
     	{* Display a message if no current issue exists *}
     	{if !$issue}
-    		<div class="page-header page-issue-header">
+    		<header class="page-header page-issue-header">
     			{include file="frontend/components/notification.tpl" messageKey="current.noCurrentIssueDesc"}
-    		</div>
+    		</header>
 
     	{* Display an issue with the Table of Contents *}
     	{else}

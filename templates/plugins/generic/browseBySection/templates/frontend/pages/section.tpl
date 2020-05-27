@@ -21,10 +21,10 @@
 
 {include file="frontend/components/header.tpl" pageTitleTranslated=$section->getLocalizedTitle()}
 
-<div class="container page-section">
-	<div class="page-header">
+<main class="container page-section">
+	<header class="page-header">
 		<h1>{$section->getLocalizedTitle()|escape}</h1>
-	</div>
+	</header>
 	<div class="row justify-content-md-center">
 		{if $sectionDescription}
 			<div class="col-lg-4">
@@ -61,6 +61,6 @@
       {/if}
     </div>
 	</div>
-</div>
+</main>
 
 {include file="frontend/components/footer.tpl"}

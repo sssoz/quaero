@@ -11,15 +11,15 @@
  *}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$announcement->getLocalizedTitle()|escape}
 
-<article class="container page-announcement">
-	<div class="row page-header justify-content-md-center">
+<main class="container page-announcement">
+	<header class="row page-header justify-content-md-center">
 		<div class="col-md-8">
 		    <div class="announcement-date">
 		      {$announcement->getDatePosted()|date_format:$dateFormatLong}
 		    </div>
 			<h1>{$announcement->getLocalizedTitle()|escape}</h1>
 		</div>
-	</div>
+	</header>
 	<div class="row justify-content-md-center">
     <article class="col-md-8 page-content page-announcement-content">
       {if $announcement->getLocalizedDescription()}
@@ -29,6 +29,6 @@
       {/if}
     </article>
 	</div>
-</article>
+</main>
 
 {include file="frontend/components/footer.tpl"}

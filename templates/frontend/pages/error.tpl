@@ -10,8 +10,8 @@
  *}
 {include file="frontend/components/header.tpl"}
 
-<div class="container page-error">
-	<div class="row page-header justify-content-md-center">
+<main class="container page-error">
+	<header class="row page-header justify-content-md-center">
 		<div class="col-md-8">
 			{if $pageTitle}
 				<h1>
@@ -19,7 +19,7 @@
 				</h1>
 			{/if}
 		</div>
-	</div>
+	</header>
 	<div class="row justify-content-md-center">
 		<div class="col-md-8">
 			<div class="description">
@@ -32,6 +32,6 @@
 			{/if}
 		</div>
 	</div>
-</div>
+</main>
 
 {include file="frontend/components/footer.tpl"}

@@ -11,12 +11,12 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="user.register"}
 
-<div class="container page-register">
-	<div class="row page-header justify-content-md-center">
+<main class="container page-register">
+	<header class="row page-header justify-content-md-center">
 		<div class="col-md-8">
 			<h1>{translate key="user.register"}</h1>
 		</div>
-	</div>
+	</header>
 	<div class="row justify-content-md-center">
     <div class="col-md-8 page-content">
 
@@ -52,6 +52,6 @@
       </form>
     </div>
 	</div>
-</div><!-- .page -->
+</main><!-- .page -->
 
 {include file="frontend/components/footer.tpl"}

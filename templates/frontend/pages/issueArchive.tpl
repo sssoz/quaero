@@ -25,15 +25,15 @@
 
 <div class="container page-archives">
 
-	<div class="page-header page-archives-header">
+	<header class="page-header page-archives-header">
 		<h1>{$pageTitle}</h1>
-	</div>
+	</header>
 
 	{* No issues have been published *}
 	{if empty($issues)}
-		<div class="page-header page-issue-header">
+		<header class="page-header page-issue-header">
 			{include file="frontend/components/notification.tpl" messageKey="current.noCurrentIssueDesc"}
-		</div>
+		</header>
 
 	{* List issues *}
 	{else}

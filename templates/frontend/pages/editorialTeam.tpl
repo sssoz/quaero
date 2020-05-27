@@ -11,18 +11,18 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="about.editorialTeam"}
 
-<div class="container page-editorial-team">
-	<div class="row page-header justify-content-md-center">
+<main class="container page-editorial-team">
+	<header class="row page-header justify-content-md-center">
 		<div class="col-md-8">
 			<h1>{translate key="about.editorialTeam"}</h1>
 		</div>
-	</div>
+	</header>
 	<div class="row justify-content-md-center">
     <div class="col-md-8 page-content">
       {$currentContext->getLocalizedSetting('editorialTeam')}
       {include file="frontend/components/editLink.tpl" page="management" op="settings" path="context" anchor="masthead" sectionTitleKey="about.editorialTeam"}
     </div>
 	</div>
-</div>
+</main>
 
 {include file="frontend/components/footer.tpl"}

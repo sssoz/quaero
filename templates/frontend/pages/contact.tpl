@@ -20,10 +20,10 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="about.contact"}
 
-<div class="container page-contact">
-	<div class="page-header">
+<main class="container page-contact">
+	<header class="page-header">
 		<h1>{translate key="about.contact"}</h1>
-	</div>
+	</header>
 	<div class="row justify-content-md-center">
     <div class="col-md-6 page-content">
 
@@ -122,6 +122,6 @@
       </p>
     </div>
 	</div>
-</div>
+</main>
 
 {include file="frontend/components/footer.tpl"}

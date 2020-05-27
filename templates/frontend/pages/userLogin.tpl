@@ -10,12 +10,12 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="user.login"}
 
-<div class="container page-login">
-	<div class="row page-header justify-content-md-center">
+<main class="container page-login">
+	<header class="row page-header justify-content-md-center">
 		<div class="col-md-8">
 			<h1>{translate key="user.login"}</h1>
 		</div>
-	</div>
+	</header>
 	<div class="row justify-content-md-center">
     <div class="col-md-8 page-content">
 
@@ -38,5 +38,5 @@
 
     </div>
 	</div>
-</div>
+</main>
 {include file="frontend/components/footer.tpl"}

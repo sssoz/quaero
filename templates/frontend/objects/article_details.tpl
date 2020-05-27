@@ -29,8 +29,8 @@
  *   included with published articles.
  * @uses $ccLicenseBadge string An image and text with details about the license
  *}
-<div class="article-details">
-	<div class="page-header row">
+<main class="article-details">
+	<header class="page-header row">
 		<div class="col-lg article-meta-mobile">
 			{* Notification that this is an old version *}
 			{if $currentPublication->getId() !== $publication->getId()}
@@ -168,7 +168,7 @@
 
 			{/if}
 		</div>
-	</div><!-- .page-header -->
+	</header><!-- .page-header -->
 
 	<div class="row justify-content-md-center" id="mainArticleContent">
 		<div class="col-lg-3 order-lg-2" id="articleDetailsWrapper">
@@ -422,4 +422,4 @@
 		</div>
 
 	</div>
-</div>
+</main>

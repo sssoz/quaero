@@ -11,17 +11,17 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="manager.setup.privacyStatement"}
 
-<div class="container page-privacy">
-	<div class="row page-header justify-content-md-center">
+<main class="container page-privacy">
+	<header class="row page-header justify-content-md-center">
 		<div class="col-md-8">
 			<h1>{translate key="manager.setup.privacyStatement"}</h1>
 		</div>
-	</div>
+	</header>
 	<div class="row justify-content-md-center">
     <div class="col-md-8 page-content">
       {$currentContext->getLocalizedSetting('privacyStatement')}
     </div>
 	</div>
-</div>
+</main>
 
 {include file="frontend/components/footer.tpl"}

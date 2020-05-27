@@ -12,18 +12,18 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="about.aboutContext"}
 
-<div class="container page-about">
-	<div class="row page-header justify-content-md-center">
+<main class="container page-about">
+	<header class="row page-header justify-content-md-center">
 		<div class="col-md-8">
 			<h1>{translate key="about.aboutContext"}</h1>
 		</div>
-	</div>
+	</header>
 	<div class="row justify-content-md-center">
     <div class="col-md-8 page-content">
       {$currentContext->getLocalizedSetting('about')}
       {include file="frontend/components/editLink.tpl" page="management" op="settings" path="context" anchor="masthead" sectionTitleKey="about.aboutContext"}
     </div>
 	</div>
-</div>
+</main>
 
 {include file="frontend/components/footer.tpl"}

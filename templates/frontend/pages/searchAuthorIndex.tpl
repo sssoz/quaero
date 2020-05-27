@@ -13,12 +13,12 @@
 {include file="frontend/components/header.tpl"}
 {/strip}
 
-<div class="container page-author-index">
-	<div class="row page-header justify-content-md-center">
+<main class="container page-author-index">
+	<header class="row page-header justify-content-md-center">
 		<div class="col-md-8">
 			<h1>{translate key="search.authorIndex"}</h1>
 		</div>
-	</div>
+	</header>
 	<div class="row justify-content-md-center">
     <div class="col-md-8 page-content">
       <p>{foreach from=$alphaList item=letter}<a href="{url op="authors" searchInitial=$letter}">{if $letter == $searchInitial}<strong>{$letter|escape}</strong>{else}{$letter|escape}{/if}</a> {/foreach}<a href="{url op="authors"}">{if $searchInitial==''}<strong>{translate key="common.all"}</strong>{else}{translate key="common.all"}{/if}</a></p>
@@ -64,6 +64,6 @@
       </div>
     </div>
 	</div>
-</div>
+</main>
 
 {include file="frontend/components/footer.tpl"}

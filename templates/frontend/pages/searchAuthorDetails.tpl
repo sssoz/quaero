@@ -13,12 +13,12 @@
 	{include file="frontend/components/header.tpl"}
 {/strip}
 
-<div class="container page-author-details">
-	<div class="row page-header justify-content-md-center">
+<main class="container page-author-details">
+	<header class="row page-header justify-content-md-center">
 		<div class="col-md-8">
 			<h1>{translate key="search.authorDetails"}</h1>
 		</div>
-	</div>
+	</header>
 	<div class="row justify-content-md-center">
     <div class="col-md-8 page-content" id="authorDetails">
       <h3 class="author-details-author text-lg-center">{$lastName|escape}, {$firstName|escape}{if $middleName} {$middleName|escape}{/if}{if $affiliation}, {$affiliation|escape}{/if}{if $country}, {$country|escape}{/if}</h3>
@@ -54,6 +54,6 @@
       </ul>
     </div>
 	</div>
-</div>
+</main>
 
 {include file="frontend/components/footer.tpl"}

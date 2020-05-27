@@ -13,12 +13,12 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="about.aboutThisPublishingSystem"}
 
-<div class="container page-about-publishing-system">
-	<div class="row page-header justify-content-md-center">
+<main class="container page-about-publishing-system">
+	<header class="row page-header justify-content-md-center">
 		<div class="col-md-8">
 			<h1>{translate key="about.aboutThisPublishingSystem"}</h1>
 		</div>
-	</div>
+	</header>
 	<div class="row justify-content-md-center">
     <div class="col-md-8 page-content">
       <p>
@@ -31,6 +31,6 @@
       <img src="{$baseUrl}/{$pubProcessFile}" alt="{translate key="about.aboutThisPublishingSystem.altText"}">
     </div>
 	</div>
-</div>
+</main>
 
 {include file="frontend/components/footer.tpl"}

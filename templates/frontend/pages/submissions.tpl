@@ -12,12 +12,12 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="about.submissions"}
 
-<div class="container page-submissions">
-	<div class="row page-header justify-content-md-center">
+<main class="container page-submissions">
+	<header class="row page-header justify-content-md-center">
 		<div class="col-md-8">
 			<h1>{translate key="about.submissions"}</h1>
 		</div>
-	</div>
+	</header>
 	<div class="row justify-content-md-center">
     <div class="col-md-8 page-content">
 
@@ -84,6 +84,6 @@
       {/if}
     </div>
 	</div>
-</div>
+</main>
 
 {include file="frontend/components/footer.tpl"}

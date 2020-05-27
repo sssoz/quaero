@@ -19,14 +19,14 @@
  *}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$category->getLocalizedTitle()|escape}
 
-<div class="container page-catalog-category">
+<main class="container page-catalog-category">
 
-	<div class="page-header page-category-header">
+	<header class="page-header page-category-header">
 		<h1>{$category->getLocalizedTitle()|escape}</h1>
 		<div class="page-category-count">
 			{translate key="catalog.browseTitles" numTitles=$total}
 		</div>
-	</div>
+	</header>
 
 	{* Image and description *}
 	{assign var="image" value=$category->getImage()}
@@ -104,6 +104,6 @@
 		</div>
 	</div>
 
-</div><!-- .container -->
+</main><!-- .container -->
 
 {include file="frontend/components/footer.tpl"}
