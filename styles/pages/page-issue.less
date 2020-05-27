@@ -8,12 +8,14 @@
  * @brief issue page, excluding table of content
  */
 
-.page-issue-details {
-	margin-top: 3rem;
+.page-issue {
+  margin-bottom: 5rem;
+  padding: 2rem;
+  background-color: @parchment;
 }
 
-.page-issue-date {
-	margin-top: 2rem;
+.page-issue-details {
+	margin-top: 3rem;
 }
 
 .page-issue-doi {
@@ -28,7 +30,6 @@
 
 .page-issue-description .h2 {
 	font-size: 1.35rem;
-	text-align: center;
 	margin-bottom: 1rem;
 }
 
@@ -40,6 +41,10 @@
 
 @media (min-width: 992px) {
 
+  .page-issue {
+    margin-top: -50px;
+  }
+
 	.page-issue-description-wrapper {
 		padding: 3rem;
 		background: @light-grey;
@@ -48,13 +53,6 @@
 	.page-issue-cover {
 		box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 		margin: auto;
-	}
-
-	.page-issue-date,
-	.page-issue-doi,
-	.page-issue-doi a {
-		font-size: 14px;
-		color: @mid-grey;
 	}
 
 	.page-issue-date,

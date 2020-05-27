@@ -77,7 +77,7 @@
 		{/if}
 	{/if}
 
-	{if !$hideGalleys && $article->getGalleys()}
+	{* {if !$hideGalleys && $article->getGalleys()}
 		<div class="article-summary-galleys">
 			{foreach from=$article->getGalleys() item=galley}
 				{if $primaryGenreIds}
@@ -93,7 +93,7 @@
 				{include file="frontend/objects/galley_link.tpl" parent=$article hasAccess=$hasArticleAccess}
 			{/foreach}
 		</div>
-	{/if}
+	{/if} *}
 
 	{call_hook name="Templates::Issue::Issue::Article"}
 </div>

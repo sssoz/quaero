@@ -32,6 +32,7 @@
 						aria-haspopup="true"
 						aria-expanded="false"
 					{/if}
+          tabindex="0"
 				>
 					{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
 				</a>

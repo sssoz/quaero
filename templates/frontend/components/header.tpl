@@ -74,6 +74,9 @@
 		</button>
 
 		<div class="collapse navbar-collapse justify-content-md-center" id="main-navbar">
+      {* user menu *}
+      {load_menu name="user" id="primaryNav-userNav" ulClass="navbar-nav" liClass="nav-item"}
+      {include file="frontend/components/languageSwitcher.tpl" id="languageSmallNav"}
 			{* primary menu *}
 			{capture assign="primaryMenu"}
 				{load_menu name="primary" id="primaryNav" ulClass="navbar-nav" liClass="nav-item"}
@@ -81,9 +84,6 @@
 			{if !empty(trim($primaryMenu)) || $currentContext}
 				{$primaryMenu}
 			{/if}
-			{* user menu *}
-			{load_menu name="user" id="primaryNav-userNav" ulClass="navbar-nav" liClass="nav-item"}
-			{include file="frontend/components/languageSwitcher.tpl" id="languageSmallNav"}
 		</div>
 	</nav>
 

@@ -1,6 +1,6 @@
 .main-header {
 	background-color: @primary;
-  // background-image: url("/templates/images/bg-noise.png");
+  background-image: url("/plugins/themes/healthSciencesPIE/templates/images/bg-noise.png");
 
 	.container {
 		position: relative;
@@ -87,7 +87,6 @@
 
 		&:hover,
 		&:focus {
-			outline: 0;
 			background: @primary;
 			color: @parchment;
 		}
@@ -105,8 +104,12 @@
 
 @media (min-width: 992px) {
 
-	.main-header .container {
-		padding: 2rem 1rem 0 1rem;
+	.main-header {
+    padding-bottom: 75px;
+
+    .container {
+      padding: 2rem 1rem 0 1rem;
+    }
 	}
 
 	.navbar {
