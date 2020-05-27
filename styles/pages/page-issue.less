@@ -9,7 +9,7 @@
  */
 
 .page-issue {
-  margin-bottom: 5rem;
+  margin-top: 1.5rem;
   padding: 2rem;
   background-color: @parchment;
 }
@@ -50,7 +50,11 @@
 @media (min-width: 992px) {
 
   .page-issue {
-    margin-top: -50px;
+    margin-bottom: 3rem;
+
+    &:first-child {
+      margin-top: -75px;
+    }
   }
 
 	.page-issue-description-wrapper {
