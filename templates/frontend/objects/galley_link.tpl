@@ -57,7 +57,7 @@
 {/if}
 
 {* Don't be frightened. This is just a link *}
-<a class="btn{if !$isSupplementary} btn-primary{/if}" href="{url page=$page op="view" path=$path}">
+<a class="btn" href="{url page=$page op="view" path=$path}">
 
 	{* Add some screen reader text to indicate if a galley is restricted *}
 	{if $restricted}
