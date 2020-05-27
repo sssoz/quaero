@@ -20,10 +20,10 @@
 	{assign var="showAuthor" value=true}
 {/if}
 
-<div class="article-summary">
+<article class="article-summary">
 
 	{if $showAuthor && $article->getPages()}
-		<div class="row">
+		<header class="row">
 			<div class="col">
 				<div class="article-summary-authors">{$article->getAuthorString()|escape}</div>
 			</div>
@@ -32,13 +32,13 @@
 					{$article->getPages()|escape}
 				</div>
 			</div>
-		</div>
+		</header>
 	{elseif $showAuthor}
-		<div class="article-summary-authors">{$article->getAuthorString()|escape}</div>
+		<header class="article-summary-authors">{$article->getAuthorString()|escape}</header>
 	{elseif $article->getPages()}
-		<div class="article-summary-pages">
+		<header class="article-summary-pages">
 			{$article->getPages()|escape}
-		</div>
+		</header>
 	{/if}
 
 	<h3 class="article-summary-title">
@@ -96,4 +96,4 @@
 	{/if} *}
 
 	{call_hook name="Templates::Issue::Issue::Article"}
-</div>
+</article>
