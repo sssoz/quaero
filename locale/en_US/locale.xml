@@ -16,6 +16,7 @@
 	<message key="plugins.themes.healthSciencesPIE.description">A child theme of Health Sciences for PIE.</message>
 
 	<message key="plugins.themes.healthSciencesPIE.nav.toggle">Toggle Navigation</message>
+  <message key="plugins.themes.healthSciencesPIE.nav.menu">Menu</message>
 	<message key="plugins.themes.healthSciencesPIE.language.toggle">Change the language. The current language is:</message>
 	<message key="plugins.themes.healthSciencesPIE.currentIssuePublished">Published {$date}</message>
 	<message key="plugins.themes.healthSciencesPIE.issueDescription">Issue Description</message>

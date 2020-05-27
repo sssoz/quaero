@@ -16,7 +16,7 @@
 
 	.nav-link,
 	.dropdown-item {
-		padding: 0.5em;
+		padding: 1em 0;
 		font-size: 14px;
 		font-weight: 400;
 		text-transform: uppercase;
@@ -42,6 +42,11 @@
 	}
 }
 
+.navbar-toggler {
+  padding: 0;
+  color: @parchment;
+}
+
 // Journals without a logo
 .navbar-logo-text {
 	display: block;
@@ -53,10 +58,7 @@
 	border: 1px solid transparent;
 	font-family: @font;
 	font-size: 14px;
-
-	&:hover {
-		color: @parchment;
-	}
+  color: @parchment;
 }
 
 #languageSmallNav {
@@ -160,6 +162,12 @@
 		.nav-item {
 			position: static;
 			white-space: nowrap;
+
+      &:focus,
+      &:hover {
+        background-color: @parchment;
+        color: @primary;
+      }
 		}
 
 		.nav-link,
@@ -179,9 +187,8 @@
 
 			&:hover,
 			&:focus {
-				background: transparent;
+				background: @parchment;;
 				color: @contrast;
-				border-color: @primary-light;
 			}
 		}
 
@@ -201,15 +208,14 @@
 		}
 
 		.dropdown-item {
-			font-size: 17px;
-			color: @contrast;
+			font-size: 0.85rem;
 			text-align: center;
 			width: initial;
 
 			&:focus,
 			&:hover {
-				color: @contrast;
-				background-color: @primary;
+				color: @black;
+				background-color: @parchment;
 			}
 
 		}
@@ -238,8 +244,7 @@
 
 	#userNav .nav-link,
 	.language-toggle .dropdown-toggle {
-		color: @dark-grey;
-		border: 1px solid transparent;
+		color: @parchment;
 		font-size: 12px;
 		font-weight: 400;
 		line-height: 1.5em;
@@ -248,7 +253,8 @@
 		&:hover,
 		&:focus {
 			outline: 0;
-			border-color: @mid-grey;
+			background-color: @parchment;
+      color: @black;
 		}
 	}
 
