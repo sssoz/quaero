@@ -1,4 +1,7 @@
 .page-link {
+  border-radius: 0;
+  border: 0;
+  background-color: transparent;
 	color: @primary;
 
 	&:hover,
@@ -8,17 +11,26 @@
 	}
 }
 
-.page-item.active .page-link {
-	background: transparent;
-	border-color: #ddd;
-	color: @dark-grey;
+.page-item {
+  &:first-child,
+  &:last-child {
 
-	&:hover,
-	&:focus {
-		background: transparent;
-		border-color: #ddd;
-		color: @dark-grey;
-	}
+    .page-link {
+      border-radius: 0;
+    }
+
+  }
+
+  &.active .page-link {
+  	background: transparent;
+  	color: @black;
+  }
+
+  &.disabled .page-link {
+    background: transparent;
+    color: @dark-grey;
+    font-style: italic;
+  }
 }
 
 @media (min-width: 768px) {

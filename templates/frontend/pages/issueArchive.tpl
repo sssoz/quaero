@@ -46,7 +46,7 @@
 				<div class="row justify-content-around">
 				{assign var="open" value=true}
 			{/if}
-			<div class="col-md-3 col-lg-2">
+			<div class="col-6 col-md-3">
 				{include file="frontend/objects/issue_summary.tpl" heading="h2"}
 			</div>
 		{/foreach}
