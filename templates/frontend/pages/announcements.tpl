@@ -23,7 +23,7 @@
       {$announcementsIntroduction|strip_unsafe_html}
       {include file="frontend/components/editLink.tpl" page="management" op="settings" path="website" anchor="announcements" sectionTitleKey="announcement.announcements"}
       {foreach from=$announcements item=announcement}
-              {include file="frontend/objects/announcement_summary.tpl"}
+        {include file="frontend/objects/announcement_summary.tpl"}
       {/foreach}
     </div>
 	</div>

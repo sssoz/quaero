@@ -25,6 +25,16 @@ class PIEThemePlugin extends ThemePlugin {
     // Initialize the parent theme
 		$this->setParent('healthsciencesthemeplugin');
 
+    // Option to show journal summary on the homepage; turned off by default
+    $this->addOption('journalDescription', 'radio', array(
+			'label' => 'plugins.themes.healthSciencesPIE.options.journalDescription.label',
+			'description' => 'plugins.themes.healthSciencesPIE.options.journalDescription.description',
+			'options' => array(
+				0 => 'plugins.themes.healthSciencesPIE.options.journalDescription.disable',
+				1 => 'plugins.themes.healthSciencesPIE.options.journalDescription.enable'
+			)
+		));
+
 		// Load dependencies from CDN
 		if (Config::getVar('general', 'enable_cdn')) {
 			$this->addStyle(
@@ -90,6 +100,7 @@ class PIEThemePlugin extends ThemePlugin {
 
 		// Get extra data for templates
 		HookRegistry::register ('TemplateManager::display', array($this, 'loadTemplateData'));
+		HookRegistry::register ('TemplateManager::display', array($this, 'homepageJournalDescription'));
 	}
 
 	/**
@@ -149,5 +160,25 @@ class PIEThemePlugin extends ThemePlugin {
 				'orcidImage' => $orcidImage,
 			));
 		}
+	}
+
+  /**
+	 * @param $hookname string
+	 * @param $args array [
+	 *      @option TemplateManager
+	 *      @option string relative path to the template
+	 * ]
+	 * @return boolean|void
+	 * @brief Show Journal Description on the journal landing page depending on theme settings
+	 */
+	public function homepageJournalDescription($hookName, $args) {
+		$templateMgr = $args[0];
+		$template = $args[1];
+
+		if ($template != "frontend/pages/indexJournal.tpl") return false;
+
+		$templateMgr->assign(array(
+			'showJournalDescription' => $this->getOption('journalDescription'),
+		));
 	}
 }

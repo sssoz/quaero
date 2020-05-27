@@ -14,10 +14,10 @@
 <main class="container page-announcement">
 	<header class="row page-header justify-content-md-center">
 		<div class="col-md-8">
-		    <div class="announcement-date">
-		      {$announcement->getDatePosted()|date_format:$dateFormatLong}
-		    </div>
 			<h1>{$announcement->getLocalizedTitle()|escape}</h1>
+	    <time class="announcement-date" datetime="{$announcement->getDatePosted()}">
+	      {$announcement->getDatePosted()|date_format:$dateFormatLong}
+	    </time>
 		</div>
 	</header>
 	<div class="row justify-content-md-center">

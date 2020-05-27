@@ -33,4 +33,9 @@
 
 	<message key="plugins.themes.healthSciencesPIE.search.resultsFor"><![CDATA[Search Results for <em>{$query}</em>]]></message>
 	<message key="plugins.themes.healthSciencesPIE.search.params">Search Parameters</message>
+
+  <message key="plugins.themes.healthSciencesPIE.options.journalDescription.label">Show journal summary</message>
+  <message key="plugins.themes.healthSciencesPIE.options.journalDescription.description">If enabled, the journal summary will be shown on the homepage</message>
+  <message key="plugins.themes.healthSciencesPIE.options.journalDescription.disable">Disable</message>
+  <message key="plugins.themes.healthSciencesPIE.options.journalDescription.enable">Enable</message>
 </locale>

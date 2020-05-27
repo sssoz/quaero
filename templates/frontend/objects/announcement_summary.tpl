@@ -20,9 +20,11 @@
 			{$announcement->getLocalizedTitle()|escape}
 		</a>
 	</{$heading}>
-	<div class="announcement-summary-date">
-		{$announcement->getDatePosted()|date_format:$dateFormatLong}
-	</div>
+
+  <time class="announcement-summary-date" datetime="{$announcement->getDatePosted()}">
+    {$announcement->getDatePosted()|date_format:$dateFormatLong}
+  </time>
+
 	<div class="announcement-summary-description">
 		{$announcement->getLocalizedDescriptionShort()|strip_unsafe_html}
 		<p class="announcement-summary-more">

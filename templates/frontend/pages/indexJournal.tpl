@@ -28,6 +28,23 @@
 
   <div class="row justify-content-center">
 
+    {if $showJournalDescription && $currentJournal->getLocalizedDescription()}
+    <section class="ol-12 col-lg-9 page-issue">
+      <div class="container">
+        <header class="row">
+          <h2 class="col-md-6">
+            {translate key="navigation.about"}
+          </h2>
+        </header>
+        {$currentJournal->getLocalizedDescription()}
+        <p>
+          {capture assign="aboutPageUrl"}{url router=$smarty.const.ROUTE_PAGE page="about"}{/capture}
+          <a href="{$aboutPageUrl}" class="btn">{translate key="common.readMore"}</a>
+        </p>
+      </div>
+    </section>
+    {/if}
+
     <div class="col-12 col-lg-9 page-issue">
       <header class="page-header page-issue-header">
         {if $issue}
