@@ -25,18 +25,11 @@ class PIEThemePlugin extends ThemePlugin {
     // Initialize the parent theme
 		$this->setParent('healthsciencesthemeplugin');
 
-		// Add theme options
-		$this->addOption('baseColour', 'colour', array(
-			'label' => 'plugins.themes.healthSciencesPIE.option.colour.label',
-			'description' => 'plugins.themes.healthSciencesPIE.option.colour.description',
-			'default' => '#A7271F',
-		));
-
 		// Load dependencies from CDN
 		if (Config::getVar('general', 'enable_cdn')) {
 			$this->addStyle(
 				'fonts',
-				'https://fonts.googleapis.com/css?family=Droid+Serif:200,200i,400,400i|Fira+Sans:300,300i,400,400i,700,700i',
+				'https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap',
 				array('baseUrl' => '')
 			);
 			$this->addStyle(
@@ -80,7 +73,7 @@ class PIEThemePlugin extends ThemePlugin {
 
 		// Styles for HTML galleys
 		$this->addStyle('htmlGalley', 'templates/plugins/generic/htmlArticleGalley/css/default.css', array('contexts' => 'htmlGalley'));
-                $this->addStyle('htmlFont', 'https://fonts.googleapis.com/css?family=PT+Serif&display=swap', array('baseUrl' => '', 'contexts' => 'htmlGalley'));
+    $this->addStyle('htmlFont', 'https://fonts.googleapis.com/css?family=PT+Serif&display=swap', array('baseUrl' => '', 'contexts' => 'htmlGalley'));
 
 		// Styles for right to left scripts
 		$locale = AppLocale::getLocale();

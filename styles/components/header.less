@@ -1,5 +1,5 @@
 .main-header {
-	background-color: @light-grey;
+	background-color: @primary;
 
 	.container {
 		position: relative;
@@ -51,11 +51,11 @@
 	padding-left: 0.5em;
 	padding-right: 0.5em;
 	border: 1px solid transparent;
-	font-family: @font-serif;
+	font-family: @font;
 	font-size: 14px;
 
 	&:hover {
-		color: @dark-grey;
+		color: @parchment;
 	}
 }
 
@@ -71,22 +71,22 @@
 
 		&:hover,
 		&:focus {
-			color: #fff;
+			color: @parchment;
 		}
 	}
 }
 
-.navbar-light .navbar-nav {
+.navbar-nav {
 
 	.nav-link,
 	.dropdown-item {
-		color: @dark-grey;
+		color: @parchment;
 
 		&:hover,
 		&:focus {
 			outline: 0;
 			background: @primary;
-			color: #fff;
+			color: @parchment;
 		}
 	}
 
@@ -137,17 +137,17 @@
 		}
 
 		a {
-			color: @dark-grey;
+			color: @parchment;
 
 			&:hover {
-				color: @dark-grey;
+				color: @parchment;
 				text-decoration: none;
 			}
 		}
 	}
 
 	.navbar-logo-text {
-		font-size: 25px;
+		font-size: 2rem;
 	}
 
 	#primaryNav {
@@ -166,19 +166,12 @@
 		.dropdown-item {
 			line-height: 1.5rem;
 			text-transform: uppercase;
+      font-size: 0.85rem;
 			vertical-align: middle;
-			border: 1px solid transparent;
 		}
 
 		.nav-link {
-			padding: 1rem;
-
-			&:hover,
-			&:focus {
-				background: transparent;
-				color: @dark-grey;
-				border-color: @mid-grey;
-			}
+			padding: 0.75rem;
 		}
 
 		.dropdown-item {
@@ -263,12 +256,12 @@
 	.language-toggle .dropdown-item {
 		padding-left: 0.5em;
 		font-size: 14px;
-		color: #fff;
+		color: @parchment;
 		text-transform: none;
 
 		&:hover,
 		&:focus {
-			color: #fff;
+			color: @parchment;
 		}
 	}
 }

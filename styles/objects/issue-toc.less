@@ -3,13 +3,18 @@
 	justify-content: center;
 }
 
-.issue-toc-section + .issue-toc-section {
-	border-top: 1px solid @faded-grey;
+.issue-toc {
+  padding: 2rem;
+  background-color: @parchment;
 }
 
 .issue-toc-section-title {
 	margin: 2rem 0;
-	font-family: @font-sans;
+	font-family: @font;
 	font-size: 18px;
 	color: @primary-text;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
 }
