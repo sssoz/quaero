@@ -18,41 +18,39 @@
 		</div>
 	</div>
 	<div class="row justify-content-md-center">
-		<div class="col-md-8">
-			<div class="page-content">
+    <div class="col-md-8 page-content">
 
-				<form class="form-register" id="register" method="post" action="{url op="register"}">
-					{csrf}
-					<input type="hidden" name="source" value="{$source|escape}" />
+      <form class="form-register" id="register" method="post" action="{url op="register"}">
+        {csrf}
+        <input type="hidden" name="source" value="{$source|escape}" />
 
-					{include file="common/formErrors.tpl"}
+        {include file="common/formErrors.tpl"}
 
-					{include file="frontend/components/registrationForm.tpl"}
+        {include file="frontend/components/registrationForm.tpl"}
 
-					{include file="frontend/components/registrationFormContexts.tpl"}
+        {include file="frontend/components/registrationFormContexts.tpl"}
 
-					{* recaptcha spam blocker *}
-					{if $reCaptchaHtml}
-						<div class="form-group">
-							{$reCaptchaHtml}
-						</div>
-					{/if}
+        {* recaptcha spam blocker *}
+        {if $reCaptchaHtml}
+          <div class="form-group">
+            {$reCaptchaHtml}
+          </div>
+        {/if}
 
-					<div class="form-group form-group-buttons">
-						<button class="btn btn-primary" type="submit">
-							{translate key="user.register"}
-						</button>
-					</div>
-					<div class="form-group form-group-login">
-						{translate key="plugins.themes.healthSciencesPIE.register.haveAccount"}
-						{capture assign="rolesProfileUrl"}{url page="user" op="profile" path="roles"}{/capture}
-						<a href="{url page="login" source=$rolesProfileUrl}" class="login">
-							{translate key="plugins.themes.healthSciencesPIE.register.loginHere"}
-						</a>
-					</div>
-				</form>
-			</div>
-		</div>
+        <div class="form-group form-group-buttons">
+          <button class="btn btn-primary" type="submit">
+            {translate key="user.register"}
+          </button>
+        </div>
+        <div class="form-group form-group-login">
+          {translate key="plugins.themes.healthSciencesPIE.register.haveAccount"}
+          {capture assign="rolesProfileUrl"}{url page="user" op="profile" path="roles"}{/capture}
+          <a href="{url page="login" source=$rolesProfileUrl}" class="login">
+            {translate key="plugins.themes.healthSciencesPIE.register.loginHere"}
+          </a>
+        </div>
+      </form>
+    </div>
 	</div>
 </div><!-- .page -->
 

@@ -25,104 +25,102 @@
 		<h1>{translate key="about.contact"}</h1>
 	</div>
 	<div class="row justify-content-md-center">
-		<div class="col-md-6">
-			<div class="page-content">
+    <div class="col-md-6 page-content">
 
-				{* Contact section *}
-				<div class="contact-section">
+      {* Contact section *}
+      <div class="contact-section">
 
-					{if $mailingAddress}
-						<div class="address">
-							{$mailingAddress|nl2br|strip_unsafe_html}
-						</div>
-					{/if}
+        {if $mailingAddress}
+          <div class="address">
+            {$mailingAddress|nl2br|strip_unsafe_html}
+          </div>
+        {/if}
 
-					{* Primary contact *}
-					{if $contactTitle || $contactName || $contactAffiliation || $contactPhone || $contactEmail}
-						<div class="contact-primary">
-							<h2>
-								{translate key="about.contact.principalContact"}
-							</h2>
+        {* Primary contact *}
+        {if $contactTitle || $contactName || $contactAffiliation || $contactPhone || $contactEmail}
+          <div class="contact-primary">
+            <h2>
+              {translate key="about.contact.principalContact"}
+            </h2>
 
-							{if $contactName}
-							<div class="contact-name">
-								{$contactName|escape}
-							</div>
-							{/if}
+            {if $contactName}
+            <div class="contact-name">
+              {$contactName|escape}
+            </div>
+            {/if}
 
-							{if $contactTitle}
-							<div class="contact-title">
-								{$contactTitle|escape}
-							</div>
-							{/if}
+            {if $contactTitle}
+            <div class="contact-title">
+              {$contactTitle|escape}
+            </div>
+            {/if}
 
-							{if $contactAffiliation}
-							<div class="contact-affiliation">
-								{$contactAffiliation|strip_unsafe_html}
-							</div>
-							{/if}
+            {if $contactAffiliation}
+            <div class="contact-affiliation">
+              {$contactAffiliation|strip_unsafe_html}
+            </div>
+            {/if}
 
-							{if $contactPhone}
-							<div class="contact-phone">
-								<span class="label">
-									{translate key="about.contact.phone"}
-								</span>
-								<span class="value">
-									{$contactPhone|escape}
-								</span>
-							</div>
-							{/if}
+            {if $contactPhone}
+            <div class="contact-phone">
+              <span class="label">
+                {translate key="about.contact.phone"}
+              </span>
+              <span class="value">
+                {$contactPhone|escape}
+              </span>
+            </div>
+            {/if}
 
-							{if $contactEmail}
-							<div class="contact-email">
-								<a href="mailto:{$contactEmail|escape}">
-									{$contactEmail|escape}
-								</a>
-							</div>
-							{/if}
-						</div>
-					{/if}
+            {if $contactEmail}
+            <div class="contact-email">
+              <a href="mailto:{$contactEmail|escape}">
+                {$contactEmail|escape}
+              </a>
+            </div>
+            {/if}
+          </div>
+        {/if}
 
-					{* Technical contact *}
-					{if $supportName || $supportPhone || $supportEmail}
-						<div class="contact-support">
-							<h2>
-								{translate key="about.contact.supportContact"}
-							</h2>
+        {* Technical contact *}
+        {if $supportName || $supportPhone || $supportEmail}
+          <div class="contact-support">
+            <h2>
+              {translate key="about.contact.supportContact"}
+            </h2>
 
-							{if $supportName}
-							<div class="contact-name">
-								{$supportName|escape}
-							</div>
-							{/if}
+            {if $supportName}
+            <div class="contact-name">
+              {$supportName|escape}
+            </div>
+            {/if}
 
-							{if $supportPhone}
-							<div class="contact-phone">
-								<span class="label">
-									{translate key="about.contact.phone"}
-								</span>
-								<span class="value">
-									{$supportPhone|escape}
-								</span>
-							</div>
-							{/if}
+            {if $supportPhone}
+            <div class="contact-phone">
+              <span class="label">
+                {translate key="about.contact.phone"}
+              </span>
+              <span class="value">
+                {$supportPhone|escape}
+              </span>
+            </div>
+            {/if}
 
-							{if $supportEmail}
-							<div class="contact-email">
-								<a href="mailto:{$supportEmail|escape}">
-									{$supportEmail|escape}
-								</a>
-							</div>
-							{/if}
-						</div>
-					{/if}
-				</div>
+            {if $supportEmail}
+            <div class="contact-email">
+              <a href="mailto:{$supportEmail|escape}">
+                {$supportEmail|escape}
+              </a>
+            </div>
+            {/if}
+          </div>
+        {/if}
+      </div>
 
-				<p>
-					{include file="frontend/components/editLink.tpl" page="management" op="settings" path="context" anchor="contact" sectionTitleKey="about.contact"}
-				</p>
-			</div>
-		</div>
+      <p>
+        {include file="frontend/components/editLink.tpl" page="management" op="settings" path="context" anchor="contact" sectionTitleKey="about.contact"}
+      </p>
+    </div>
 	</div>
 </div>
 

@@ -21,15 +21,13 @@
 		</div>
 	</div>
 	<div class="row justify-content-md-center">
-		<div class="col-md-8">
-			<article class="page-content page-announcement-content">
-    		{if $announcement->getLocalizedDescription()}
-    			{$announcement->getLocalizedDescription()|strip_unsafe_html}
-    		{else}
-    			{$announcement->getLocalizedDescriptionShort()|strip_unsafe_html}
-    		{/if}
-			</article>
-		</div>
+    <article class="col-md-8 page-content page-announcement-content">
+      {if $announcement->getLocalizedDescription()}
+        {$announcement->getLocalizedDescription()|strip_unsafe_html}
+      {else}
+        {$announcement->getLocalizedDescriptionShort()|strip_unsafe_html}
+      {/if}
+    </article>
 	</div>
 </article>
 

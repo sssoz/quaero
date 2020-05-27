@@ -17,11 +17,9 @@
 		</div>
 	</div>
 	<div class="row justify-content-md-center">
-		<div class="col-md-8">
-			<div class="page-content">
-				{$content}
-			</div>
-		</div>
+    <div class="col-md-8 page-content">
+      {$content}
+    </div>
 	</div>
 </div>
 

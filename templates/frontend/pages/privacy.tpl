@@ -18,11 +18,9 @@
 		</div>
 	</div>
 	<div class="row justify-content-md-center">
-		<div class="col-md-8">
-			<div class="page-content">
-				{$currentContext->getLocalizedSetting('privacyStatement')}
-			</div>
-		</div>
+    <div class="col-md-8 page-content">
+      {$currentContext->getLocalizedSetting('privacyStatement')}
+    </div>
 	</div>
 </div>
 

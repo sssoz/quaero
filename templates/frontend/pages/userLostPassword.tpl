@@ -17,43 +17,41 @@
 		</div>
 	</div>
 	<div class="row justify-content-md-center">
-		<div class="col-md-8">
-			<div class="page-content">
-				<p>{translate key="user.login.resetPasswordInstructions"}</p>
-				{if $error}
-					<div class="alert alert-danger">
-						{translate key=$error}
-					</div>
-				{/if}
-				<div class="row justify-content-md-center mt-5">
-					<div class="col-md-6">
-						<form class="form-lost-password" action="{url page="login" op="requestResetPassword"}" method="post">
-							{csrf}
-							<div class="form-group">
-								<label for="email">
-									{translate key="user.login.registeredEmail"}
-									<span class="required" aria-hidden="true">*</span>
-									<span class="sr-only">{translate key="common.required"}</span>
-								</label>
-								<input type="text" class="form-control" name="email" id="email" value="{$email|escape}" required>
-							</div>
-							<div class="form-group form-group-buttons">
-								<button class="btn btn-primary" type="submit">
-									{translate key="user.login.resetPassword"}
-								</button>
+    <div class="col-md-8 page-content">
+      <p>{translate key="user.login.resetPasswordInstructions"}</p>
+      {if $error}
+        <div class="alert alert-danger">
+          {translate key=$error}
+        </div>
+      {/if}
+      <div class="row justify-content-md-center mt-5">
+        <div class="col-md-6">
+          <form class="form-lost-password" action="{url page="login" op="requestResetPassword"}" method="post">
+            {csrf}
+            <div class="form-group">
+              <label for="email">
+                {translate key="user.login.registeredEmail"}
+                <span class="required" aria-hidden="true">*</span>
+                <span class="sr-only">{translate key="common.required"}</span>
+              </label>
+              <input type="text" class="form-control" name="email" id="email" value="{$email|escape}" required>
+            </div>
+            <div class="form-group form-group-buttons">
+              <button class="btn btn-primary" type="submit">
+                {translate key="user.login.resetPassword"}
+              </button>
 
-								{if !$disableUserReg}
-									{capture assign=registerUrl}{url page="user" op="register" source=$source}{/capture}
-									<a href="{$registerUrl}" class="btn btn-link">
-										{translate key="user.login.registerNewAccount"}
-									</a>
-								{/if}
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
+              {if !$disableUserReg}
+                {capture assign=registerUrl}{url page="user" op="register" source=$source}{/capture}
+                <a href="{$registerUrl}" class="btn btn-link">
+                  {translate key="user.login.registerNewAccount"}
+                </a>
+              {/if}
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
 	</div>
 </div>
 

@@ -20,18 +20,16 @@
 		</div>
 	</div>
 	<div class="row justify-content-md-center">
-		<div class="col-md-8">
-			<div class="page-content">
-				<p>
-					{if $currentJournal}
-						{translate key="about.aboutOJSJournal" ojsVersion=$appVersion}
-					{else}
-						{translate key="about.aboutOJSSite" ojsVersion=$appVersion}
-					{/if}
-				</p>
-				<img src="{$baseUrl}/{$pubProcessFile}" alt="{translate key="about.aboutThisPublishingSystem.altText"}">
-			</div>
-		</div>
+    <div class="col-md-8 page-content">
+      <p>
+        {if $currentJournal}
+          {translate key="about.aboutOJSJournal" ojsVersion=$appVersion}
+        {else}
+          {translate key="about.aboutOJSSite" ojsVersion=$appVersion}
+        {/if}
+      </p>
+      <img src="{$baseUrl}/{$pubProcessFile}" alt="{translate key="about.aboutThisPublishingSystem.altText"}">
+    </div>
 	</div>
 </div>
 

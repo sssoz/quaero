@@ -17,28 +17,26 @@
 		</div>
 	</div>
 	<div class="row justify-content-md-center">
-		<div class="col-md-8">
-			<div class="page-content">
+    <div class="col-md-8 page-content">
 
-				{* A login message may be displayed if the user was redireceted to the
-				   login page from another request. Examples include if login is required
-				   before dowloading a file. *}
-				{if $loginMessage}
-					<p>
-						{translate key=$loginMessage}
-					</p>
-				{/if}
+      {* A login message may be displayed if the user was redireceted to the
+         login page from another request. Examples include if login is required
+         before dowloading a file. *}
+      {if $loginMessage}
+        <p>
+          {translate key=$loginMessage}
+        </p>
+      {/if}
 
-				{if $error}
-					<div class="alert alert-danger" role="alert">
-						{translate key=$error reason=$reason}
-					</div>
-				{/if}
+      {if $error}
+        <div class="alert alert-danger" role="alert">
+          {translate key=$error reason=$reason}
+        </div>
+      {/if}
 
-				{include file="frontend/components/loginForm.tpl" formType = "loginPage"}
+      {include file="frontend/components/loginForm.tpl" formType = "loginPage"}
 
-			</div>
-		</div>
+    </div>
 	</div>
 </div>
 {include file="frontend/components/footer.tpl"}

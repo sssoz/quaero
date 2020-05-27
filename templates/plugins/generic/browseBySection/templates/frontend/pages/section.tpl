@@ -31,37 +31,35 @@
 				<div class="section-description">{$sectionDescription}</div>
 			</div>
 		{/if}
-		<div class="col-lg-8">
-			<div class="page-content">
-				{if !$articles|@count}
-					<div class="alert alert-danger">
-						{translate key="plugins.generic.browseBySection.emptySection"}
-					</div>
-				{else}
-					<div class="section-articles">
-						{foreach from=$articles item=article}
-							{include file="frontend/objects/article_summary.tpl" section=null showDatePublished=true hideGalleys=true}
-						{/foreach}
-					</div>
-					{if $prevPage > 1}
-						{capture assign="prevUrl"}{url|escape router=$smarty.const.ROUTE_PAGE page="section" op="view" path=$sectionPath|to_array:$prevPage}{/capture}
-					{elseif $prevPage === 1}
-						{capture assign="prevUrl"}{url|escape router=$smarty.const.ROUTE_PAGE page="section" op="view" path=$sectionPath}{/capture}
-					{/if}
-					{if $nextPage}
-						{capture assign="nextUrl"}{url|escape router=$smarty.const.ROUTE_PAGE page="section" op="view" path=$sectionPath|to_array:$nextPage}{/capture}
-					{/if}
-					{include
-						file="frontend/components/pagination.tpl"
-						prevUrl=$prevUrl
-						nextUrl=$nextUrl
-						showingStart=$showingStart
-						showingEnd=$showingEnd
-						total=$total
-					}
-				{/if}
-			</div>
-		</div>
+    <div class="col-lg-8 page-content">
+      {if !$articles|@count}
+        <div class="alert alert-danger">
+          {translate key="plugins.generic.browseBySection.emptySection"}
+        </div>
+      {else}
+        <div class="section-articles">
+          {foreach from=$articles item=article}
+            {include file="frontend/objects/article_summary.tpl" section=null showDatePublished=true hideGalleys=true}
+          {/foreach}
+        </div>
+        {if $prevPage > 1}
+          {capture assign="prevUrl"}{url|escape router=$smarty.const.ROUTE_PAGE page="section" op="view" path=$sectionPath|to_array:$prevPage}{/capture}
+        {elseif $prevPage === 1}
+          {capture assign="prevUrl"}{url|escape router=$smarty.const.ROUTE_PAGE page="section" op="view" path=$sectionPath}{/capture}
+        {/if}
+        {if $nextPage}
+          {capture assign="nextUrl"}{url|escape router=$smarty.const.ROUTE_PAGE page="section" op="view" path=$sectionPath|to_array:$nextPage}{/capture}
+        {/if}
+        {include
+          file="frontend/components/pagination.tpl"
+          prevUrl=$prevUrl
+          nextUrl=$nextUrl
+          showingStart=$showingStart
+          showingEnd=$showingEnd
+          total=$total
+        }
+      {/if}
+    </div>
 	</div>
 </div>
 

@@ -19,15 +19,13 @@
 		</div>
 	</div>
 	<div class="row justify-content-md-center">
-		<div class="col-md-8">
-			<div class="page-content">
-		        {$announcementsIntroduction|strip_unsafe_html}
-		        {include file="frontend/components/editLink.tpl" page="management" op="settings" path="website" anchor="announcements" sectionTitleKey="announcement.announcements"}
-		        {foreach from=$announcements item=announcement}
-		                {include file="frontend/objects/announcement_summary.tpl"}
-		        {/foreach}
-			</div>
-		</div>
+    <div class="col-md-8 page-content">
+      {$announcementsIntroduction|strip_unsafe_html}
+      {include file="frontend/components/editLink.tpl" page="management" op="settings" path="website" anchor="announcements" sectionTitleKey="announcement.announcements"}
+      {foreach from=$announcements item=announcement}
+              {include file="frontend/objects/announcement_summary.tpl"}
+      {/foreach}
+    </div>
 	</div>
 </div>
 

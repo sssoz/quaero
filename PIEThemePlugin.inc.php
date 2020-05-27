@@ -68,7 +68,6 @@ class PIEThemePlugin extends ThemePlugin {
 
 		// Load theme stylesheet and script
 		$this->addStyle('stylesheet', 'styles/index.less');
-		$this->modifyStyle('stylesheet', array('addLessVariables' => join($additionalLessVariables)));
 		$this->addScript('main', 'js/main.js');
 
 		// Styles for HTML galleys

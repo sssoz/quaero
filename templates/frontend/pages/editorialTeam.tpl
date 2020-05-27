@@ -18,12 +18,10 @@
 		</div>
 	</div>
 	<div class="row justify-content-md-center">
-		<div class="col-md-8">
-			<div class="page-content">
-				{$currentContext->getLocalizedSetting('editorialTeam')}
-				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="context" anchor="masthead" sectionTitleKey="about.editorialTeam"}
-			</div>
-		</div>
+    <div class="col-md-8 page-content">
+      {$currentContext->getLocalizedSetting('editorialTeam')}
+      {include file="frontend/components/editLink.tpl" page="management" op="settings" path="context" anchor="masthead" sectionTitleKey="about.editorialTeam"}
+    </div>
 	</div>
 </div>
 
