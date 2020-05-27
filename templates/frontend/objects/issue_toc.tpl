@@ -17,7 +17,7 @@
  * @uses $primaryGenreIds array List of file genre ids for primary file types
  * @uses $sectionHeading string Tag to use (h2, h3, etc) for section headings
  *}
-<ol class="issue-toc">
+<ol class="unstyled-list issue-toc">
 
 	{foreach name=sections from=$publishedSubmissions item=section}
 		<li class="issue-toc-section">
@@ -25,7 +25,7 @@
 				{if $section.title}
 					<{$sectionHeading} class="issue-toc-section-title">{$section.title|escape}</{$sectionHeading}>
 				{/if}
-        <ul class="issue-toc-article">
+        <ul class="unstyled-list">
   				{foreach from=$section.articles item=article}
           <li>
             {include file="frontend/objects/article_summary.tpl"}

@@ -30,7 +30,7 @@
  * @uses $ccLicenseBadge string An image and text with details about the license
  *}
 <article class="col-11 col-lg-9 page">
-	<header class="row page-header">
+	<header class="page-header">
 		<div class="article-meta-mobile">
 			{* Notification that this is an old version *}
 			{if $currentPublication->getId() !== $publication->getId()}
@@ -170,9 +170,20 @@
 		</div>
 	</header><!-- .page-header -->
 
-	<div class="row justify-content-md-center" id="mainArticleContent">
-    <div class="col-lg-9" id="articleMainWrapper">
+	<div id="mainArticleContent">
+    <div id="articleMainWrapper">
 			<div class="article-details-main" id="articleMain">
+
+        {* Article Galleys (bottom) *}
+				{if $primaryGalleys}
+					<div class="article-details-block article-details-galleys article-details-galleys-btm">
+						{foreach from=$primaryGalleys item=galley}
+							<div class="article-details-galley">
+								{include file="frontend/objects/galley_link.tpl" parent=$article galley=$galley purchaseFee=$currentJournal->getSetting('purchaseArticleFee') purchaseCurrency=$currentJournal->getSetting('currency')}
+							</div>
+						{/foreach}
+					</div>
+				{/if}
 
 				{* Abstract *}
 				{if $publication->getLocalizedData('abstract')}
@@ -196,33 +207,22 @@
 					{/if}
 				{/foreach}
 
-				{* Article Galleys (bottom) *}
-				{if $primaryGalleys}
-					<div class="article-details-block article-details-galleys article-details-galleys-btm">
-						{foreach from=$primaryGalleys item=galley}
-							<div class="article-details-galley">
-								{include file="frontend/objects/galley_link.tpl" parent=$article galley=$galley purchaseFee=$currentJournal->getSetting('purchaseArticleFee') purchaseCurrency=$currentJournal->getSetting('currency')}
-							</div>
-						{/foreach}
-					</div>
-				{/if}
-
 				{* References *}
 				{if $parsedCitations || $publication->getData('citationsRaw')}
-					<div class="article-details-block article-details-references">
+					<section class="article-details-block article-details-references">
 						<h2 class="article-details-heading">
 							{translate key="submission.citations"}
 						</h2>
-						<div class="article-details-references-value">
+						<ol>
 							{if $parsedCitations}
 								{foreach from=$parsedCitations item=parsedCitation}
-									<p>{$parsedCitation->getCitationWithLinks()|strip_unsafe_html}</p>
+									<li>{$parsedCitation->getCitationWithLinks()|strip_unsafe_html}</li>
 								{/foreach}
 							{else}
 								{$publication->getData('citationsRaw')|escape|nl2br}
 							{/if}
-						</div>
-					</div>
+						</ol>
+					</section>
 				{/if}
 
 				{* Licensing info *}
@@ -254,12 +254,12 @@
 			</div>
 		</div>
 
-		<aside class="col-lg-3" id="articleDetailsWrapper">
+		<aside id="articleDetailsWrapper">
 			<div class="article-details-sidebar" id="articleDetails">
 
 				{* Article/Issue cover image *}
 				{if $publication->getLocalizedData('coverImage') || ($issue && $issue->getLocalizedCoverImage())}
-					<div class="article-details-block article-details-cover">
+					<section class="article-details-block article-details-cover">
 						{if $publication->getLocalizedData('coverImage')}
 							{assign var="coverImage" value=$publication->getLocalizedData('coverImage')}
 							<img
@@ -276,7 +276,7 @@
 								>
 							</a>
 						{/if}
-					</div>
+					</section>
 				{/if}
 
 				{* Pass author biographies to a global variable for use in footer.tpl *}
@@ -289,7 +289,7 @@
         {* Display other versions *}
         {if $publication->getData('datePublished')}
           {if count($article->getPublishedPublications()) > 1}
-    				<div class="article-details-block">
+    				<section class="article-details-block">
     					<h2 class="article-details-heading">
     						{translate key="submission.versions"}
     					</h2>
@@ -307,47 +307,47 @@
     						</li>
     					{/foreach}
     					</ul>
-    				</div>
+    				</section>
           {/if}
         {/if}
 
 				{* Article Galleys (sidebar -- only visible on small devices) *}
 				{if $primaryGalleys}
-					<div class="article-details-block article-details-galleys article-details-galleys-sidebar">
+					<section class="article-details-block article-details-galleys article-details-galleys-sidebar">
 						{foreach from=$primaryGalleys item=galley}
 							<div class="article-details-galley">
 								{include file="frontend/objects/galley_link.tpl" parent=$article galley=$galley purchaseFee=$currentJournal->getSetting('purchaseArticleFee') purchaseCurrency=$currentJournal->getSetting('currency')}
 							</div>
 						{/foreach}
-					</div>
+					</section>
 				{/if}
 
 				{* Supplementary galleys *}
 				{if $supplementaryGalleys}
-					<div class="article-details-block article-details-galleys-supplementary">
+					<section class="article-details-block article-details-galleys-supplementary">
 						<h2 class="article-details-heading">{translate key="plugins.themes.healthSciencesPIE.article.supplementaryFiles"}</h2>
 						{foreach from=$supplementaryGalleys item=galley}
 							<div class="article-details-galley">
 								{include file="frontend/objects/galley_link.tpl" parent=$article galley=$galley isSupplementary="1"}
 							</div>
 						{/foreach}
-					</div>
+					</section>
 				{/if}
 
 				{* Keywords *}
 				{if !empty($keywords[$currentLocale])}
-					<div class="article-details-block article-details-keywords">
+					<section class="article-details-block article-details-keywords">
 						<h2 class="article-details-heading">
 							{translate key="article.subject"}
 						</h2>
-						<div class="article-details-keywords-value">
+						<ul class="unstyled-list">
 							{foreach from=$keywords item=keyword}
 								{foreach name=keywords from=$keyword item=keywordItem}
-									<span>{$keywordItem|escape}</span>{if !$smarty.foreach.keywords.last}<br>{/if}
+									<li>{$keywordItem|escape}{if !$smarty.foreach.keywords.last},{/if}</li>
 								{/foreach}
 							{/foreach}
-						</div>
-					</div>
+						</ul>
+					</section>
 				{/if}
 
 				{* How to cite *}
@@ -419,7 +419,7 @@
 		</aside>
 
 
-		<div class="col-lg-12 order-lg-3 article-footer-hook">
+		<div class="article-footer-hook">
 			{call_hook name="Templates::Article::Footer::PageFooter"}
 		</div>
 

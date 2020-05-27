@@ -5,7 +5,7 @@
 }
 
 .pkp_block {
-	
+
 	padding: 15px;
 
 	.title {
@@ -21,7 +21,7 @@
 	display: inline-block;
 	background-color: white;
 	color: @black;
-	
+
 	&:focus, &:hover {
 		background-color: @dark-grey;
 		border-color: white;
@@ -34,9 +34,7 @@
 .block_announcement_feed ul,
 .block_external_feed ul,
 .block_web_feed ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
+	&:extend(.unstyled-list);
 }
 
 @media (min-width: 992px) {
@@ -67,11 +65,10 @@
 	.site-footer-sidebar .row {
 		flex-direction: column;
 	}
-	
+
 	.pkp_block {
 		flex: 0 0 100%;
 		width: 100%;
 		margin-bottom: 20px;
 	}
 }
-
