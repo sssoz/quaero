@@ -29,7 +29,7 @@
   <div class="row justify-content-center">
 
     {if $showJournalDescription && $currentJournal->getLocalizedDescription()}
-    <section class="ol-12 col-lg-9 page-issue">
+    <section class="col-11 col-lg-9 page-issue">
       <div class="container">
         <header class="row">
           <h2 class="col-md-6">
@@ -45,14 +45,14 @@
     </section>
     {/if}
 
-    <div class="col-12 col-lg-9 page-issue">
+    <div class="col-11 col-lg-9 page-issue">
       <header class="page-header page-issue-header">
         {if $issue}
           <p>{translate key="journal.currentIssue"}</p>
 
-          <h1>
+          <h2>
             {$issue->getIssueSeries()|escape}
-          </h1>
+          </h2>
 
           <time datetime="{$issue->getDatePublished()}">
             {translate key="plugins.themes.healthSciencesPIE.currentIssuePublished" date=$issue->getDatePublished()|date_format:$dateFormatLong}

@@ -41,11 +41,11 @@
 		</div>
 	{/if}
 
-	<div class="article-summary-title">
+	<h3 class="article-summary-title">
 		<a {if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"{else}href="{url page="article" op="view" path=$articlePath}"{/if}>
 			{$article->getLocalizedFullTitle()|escape}
 		</a>
-	</div>
+	</h3>
 
 	{if $showDatePublished && $article->getDatePublished()}
 		<div class="article-summary-date">

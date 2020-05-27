@@ -19,7 +19,7 @@
 
   <div class="row justify-content-center">
 
-    <div class="col-12 col-lg-9 page-issue">
+    <div class="col-11 col-lg-9 page-issue">
 
     	{* Display a message if no current issue exists *}
     	{if !$issue}
@@ -36,7 +36,7 @@
     			{include file="frontend/components/notification.tpl" messageKey="editor.issues.preview"}
     		{/if}
 
-    			<h1>{$issue->getIssueSeries()|escape}</h1>
+    			<h2>{$issue->getIssueSeries()|escape}</h2>
 
     			<time datetime="{$issue->getDatePublished()}">
     				{translate key="plugins.themes.healthSciencesPIE.currentIssuePublished" date=$issue->getDatePublished()|date_format:$dateFormatLong}
