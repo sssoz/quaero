@@ -14,8 +14,10 @@
  *}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$article->getLocalizedTitle()|escape}
 
-<div class="container page-article">
-	{include file="frontend/objects/article_details.tpl"}
-</div><!-- .page -->
+<main class="container page-article">
+  <div class="row justify-content-center">
+  	{include file="frontend/objects/article_details.tpl"}
+  </div>
+</main><!-- .page -->
 
 {include file="frontend/components/footer.tpl"}
