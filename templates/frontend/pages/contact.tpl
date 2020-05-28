@@ -20,7 +20,7 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="about.contact"}
 
-<main class="container page-contact">
+<main class="container">
 	<header class="page-header">
 		<h1>{translate key="about.contact"}</h1>
 	</header>

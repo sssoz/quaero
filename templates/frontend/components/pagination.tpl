@@ -17,19 +17,19 @@
 {if $prevUrl || $nextUrl}
 	<nav aria-label="{translate|escape key="common.pagination.label"}">
 		<ul class="pagination justify-content-center">
-			<li class="page-item{if !$prevUrl} disabled{/if}">
-				<a class="page-link" href="{$prevUrl}">
+			<li class="pagination-item{if !$prevUrl} disabled{/if}">
+				<a class="pagination-link" href="{$prevUrl}">
 					<span aria-hidden="true">&larr;</span>
 					{translate key="help.previous"}
 				</a>
 			</li>
-			<li class="page-item active">
-				<span class="page-link">
+			<li class="pagination-item active">
+				<span class="pagination-link">
 					{translate key="common.pagination" start=$showingStart end=$showingEnd total=$total}
 				</span>
 			</li>
-			<li class="page-item{if !$nextUrl} disabled{/if}">
-				<a class="page-link" href="{$nextUrl}">
+			<li class="pagination-item{if !$nextUrl} disabled{/if}">
+				<a class="pagination-link" href="{$nextUrl}">
 					{translate key="help.next"}
 					<span aria-hidden="true">&rarr;</span>
 				</a>

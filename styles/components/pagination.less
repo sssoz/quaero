@@ -1,4 +1,4 @@
-.page-link {
+.pagination-link {
   border-radius: 0;
   border: 0;
   background-color: transparent;
@@ -11,32 +11,26 @@
 	}
 }
 
-.page-item {
+.pagination-item {
   &:first-child,
   &:last-child {
 
-    .page-link {
+    .pagination-link {
       border-radius: 0;
     }
 
   }
 
-  &.active .page-link {
+  &.active .pagination-link {
+    padding-left: 1rem;
+		padding-right: 1rem;
   	background: transparent;
   	color: @black;
   }
 
-  &.disabled .page-link {
+  &.disabled .pagination-link {
     background: transparent;
     color: @dark-grey;
     font-style: italic;
   }
-}
-
-@media (min-width: 768px) {
-
-	.page-item.active .page-link {
-		padding-left: 2rem;
-		padding-right: 2rem;
-	}
 }
