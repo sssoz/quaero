@@ -28,27 +28,23 @@
 	{/if}
 {/capture}
 
-<div class="card issue-summary">
+<div class="issue-summary">
 	{if $issue->getLocalizedCoverImageUrl()}
 		<a href="{url op="view" path=$issue->getBestIssueId()}">
-			<img class="card-img-top issue-summary-cover" src="{$issue->getLocalizedCoverImageUrl()|escape}"{if $issue->getLocalizedCoverImageAltText() != ''} alt="{$issue->getLocalizedCoverImageAltText()|escape}"{/if}>
+			<img class="issue-summary-cover" src="{$issue->getLocalizedCoverImageUrl()|escape}"{if $issue->getLocalizedCoverImageAltText() != ''} alt="{$issue->getLocalizedCoverImageAltText()|escape}"{/if}>
 		</a>
 	{/if}
-	<div class="card-body">
-		<{$heading} class="card-title issue-summary-series">
-			<a href="{url op="view" path=$issue->getBestIssueId()}">
-				{$issueTitle|escape}
-			</a>
-		</{$heading}>
-		{if $showTitle || $issue->getDatePublished()}
-			<div class="card-text">
-				{if $issue->getDatePublished()}
-					<p class="issue-summary-date">{$issue->getDatePublished()|date_format:$dateFormatLong}</p>
-				{/if}
-				{if $issue->getIssueSeries() && $showTitle}
-					<p class="issue-summary-title">{$issue->getLocalizedTitle()|escape}</p>
-				{/if}
-			</div>
-		{/if}
-	</div>
+  <{$heading} class="issue-summary-series">
+    <a href="{url op="view" path=$issue->getBestIssueId()}">
+      {$issueTitle|escape}
+    </a>
+  </{$heading}>
+  {if $showTitle || $issue->getDatePublished()}
+    {if $issue->getDatePublished()}
+      <p class="issue-summary-date">{$issue->getDatePublished()|date_format:$dateFormatLong}</p>
+    {/if}
+    {if $issue->getIssueSeries() && $showTitle}
+      <p class="issue-summary-title">{$issue->getLocalizedTitle()|escape}</p>
+    {/if}
+  {/if}
 </div>

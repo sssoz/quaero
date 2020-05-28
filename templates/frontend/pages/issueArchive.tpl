@@ -23,9 +23,9 @@
 {/capture}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$pageTitle}
 
-<div class="container page-archives">
+<main class="container page">
 
-	<header class="page-header page-archives-header">
+	<header class="page-header">
 		<h1>{$pageTitle}</h1>
 	</header>
 
@@ -76,7 +76,7 @@
 			total=$total
 		}
 	{/if}
-</div>
+</main>
 
 
 {include file="frontend/components/footer.tpl"}
