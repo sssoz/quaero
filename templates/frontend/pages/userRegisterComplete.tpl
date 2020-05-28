@@ -9,7 +9,7 @@
  *}
 {include file="frontend/components/header.tpl"}
 
-<main class="container page-register-complete">
+<main class="container">
 	<header class="row page-header justify-content-md-center">
 		<div class="col-md-8">
 			<h1>{translate key=$pageTitle}</h1>

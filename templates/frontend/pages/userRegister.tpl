@@ -11,47 +11,50 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="user.register"}
 
-<main class="container page-register">
-	<header class="row page-header justify-content-md-center">
-		<div class="col-md-8">
-			<h1>{translate key="user.register"}</h1>
-		</div>
-	</header>
-	<div class="row justify-content-md-center">
-    <div class="col-md-8 page-content">
+<main class="container">
 
-      <form class="form-register" id="register" method="post" action="{url op="register"}">
-        {csrf}
-        <input type="hidden" name="source" value="{$source|escape}" />
+  <div class="row justify-content-center">
 
-        {include file="common/formErrors.tpl"}
+    <div class="col-11 col-lg-9 page">
+      <header class="page-header justify-content-md-center">
+    			<h1>{translate key="user.register"}</h1>
+    	</header>
 
-        {include file="frontend/components/registrationForm.tpl"}
+      <div class="page-content justify-content-md-center">
+        <form class="form-register" id="register" method="post" action="{url op="register"}">
+          {csrf}
+          <input type="hidden" name="source" value="{$source|escape}" />
 
-        {include file="frontend/components/registrationFormContexts.tpl"}
+          {include file="common/formErrors.tpl"}
 
-        {* recaptcha spam blocker *}
-        {if $reCaptchaHtml}
-          <div class="form-group">
-            {$reCaptchaHtml}
-          </div>
-        {/if}
+          {include file="frontend/components/registrationForm.tpl"}
 
-        <div class="form-group form-group-buttons">
+          {include file="frontend/components/registrationFormContexts.tpl"}
+
+          {* recaptcha spam blocker *}
+          {if $reCaptchaHtml}
+            <div class="form-group">
+              {$reCaptchaHtml}
+            </div>
+          {/if}
+
           <button class="btn btn-primary" type="submit">
             {translate key="user.register"}
           </button>
-        </div>
-        <div class="form-group form-group-login">
-          {translate key="plugins.themes.healthSciencesPIE.register.haveAccount"}
-          {capture assign="rolesProfileUrl"}{url page="user" op="profile" path="roles"}{/capture}
-          <a href="{url page="login" source=$rolesProfileUrl}" class="login">
-            {translate key="plugins.themes.healthSciencesPIE.register.loginHere"}
-          </a>
-        </div>
-      </form>
+          <p>
+            {translate key="plugins.themes.healthSciencesPIE.register.haveAccount"}
+            {capture assign="rolesProfileUrl"}{url page="user" op="profile" path="roles"}{/capture}
+            <a href="{url page="login" source=$rolesProfileUrl}" class="login">
+              {translate key="plugins.themes.healthSciencesPIE.register.loginHere"}
+            </a>
+          </p>
+        </form>
+    	</div>
+
     </div>
-	</div>
-</main><!-- .page -->
+
+  </div>
+
+</main>
 
 {include file="frontend/components/footer.tpl"}
