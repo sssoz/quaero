@@ -1,12 +1,12 @@
 .btn {
 	padding: .25em .75em;
 	border-radius: 0;
-	border: 1px solid @mid-grey;
+	border: 1px solid @black;
 	background: transparent;
 	font-family: @font;
-	font-size: 18px;
+	font-size: 1rem;
 	font-weight: 400;
-	color: @dark-grey;
+	color: @black;
 	text-decoration: none;
 	cursor: pointer;
 
@@ -39,32 +39,6 @@
 	}
 }
 
-.btn-light {
-	border-color: @light-grey;
-	color: @light-grey;
-
-	&:hover,
-	&:focus,
-	&:active {
-		background: @light-grey;
-		color: @dark-grey;
-	}
-}
-
-.btn-primary-bg {
-	background: @light-grey;
-	border-color: @light-grey;
-	color: @dark-grey;
-
-	&:hover,
-	&:focus,
-	&:active {
-		background: @light-grey;
-		border-color: @dark-grey;
-		color: @dark-grey;
-	}
-}
-
 .btn-link {
 	border-color: transparent;
 	font-weight: 400;
@@ -75,16 +49,5 @@
 	&:active {
 		border-color: transparent;
 		color: @primary-text;
-	}
-}
-
-.btn-text {
-	.btn-link;
-	color: @dark-grey;
-
-	&:hover,
-	&:focus,
-	&:active {
-		color: @primary;
 	}
 }

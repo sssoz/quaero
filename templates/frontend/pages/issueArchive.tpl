@@ -37,22 +37,13 @@
 
 	{* List issues *}
 	{else}
-		{foreach from=$issues item="issue" key="i"}
-			{if $i % 4 == 0 && $i > 0}
-				</div>
-				{assign var="open" value=false}
-			{/if}
-			{if $i % 4 == 0}
-				<div class="row justify-content-around">
-				{assign var="open" value=true}
-			{/if}
-			<div class="col-6 col-md-3">
+    <div class="row justify-content-around">
+      {foreach from=$issues item="issue"}
+      <div class="col-6 col-md-3">
 				{include file="frontend/objects/issue_summary.tpl" heading="h2"}
 			</div>
-		{/foreach}
-		{if $open}
-			</div>{* Close an open row *}
-		{/if}
+      {/foreach}
+    </div>
 
 		{* Pagination *}
 		{capture assign="prevUrl"}

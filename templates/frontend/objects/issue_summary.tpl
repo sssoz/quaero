@@ -28,7 +28,7 @@
 	{/if}
 {/capture}
 
-<div class="issue-summary">
+<article class="issue-summary">
 	{if $issue->getLocalizedCoverImageUrl()}
 		<a href="{url op="view" path=$issue->getBestIssueId()}">
 			<img class="issue-summary-cover" src="{$issue->getLocalizedCoverImageUrl()|escape}"{if $issue->getLocalizedCoverImageAltText() != ''} alt="{$issue->getLocalizedCoverImageAltText()|escape}"{/if}>
@@ -47,4 +47,4 @@
       <p class="issue-summary-title">{$issue->getLocalizedTitle()|escape}</p>
     {/if}
   {/if}
-</div>
+</article>

@@ -14,7 +14,7 @@
 <body class="page-view-pdf">
 	<div class="pdf-header">
 		<div class="pdf-return-article">
-			<a href="{$parentUrl}" class="btn btn-text">
+			<a href="{$parentUrl}">
 				←
 				<span class="sr-only">
 					{if $parent instanceOf Issue}
