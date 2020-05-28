@@ -22,10 +22,11 @@
         {include file="frontend/components/editLink.tpl" page="management" op="settings" path="website" anchor="announcements" sectionTitleKey="announcement.announcements"}
       </header>
 
-      {foreach from=$announcements item=announcement}
-        {include file="frontend/objects/announcement_summary.tpl"}
-      {/foreach}
-
+      <div class="page-content">
+        {foreach from=$announcements item=announcement}
+          {include file="frontend/objects/announcement_summary.tpl"}
+        {/foreach}
+      </div>
     </section>
 	</div>
 </main>

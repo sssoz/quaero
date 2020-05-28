@@ -17,10 +17,10 @@
 
     <div class="col-11 col-lg-9 page">
       <header class="page-header justify-content-md-center">
-    			<h1>{translate key="user.register"}</h1>
+    		<h1>{translate key="user.register"}</h1>
     	</header>
 
-      <div class="page-content justify-content-md-center">      
+      <div class="page-content justify-content-md-center">
         <p>
           {translate key="plugins.themes.healthSciencesPIE.register.haveAccount"}
           {capture assign="rolesProfileUrl"}{url page="user" op="profile" path="roles"}{/capture}
