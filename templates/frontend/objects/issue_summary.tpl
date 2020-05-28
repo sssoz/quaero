@@ -34,17 +34,17 @@
 			<img class="issue-summary-cover" src="{$issue->getLocalizedCoverImageUrl()|escape}"{if $issue->getLocalizedCoverImageAltText() != ''} alt="{$issue->getLocalizedCoverImageAltText()|escape}"{/if}>
 		</a>
 	{/if}
-  <{$heading} class="issue-summary-series">
-    <a href="{url op="view" path=$issue->getBestIssueId()}">
+  <a href="{url op="view" path=$issue->getBestIssueId()}" class="issue-summary-link">
+    <{$heading} class="issue-summary-series">
       {$issueTitle|escape}
-    </a>
-  </{$heading}>
-  {if $showTitle || $issue->getDatePublished()}
-    {if $issue->getDatePublished()}
-      <p class="issue-summary-date">{$issue->getDatePublished()|date_format:$dateFormatLong}</p>
+    </{$heading}>
+    {if $showTitle || $issue->getDatePublished()}
+      {if $issue->getDatePublished()}
+        <p class="issue-summary-date">{$issue->getDatePublished()|date_format:$dateFormatLong}</p>
+      {/if}
+      {if $issue->getIssueSeries() && $showTitle}
+        <p class="issue-summary-title">{$issue->getLocalizedTitle()|escape}</p>
+      {/if}
     {/if}
-    {if $issue->getIssueSeries() && $showTitle}
-      <p class="issue-summary-title">{$issue->getLocalizedTitle()|escape}</p>
-    {/if}
-  {/if}
+  </a>
 </article>
