@@ -1,51 +1,50 @@
-.modal-dialog {
-	max-width: 540px;
-}
-
-.modal-header {
-	border-color: @contrast;
-}
-
 .modal-content {
-	border-radius: 0;
 	background: @primary;
-	color: @contrast;
+  background-image: url("/plugins/themes/healthSciencesPIE/templates/images/bg-noise.png");
+  border-radius: 0;
+	color: @parchment;
 
 	.close {
-		color: @contrast;
+		color: @parchment;
 		text-shadow: none;
 		opacity: 1;
 	}
 
+  h2 {
+    margin: 0 0 2rem 0;
+  }
+
 	a {
-		color: @contrast;
+		color: @parchment;
 		text-decoration: underline;
 
 		&:hover,
 		&:focus {
-			color: @contrast;
+			color: @parchment;
+      text-decoration: none;
 		}
 	}
 
-	.btn-link {
-		color: @contrast;
-		text-decoration: none;
+  input, select {
+    border-color: @parchment;
+    color: @parchment;
+  }
+
+	.btn {
+    background-color: @parchment;
+    border-color: @parchment;
+    color: @primary;
 
 		&:hover,
 		&:focus {
-			color: @contrast;
-			border-color: @contrast;
+      background-color: @primary;
+      border-color: @parchment;
+			color: @parchment;
 		}
 	}
 
-	.form-control {
-	  background: transparent;
-	  border-color: @contrast;
-		color: @contrast;
-	}
-
 	@media (min-width: 992px) {
-		padding: 4rem;
+		padding: 2rem;
 
 		.close {
 			position: absolute;

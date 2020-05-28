@@ -30,13 +30,13 @@
 						{translate key="common.required"}
 					</span>
 				</label>
-				<input class="form-control" type="text" name="givenName" id="givenName" value="{$givenName|escape}" maxlength="255" required>
+				<input type="text" name="givenName" id="givenName" value="{$givenName|escape}" maxlength="255" required>
 			</div>
 			<div class="form-group">
 				<label for="familyName">
 					{translate key="user.familyName"}
 				</label>
-				<input class="form-control" type="text" name="familyName" value="{$familyName|escape}" maxlength="255">
+				<input type="text" name="familyName" value="{$familyName|escape}" maxlength="255">
 			</div>
 			<div class="form-group">
 				<label for="affiliation">
@@ -46,7 +46,7 @@
 						{translate key="common.required"}
 					</span>
 				</label>
-				<input class="form-control" type="text" name="affiliation" id="affiliation" value="{$affiliation|escape}" required>
+				<input type="text" name="affiliation" id="affiliation" value="{$affiliation|escape}" required>
 			</div>
 			<div class="form-group">
 				<label for="country">
@@ -56,7 +56,7 @@
 						{translate key="common.required"}
 					</span>
 				</label>
-				<select class="form-control" name="country" id="country" required>
+				<select name="country" id="country" required>
 					<option></option>
 					{html_options options=$countries selected=$country}
 				</select>
@@ -76,7 +76,7 @@
 						{translate key="common.required"}
 					</span>
 				</label>
-				<input class="form-control" type="text" name="email" id="email" value="{$email|escape}" maxlength="90" required>
+				<input type="text" name="email" id="email" value="{$email|escape}" maxlength="90" required>
 			</div>
 			<div class="form-group">
 				<label for="username">
@@ -86,7 +86,7 @@
 						{translate key="common.required"}
 					</span>
 				</label>
-				<input class="form-control" type="text" name="username" id="username" value="{$username|escape}" maxlength="32" required>
+				<input type="text" name="username" id="username" value="{$username|escape}" maxlength="32" required>
 			</div>
 			<div class="form-group">
 				<label for="password">
@@ -96,7 +96,7 @@
 						{translate key="common.required"}
 					</span>
 				</label>
-				<input class="form-control" type="password" name="password" id="password" password="true" maxlength="32" required>
+				<input type="password" name="password" id="password" password="true" maxlength="32" required>
 			</div>
 			<div class="form-group">
 				<label for="password2">
@@ -106,7 +106,7 @@
 						{translate key="common.required"}
 					</span>
 				</label>
-				<input class="form-control" type="password" name="password2" id="password2" password="true" maxlength="32" required>
+				<input type="password" name="password2" id="password2" password="true" maxlength="32" required>
 			</div>
 		</fieldset>
 	</div>

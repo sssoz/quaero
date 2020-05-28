@@ -20,7 +20,15 @@
     			<h1>{translate key="user.register"}</h1>
     	</header>
 
-      <div class="page-content justify-content-md-center">
+      <div class="page-content justify-content-md-center">      
+        <p>
+          {translate key="plugins.themes.healthSciencesPIE.register.haveAccount"}
+          {capture assign="rolesProfileUrl"}{url page="user" op="profile" path="roles"}{/capture}
+          <a href="{url page="login" source=$rolesProfileUrl}" class="login">
+            {translate key="plugins.themes.healthSciencesPIE.register.loginHere"}
+          </a>
+        </p>
+
         <form class="form-register" id="register" method="post" action="{url op="register"}">
           {csrf}
           <input type="hidden" name="source" value="{$source|escape}" />
@@ -33,21 +41,14 @@
 
           {* recaptcha spam blocker *}
           {if $reCaptchaHtml}
-            <div class="form-group">
+            <p>
               {$reCaptchaHtml}
-            </div>
+            </p>
           {/if}
 
           <button class="btn btn-primary" type="submit">
             {translate key="user.register"}
           </button>
-          <p>
-            {translate key="plugins.themes.healthSciencesPIE.register.haveAccount"}
-            {capture assign="rolesProfileUrl"}{url page="user" op="profile" path="roles"}{/capture}
-            <a href="{url page="login" source=$rolesProfileUrl}" class="login">
-              {translate key="plugins.themes.healthSciencesPIE.register.loginHere"}
-            </a>
-          </p>
         </form>
     	</div>
 

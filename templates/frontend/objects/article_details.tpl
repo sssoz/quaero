@@ -146,17 +146,13 @@
 									>
 										<div class="modal-dialog" role="document">
 											<div class="modal-content">
-												<div class="modal-header">
-													<div class="modal-title" id="authorBiographyModalTitle{$authorKey+1}">
-														{$author->getFullName()|escape}
-													</div>
-													<button type="button" class="close" data-dismiss="modal" aria-label="{translate|escape key="common.close"}">
-														<span aria-hidden="true">&times;</span>
-													</button>
-												</div>
-												<div class="modal-body">
-													{$author->getLocalizedBiography()|strip_unsafe_html}
-												</div>
+                        <h2 id="authorBiographyModalTitle{$authorKey+1}">
+                          {$author->getFullName()|escape}
+                        </h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="{translate|escape key="common.close"}">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+												{$author->getLocalizedBiography()|strip_unsafe_html}
 											</div>
 										</div>
 									</div>
