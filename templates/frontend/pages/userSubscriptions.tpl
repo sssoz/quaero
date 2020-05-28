@@ -17,7 +17,7 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="user.subscriptions.mySubscriptions"}
 
-<main class="container page-my-subscriptions">
+<main class="container">
 	<header class="row page-header justify-content-md-center">
 		<div class="col-md-8">
 			<h1>{translate key="user.subscriptions.mySubscriptions"}</h1>
@@ -29,7 +29,7 @@
       {include file="frontend/components/subscriptionContact.tpl"}
 
       {if $paymentsEnabled}
-        <div class="my-subscriptions-payments">
+        <section>
           <h2>{translate key="user.subscriptions.subscriptionStatus"}</h2>
           <p>{translate key="user.subscriptions.statusInformation"}</p>
           <table class="table">
@@ -54,11 +54,11 @@
               <td>{translate key="user.subscriptions.status.awaitingOnlinePaymentDescription"}</td>
             </tr>
           </table>
-        </div>
+        </section>
       {/if}
 
       {if $individualSubscriptionTypesExist}
-        <div class="my-subscriptions-individual">
+        <section>
           <h2>{translate key="user.subscriptions.individualSubscriptions"}</h2>
           <p>{translate key="subscriptions.individualDescription"}</p>
           {if $userIndividualSubscription}
@@ -137,11 +137,11 @@
               </a>
             </p>
           {/if}
-        </div>
+        </section>
       {/if}
 
       {if $institutionalSubscriptionTypesExist}
-        <div class="my-subscriptions-institutional">
+        <section>
           <h2>{translate key="user.subscriptions.institutionalSubscriptions"}</h2>
           <p>
             {translate key="subscriptions.institutionalDescription"}
@@ -234,7 +234,7 @@
               </a>
             {/if}
           </p>
-        </div>
+        </section>
       {/if}
     </div>
 	</div>

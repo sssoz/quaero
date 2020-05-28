@@ -22,7 +22,7 @@
 		{capture assign="sectionTitle"}{translate key=$sectionTitleKey}{/capture}
 	{/if}
 
-	<a class="btn btn-edit-link" href="{url page=$page op=$op path=$path anchor=$anchor}">
+	<a class="btn" href="{url page=$page op=$op path=$path anchor=$anchor}">
 		<span aria-hidden="true">{translate key="common.edit"}</span>
 
 		{* Screen readers need more context *}

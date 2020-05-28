@@ -14,7 +14,7 @@
  * @uses $subscriptionPhone string Contact phone number for subscriptions
  * @uses $subscriptionEmail string Contact email address for subscriptions
  *}
- <div class="subscription-contact">
+ <div>
 	 {if $subscriptionAdditionalInformation}
 		<div class="subscription-description">
 			{$subscriptionAdditionalInformation|strip_unsafe_html}
@@ -22,25 +22,25 @@
 	{/if}
 
 	{if $subscriptionName || $subscriptionPhone || $subscriptionEmail}
-		<div class="subscription-contact">
+		<div>
 			<h2>
 				{translate key="about.subscriptionsContact"}
 			</h2>
 
 			{if $subscriptionName}
-				<div class="subscription-name">
+				<div>
 					{$subscriptionName|escape}
 				</div>
 			{/if}
 
 			{if $subscriptionMailingAddress}
-				<div class="subscription-address">
+				<div>
 					{$subscriptionMailingAddress|nl2br|strip_unsafe_html}
 				</div>
 			{/if}
 
 			{if $subscriptionPhone}
-				<div class="subscription-phone">
+				<div>
 					<span class="label">
 						{translate key="about.contact.phone"}
 					</span>
@@ -51,7 +51,7 @@
 			{/if}
 
 			{if $subscriptionEmail}
-				<div class="subscription-email">
+				<div>
 					<a href="mailto:{$subscriptionEmail|escape}">
 						{$subscriptionEmail|escape}
 					</a>

@@ -10,7 +10,7 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="user.subscriptions.purchaseInstitutionalSubscription"}
 
-<main class="container page-institutional-subscription">
+<main class="container">
 	<header class="row page-header justify-content-md-center">
 		<div class="col-md-8">
 			<h1>{translate key="user.subscriptions.purchaseInstitutionalSubscription"}</h1>
@@ -24,7 +24,7 @@
       {if $subscriptionId}
         {assign var="formPath" value="institutional"|to_array:$subscriptionId}
       {/if}
-      <form class="purchase-subscription" method="post" id="subscriptionForm" action="{url op="payPurchaseSubscription" path=$formPath}">
+      <form method="post" id="subscriptionForm" action="{url op="payPurchaseSubscription" path=$formPath}">
         {csrf}
 
         {include file="common/formErrors.tpl"}

@@ -10,7 +10,7 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="user.subscriptions.purchaseIndividualSubscription"}
 
-<main class="container page-individual-subscription">
+<main class="container">
 	<header class="row page-header justify-content-md-center">
 		<div class="col-md-8">
 			<h1>{translate key="user.subscriptions.purchaseIndividualSubscription"}</h1>
@@ -19,7 +19,7 @@
 
 	<div class="row justify-content-md-center">
     <div class="col-md-8 page-content">
-      <form class="purchase-subscription" method="post" id="subscriptionForm" action="{url op="payPurchaseSubscription" path="individual"|to_array:$subscriptionId}">
+      <form method="post" id="subscriptionForm" action="{url op="payPurchaseSubscription" path="individual"|to_array:$subscriptionId}">
         {csrf}
 
         <div class="form-group">

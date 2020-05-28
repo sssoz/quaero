@@ -9,7 +9,7 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="plugins.paymethod.manual"}
 
-<main class="container page-institutional-subscription">
+<main class="container">
 	<header class="page-header">
 		<h1>{translate key="plugins.paymethod.manual"}</h1>
 	</header>
