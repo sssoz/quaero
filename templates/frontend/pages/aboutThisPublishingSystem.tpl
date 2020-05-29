@@ -13,24 +13,27 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="about.aboutThisPublishingSystem"}
 
-<main class="container page-about-publishing-system">
-	<header class="row page-header justify-content-md-center">
-		<div class="col-md-8">
-			<h1>{translate key="about.aboutThisPublishingSystem"}</h1>
-		</div>
-	</header>
-	<div class="row justify-content-md-center">
-    <div class="col-md-8 page-content">
-      <p>
-        {if $currentJournal}
-          {translate key="about.aboutOJSJournal" ojsVersion=$appVersion}
-        {else}
-          {translate key="about.aboutOJSSite" ojsVersion=$appVersion}
-        {/if}
-      </p>
-      <img src="{$baseUrl}/{$pubProcessFile}" alt="{translate key="about.aboutThisPublishingSystem.altText"}">
+<main class="container">
+
+  <div class="row justify-content-center">
+
+    <div class="col-11 col-lg-9 page">
+      <header class="page-header justify-content-md-center">
+    		<h1>{translate key="about.aboutThisPublishingSystem"}</h1>
+    	</header>
+
+      <div class="page-content justify-content-md-center">
+        <p>
+          {if $currentJournal}
+            {translate key="about.aboutOJSJournal" ojsVersion=$appVersion}
+          {else}
+            {translate key="about.aboutOJSSite" ojsVersion=$appVersion}
+          {/if}
+        </p>
+        <img src="{$baseUrl}/{$pubProcessFile}" alt="{translate key="about.aboutThisPublishingSystem.altText"}">
+      </div>
     </div>
-	</div>
+  </div>
 </main>
 
 {include file="frontend/components/footer.tpl"}

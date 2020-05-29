@@ -10,28 +10,30 @@
  *}
 {include file="frontend/components/header.tpl"}
 
-<main class="container page-error">
-	<header class="row page-header justify-content-md-center">
-		<div class="col-md-8">
-			{if $pageTitle}
-				<h1>
-					{translate key=$pageTitle}
-				</h1>
-			{/if}
-		</div>
-	</header>
-	<div class="row justify-content-md-center">
-		<div class="col-md-8">
-			<div class="description">
-				{translate key=$errorMsg params=$errorParams}
-			</div>
-			{if $backLink}
-				<div class="cmp_back_link">
-					<a href="{$backLink}">{translate key=$backLinkLabel}</a>
-				</div>
-			{/if}
-		</div>
-	</div>
+<main class="container">
+
+  <div class="row justify-content-center">
+
+    <div class="col-11 col-lg-9 page">
+      <header class="page-header justify-content-md-center">
+        {if $pageTitle}
+  				<h1>
+  					{translate key=$pageTitle}
+  				</h1>
+  			{/if}
+    	</header>
+
+      <div class="page-content justify-content-md-center">
+        <p>{translate key=$errorMsg params=$errorParams}</p>
+
+        {if $backLink}
+  				<p>
+  					<a href="{$backLink}">{translate key=$backLinkLabel}</a>
+  				</p>
+  			{/if}
+      </div>
+    </div>
+  </div>
 </main>
 
 {include file="frontend/components/footer.tpl"}

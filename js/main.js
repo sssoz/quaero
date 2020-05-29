@@ -113,57 +113,6 @@ $(document).ready(function() {
 	$('#reviewerOptinGroup input').click(reviewerInterestsToggle);
 })();
 
-// change article's blocks logic for small screens
-
-(function () {
-
-	var mainArticleContent = $("#mainArticleContent");
-
-	if (mainArticleContent.length === 0) return false;
-
-	var articleDetailsWrapper = $("#articleDetailsWrapper");
-	var articleDetails = $("#articleDetails");
-	var articleDetailsChildren = articleDetails.children();
-
-	var articleMainWrapper = $("#articleMainWrapper");
-	var articleMain = $("#articleMain");
-	var articleMainChildren = articleMain.children();
-
-	var dataForMobilesMark = "data-for-mobiles";
-
-	function reorganizeArticleBlocks() {
-		if (mainArticleContent && !mainArticleContent.hasClass(dataForMobilesMark) && window.innerWidth < 992) {
-			$("#articleDetails").unwrap();
-			$("#articleMain").unwrap();
-
-			articleDetailsChildren.unwrap();
-			articleMainChildren.unwrap();
-
-			mainArticleContent.children().wrapAll("<div class='col-lg article-blocks-mobile'></div>");
-
-			mainArticleContent.addClass(dataForMobilesMark);
-
-		} else if (mainArticleContent && mainArticleContent.hasClass(dataForMobilesMark) && window.innerWidth >= 992) {
-			$('#mainArticleContent > *').children().unwrap();
-
-			articleDetailsChildren.wrapAll(articleDetails);
-			articleMainChildren.wrapAll(articleMain);
-
-			$("#articleDetails").wrap(articleDetailsWrapper);
-			$("#articleMain").wrap(articleMainWrapper);
-
-
-			mainArticleContent.removeClass(dataForMobilesMark);
-		}
-	}
-
-	reorganizeArticleBlocks();
-
-	window.addEventListener("resize", function () {
-		reorganizeArticleBlocks();
-	});
-})();
-
 // Functionality of more/less buttons for the journal description (index journal page)
 
 (function () {

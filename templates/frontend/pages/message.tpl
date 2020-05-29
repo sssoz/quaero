@@ -10,32 +10,33 @@
  *}
 {include file="frontend/components/header.tpl"}
 
-<main class="container page-message">
-	<header class="row page-header justify-content-md-center">
-		<div class="col-md-8">
-			{if $pageTitle}
-				<h1>
-					{translate key=$pageTitle}
-				</h1>
-			{/if}
-		</div>
-	</header>
-	<div class="row justify-content-md-center">
-		<div class="col-md-8">
-			<div class="description">
-				{if $messageTranslated}
-					{$messageTranslated}
-				{else}
-					{translate key=$message}
-				{/if}
-			</div>
-			{if $backLink}
-				<div class="cmp_back_link">
-					<a href="{$backLink}">{translate key=$backLinkLabel}</a>
-				</div>
-			{/if}
-		</div>
-	</div>
+<main class="container">
+
+  <div class="row justify-content-center">
+
+    <div class="col-11 col-lg-9 page">
+      <header class="page-header justify-content-md-center">
+        {if $pageTitle}
+  				<h1>
+  					{translate key=$pageTitle}
+  				</h1>
+  			{/if}
+    	</header>
+
+      <div class="page-content justify-content-md-center">
+        {if $messageTranslated}
+    			{$messageTranslated}
+    		{else}
+    			{translate key=$message}
+    		{/if}
+  			{if $backLink}
+  				<div class="cmp_back_link">
+  					<a href="{$backLink}">{translate key=$backLinkLabel}</a>
+  				</div>
+  			{/if}
+      </div>
+    </div>
+  </div>
 </main>
 
 {include file="frontend/components/footer.tpl"}

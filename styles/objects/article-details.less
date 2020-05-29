@@ -1,3 +1,31 @@
+.article-details {
+  h2 {
+    color: @dark-grey;
+  }
+}
+
+.article-details-meta {
+  margin: 1em 0;
+  font-size: 0.85rem;
+  color: @dark-grey;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  li:not(:last-child):after {
+    content: ", ";
+  }
+}
+
+.article-details-meta-upper {
+  text-transform: uppercase;
+}
+
 .article-details-issue-identifier {
 	margin-bottom: 0.5em;
 	font-family: @font;
@@ -12,19 +40,6 @@
 			color: @mid-grey;
 		}
 	}
-}
-
-.article-details h1 {
-	font-size: 2rem;
-}
-
-.article-details-issue-section,
-.article-details-doi,
-.article-details-published {
-	margin-top: 1em;
-	font-size: 0.9rem;
-	line-height: 1.6em;
-	color: @mid-grey;
 }
 
 @media (max-width: 991px){
@@ -135,9 +150,6 @@
 }
 
 @media (min-width: 992px) {
-	.small-screen {
-		display: none;
-	}
 
 	// Special treatment for authors blocks (article's header and details)
 	.authors-string {
@@ -244,10 +256,6 @@
 }
 
 @media (max-width: 991px) {
-
-	.large-screen, .author-symbol {
-		display: none;
-	}
 
 	.article-details-galley {
 		display: inline-block;

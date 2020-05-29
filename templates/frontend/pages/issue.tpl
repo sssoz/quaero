@@ -36,7 +36,7 @@
     			{include file="frontend/components/notification.tpl" messageKey="editor.issues.preview"}
     		{/if}
 
-    			<h2 class="page-issue-title">{$issue->getIssueSeries()|escape}</h2>
+    			<h1 class="page-issue-title">{$issue->getIssueSeries()|escape}</h1>
 
     			<time datetime="{$issue->getDatePublished()}">
     				{translate key="plugins.themes.healthSciencesPIE.currentIssuePublished" date=$issue->getDatePublished()|date_format:$dateFormatLong}
@@ -65,44 +65,32 @@
     			{/foreach}
     		</header>
 
-    		<div class="row justify-content-center page-issue-details">
-    			{if $issueGalleys || $issue->hasDescription() || $issue->getLocalizedTitle()}
-    				<div class="col-lg-9">
-    					<div class="page-issue-description-wrapper">
-    						{if $issue->hasDescription() || $issue->getLocalizedTitle()}
-    							<div class="page-issue-description">
-    								<div class="h2">
-    									{if $issue->getLocalizedTitle()}
-    										{$issue->getLocalizedTitle()}
-    									{else}
-    										{translate key="plugins.themes.healthSciencesPIE.issueDescription"}
-    									{/if}
-    								</div>
-    								{$issue->getLocalizedDescription()|strip_unsafe_html}
-    							</div>
-    						{/if}
-    						{if $issueGalleys}
-    							<div class="page-issue-galleys">
-    								<div class="h3">
-    									{translate key="issue.fullIssue"}
-    								</div>
-    								{foreach from=$issueGalleys item=galley}
-    									{include file="frontend/objects/galley_link.tpl" parent=$issue purchaseFee=$currentJournal->getSetting('purchaseIssueFee') purchaseCurrency=$currentJournal->getSetting('currency')}
-    								{/foreach}
-    							</div>
-    						{/if}
-    					</div>
-    				</div>
-    			{/if}
-    			{if $issue->getLocalizedCoverImageUrl()}
-    				<div class="col-lg-3">
-    					<a href="{url op="view" page="issue" path=$issue->getBestIssueId()}">
-    						<img class="img-fluid page-issue-cover" src="{$issue->getLocalizedCoverImageUrl()|escape}"{if $issue->getLocalizedCoverImageAltText() != ''} alt="{$issue->getLocalizedCoverImageAltText()|escape}"{/if}>
-    					</a>
-    				</div>
-    			{/if}
-    		</div>
+        <!-- Issue theme/title, description, galleys -->
+        {if $issueGalleys || $issue->hasDescription() || $issue->getLocalizedTitle()}
+          {if $issue->hasDescription() || $issue->getLocalizedTitle()}
+            <h2>
+              {if $issue->getLocalizedTitle()}
+                {$issue->getLocalizedTitle()}
+              {else}
+                {translate key="plugins.themes.healthSciencesPIE.issueDescription"}
+              {/if}
+            </h2>
+            {$issue->getLocalizedDescription()|strip_unsafe_html}
+          {/if}
+          {if $issueGalleys}
+            <h3>
+              {translate key="issue.fullIssue"}
+            </h3>
+            {foreach from=$issueGalleys item=galley}
+              {include file="frontend/objects/galley_link.tpl" parent=$issue purchaseFee=$currentJournal->getSetting('purchaseIssueFee') purchaseCurrency=$currentJournal->getSetting('currency')}
+            {/foreach}
+          {/if}
+        {/if}
+        {if $issue->getLocalizedCoverImageUrl()}
+        <img class="page-issue-cover" src="{$issue->getLocalizedCoverImageUrl()|escape}"{if $issue->getLocalizedCoverImageAltText() != ''} alt="{$issue->getLocalizedCoverImageAltText()|escape}"{/if}>
+        {/if}
 
+        <!-- TOC -->
     		{if !$issue->getLocalizedDescription() || !$issue->getLocalizedCoverImageUrl()}<div class="issue-wrapper">{/if}
     			{include file="frontend/objects/issue_toc.tpl" sectionHeading="h2"}
     		{if !$issue->getLocalizedDescription() || !$issue->getLocalizedCoverImageUrl()}</div>{/if}
