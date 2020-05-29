@@ -96,6 +96,9 @@
             {if $authorString->getOrcid()}
               <a class="orcidImage" href="{$authorString->getOrcid()|escape}"><img src="{$baseUrl}/{$orcidImage}"></a>
             {/if}
+            {if $authorString->getLocalizedAffiliation()}
+              &nbsp;({$authorString->getLocalizedAffiliation()|escape})
+            {/if}
           </li>
         {/strip}
       {/foreach}
@@ -107,12 +110,6 @@
     <section class="article-details-authors">
       {foreach from=$publication->getData('authors') item=author key=authorKey}
         <div class="article-details-author hideAuthor" id="author-{$authorKey+1}">
-          <div class="article-details-author-name">
-            {$author->getFullName()|escape}
-          </div>
-          {if $author->getLocalizedAffiliation()}
-            <p class="article-details-author-affiliation">{$author->getLocalizedAffiliation()|escape}</p>
-          {/if}
           {if $author->getOrcid()}
             <p class="article-details-author-orcid">
               <a href="{$author->getOrcid()|escape}" target="_blank" rel="noopener">
@@ -122,7 +119,7 @@
             </p>
           {/if}
           {if $author->getLocalizedBiography()}
-            <button type="button" class="btn" data-toggle="modal" data-target="#authorBiographyModal{$authorKey+1}">
+            <button type="button" >
               {translate key="plugins.themes.healthSciencesPIE.article.authorBio"}
             </button>
             {* Store author biographies to print as modals in the footer *}
