@@ -85,16 +85,18 @@
         {strip}
           <li>
             {if $authorString->getLocalizedAffiliation() or $authorString->getLocalizedBiography()}
-            <a class="author-string-href" href="#author-{$authorStringKey+1}">
+            <a href="#" data-toggle="modal" data-target="#authorBiographyModal{$authorKey+1}">
               <span>{$authorString->getFullName()|escape}</span>
               <sup class="author-symbol author-plus">&plus;</sup>
-              <sup class="author-symbol author-minus hide">&minus;</sup>
             </a>
             {else}
             <span>{$authorString->getFullName()|escape}</span>
             {/if}
             {if $authorString->getOrcid()}
-              <a class="orcidImage" href="{$authorString->getOrcid()|escape}"><img src="{$baseUrl}/{$orcidImage}"></a>
+              <a class="orcidImage" href="{$authorString->getOrcid()|escape}">
+                <img src="{$baseUrl}/{$orcidImage}">
+                {$author->getOrcid()|escape}
+              </a>
             {/if}
             {if $authorString->getLocalizedAffiliation()}
               &nbsp;({$authorString->getLocalizedAffiliation()|escape})
@@ -110,18 +112,7 @@
     <section class="article-details-authors">
       {foreach from=$publication->getData('authors') item=author key=authorKey}
         <div class="article-details-author hideAuthor" id="author-{$authorKey+1}">
-          {if $author->getOrcid()}
-            <p class="article-details-author-orcid">
-              <a href="{$author->getOrcid()|escape}" target="_blank" rel="noopener">
-                {$orcidIcon}
-                {$author->getOrcid()|escape}
-              </a>
-            </p>
-          {/if}
           {if $author->getLocalizedBiography()}
-            <button type="button" >
-              {translate key="plugins.themes.healthSciencesPIE.article.authorBio"}
-            </button>
             {* Store author biographies to print as modals in the footer *}
             {capture append="authorBiographyModalsTemp"}
               <section
@@ -140,6 +131,10 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="{translate|escape key="common.close"}">
                       <span aria-hidden="true">&times;</span>
                     </button>
+                    {if $authorString->getLocalizedAffiliation()}
+                      <p>{$authorString->getLocalizedAffiliation()|escape}</p>
+                      <hr/>
+                    {/if}
                     {$author->getLocalizedBiography()|strip_unsafe_html}
                   </div>
                 </div>

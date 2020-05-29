@@ -36,7 +36,7 @@
     			{include file="frontend/components/notification.tpl" messageKey="editor.issues.preview"}
     		{/if}
 
-    			<h1 class="page-issue-title">{$issue->getIssueSeries()|escape}</h1>
+    			<h1>{$issue->getIssueSeries()|escape}</h1>
 
     			<time datetime="{$issue->getDatePublished()}">
     				{translate key="plugins.themes.healthSciencesPIE.currentIssuePublished" date=$issue->getDatePublished()|date_format:$dateFormatLong}

@@ -50,7 +50,7 @@
         {if $issue}
           <p>{translate key="journal.currentIssue"}</p>
 
-          <h2 class="page-issue-title">
+          <h2>
             {$issue->getIssueSeries()|escape}
           </h2>
 
