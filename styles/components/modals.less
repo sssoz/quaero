@@ -1,4 +1,5 @@
 .modal-content {
+  padding: 2rem;
 	background: @primary;
   background-image: url("/plugins/themes/healthSciencesPIE/templates/images/bg-noise.png");
   border-radius: 0;
@@ -6,6 +7,10 @@
 
 	.close {
 		color: @parchment;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 2rem;
 		text-shadow: none;
 		opacity: 1;
 	}
@@ -45,23 +50,5 @@
       border-color: @parchment;
 			color: @parchment;
 		}
-	}
-
-	@media (min-width: 992px) {
-		padding: 2rem;
-
-		.close {
-			position: absolute;
-			top: 0.5rem;
-			right: 0.8rem;
-		}
-	}
-}
-
-@media (min-width: 992px) {
-
-	#loginModal .close {
-		top: -2.5rem;
-		right: -2rem;
 	}
 }

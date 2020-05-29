@@ -84,13 +84,13 @@
       {foreach from=$publication->getData('authors') item=authorString key=authorStringKey}
         {strip}
           <li>
-            {if $authorString->getLocalizedAffiliation() or $authorString->getLocalizedBiography()}
+            {if $authorString->getLocalizedBiography()}
             <a href="#" data-toggle="modal" data-target="#authorBiographyModal{$authorKey+1}">
               <span>{$authorString->getFullName()|escape}</span>
-              <sup class="author-symbol author-plus">&plus;</sup>
+              <sup>&plus;</sup>
             </a>
             {else}
-            <span>{$authorString->getFullName()|escape}</span>
+            {$authorString->getFullName()|escape}
             {/if}
             {if $authorString->getOrcid()}
               <a class="orcidImage" href="{$authorString->getOrcid()|escape}">
@@ -111,37 +111,37 @@
     {assign var="authorBioIndex" value=0}
     <section class="article-details-authors">
       {foreach from=$publication->getData('authors') item=author key=authorKey}
-        <div class="article-details-author hideAuthor" id="author-{$authorKey+1}">
-          {if $author->getLocalizedBiography()}
-            {* Store author biographies to print as modals in the footer *}
-            {capture append="authorBiographyModalsTemp"}
-              <section
-                  class="modal fade"
-                  id="authorBiographyModal{$authorKey+1}"
-                  tabindex="-1"
-                  role="dialog"
-                  aria-labelledby="authorBiographyModalTitle{$authorKey+1}"
-                  aria-hidden="true"
-              >
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <h2 id="authorBiographyModalTitle{$authorKey+1}">
+        {if $author->getLocalizedBiography()}
+          {* Store author biographies to print as modals in the footer *}
+          {capture append="authorBiographyModalsTemp"}
+            <section
+                class="modal fade"
+                id="authorBiographyModal{$authorKey+1}"
+                tabindex="0"
+                role="dialog"
+                aria-labelledby="authorBiographyModalTitle{$authorKey+1}"
+                aria-hidden="true"
+            >
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <header>
+                    <h3 id="authorBiographyModalTitle{$authorKey+1}">
                       {$author->getFullName()|escape}
-                    </h2>
+                    </h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="{translate|escape key="common.close"}">
                       <span aria-hidden="true">&times;</span>
                     </button>
-                    {if $authorString->getLocalizedAffiliation()}
-                      <p>{$authorString->getLocalizedAffiliation()|escape}</p>
-                      <hr/>
-                    {/if}
-                    {$author->getLocalizedBiography()|strip_unsafe_html}
-                  </div>
+                  </header>
+                  {if $authorString->getLocalizedAffiliation()}
+                    <p>{$authorString->getLocalizedAffiliation()|escape}</p>
+                    <hr/>
+                  {/if}
+                  {$author->getLocalizedBiography()|strip_unsafe_html}
                 </div>
-              </section>
-            {/capture}
-          {/if}
-        </div>
+              </div>
+            </section>
+          {/capture}
+        {/if}
       {/foreach}
     </section>
 
@@ -157,7 +157,7 @@
 
   {* Abstract *}
   {if $publication->getLocalizedData('abstract')}
-    <section class="article-details-block article-details-abstract">
+    <section>
       <h2>{translate key="article.abstract"}</h2>
       {$publication->getLocalizedData('abstract')|strip_unsafe_html}
     </section>
@@ -165,7 +165,7 @@
 
   {* References *}
   {if $parsedCitations || $publication->getData('citationsRaw')}
-    <section class="article-details-block article-details-references">
+    <section>
       <h2>
         {translate key="submission.citations"}
       </h2>
@@ -183,7 +183,7 @@
 
   {* Licensing info *}
   {if $copyright || $licenseUrl}
-    <section class="article-details-block article-details-license">
+    <section>
       {if $licenseUrl}
         {if $ccLicenseBadge}
           {$ccLicenseBadge}
@@ -208,12 +208,6 @@
   {call_hook name="Templates::Article::Main"}
 
   <aside>
-    {* Pass author biographies to a global variable for use in footer.tpl *}
-    {capture name="authorBiographyModals"}
-      {foreach from=$authorBiographyModalsTemp item="modal"}
-        {$modal}
-      {/foreach}
-    {/capture}
 
     {* Display other versions *}
     {if $publication->getData('datePublished')}
@@ -242,7 +236,7 @@
 
     {* Supplementary galleys *}
     {if $supplementaryGalleys}
-      <section class="article-details-block article-details-galleys-supplementary">
+      <section>
         <h2>{translate key="plugins.themes.healthSciencesPIE.article.supplementaryFiles"}</h2>
         {foreach from=$supplementaryGalleys item=galley}
           <div class="article-details-galley">
@@ -254,7 +248,7 @@
 
     {* Keywords *}
     {if !empty($keywords[$currentLocale])}
-      <section class="article-details-block article-details-keywords">
+      <section>
         <h2>
           {translate key="article.subject"}
         </h2>
@@ -270,7 +264,7 @@
 
     {* How to cite *}
     {if $citation}
-      <section class="article-details-block article-details-how-to-cite">
+      <section>
         <h2>
           {translate key="submission.howToCite"}
         </h2>
@@ -315,7 +309,7 @@
       {/if}
       {assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
       {if $pubId}
-        <section class="article-details-block article-details-pubid">
+        <section>
           <h2>
             {$pubIdPlugin->getPubIdDisplayType()|escape}
           </h2>
