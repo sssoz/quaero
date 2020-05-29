@@ -10,49 +10,48 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="user.login.resetPassword"}
 
-<main class="container page-lost-password">
-	<header class="row page-header justify-content-md-center">
-		<div class="col-md-8">
-			<h1 class="text-md-center">{translate key="user.login.resetPassword"}</h1>
-		</div>
-	</header>
-	<div class="row justify-content-md-center">
-    <div class="col-md-8 page-content">
-      <p>{translate key="user.login.resetPasswordInstructions"}</p>
-      {if $error}
-        <div class="alert alert-danger">
-          {translate key=$error}
-        </div>
-      {/if}
-      <div class="row justify-content-md-center mt-5">
-        <div class="col-md-6">
-          <form class="form-lost-password" action="{url page="login" op="requestResetPassword"}" method="post">
-            {csrf}
-            <div class="form-group">
-              <label for="email">
-                {translate key="user.login.registeredEmail"}
-                <span class="required" aria-hidden="true">*</span>
-                <span class="sr-only">{translate key="common.required"}</span>
-              </label>
-              <input type="text" class="form-control" name="email" id="email" value="{$email|escape}" required>
-            </div>
-            <div class="form-group form-group-buttons">
-              <button class="btn btn-primary" type="submit">
-                {translate key="user.login.resetPassword"}
-              </button>
+<main class="container">
 
-              {if !$disableUserReg}
-                {capture assign=registerUrl}{url page="user" op="register" source=$source}{/capture}
-                <a href="{$registerUrl}" class="btn btn-link">
-                  {translate key="user.login.registerNewAccount"}
-                </a>
-              {/if}
-            </div>
-          </form>
-        </div>
+  <div class="row justify-content-center">
+
+    <div class="col-11 col-lg-9 page">
+      <header class="page-header justify-content-md-center">
+    			<h1>{translate key="user.login.resetPassword"}</h1>
+          <p>{translate key="user.login.resetPasswordInstructions"}</p>
+    	</header>
+
+      <div class="page-content justify-content-md-center">
+        {if $error}
+          <div class="alert alert-danger">
+            {translate key=$error}
+          </div>
+        {/if}
+        <form class="form-lost-password" action="{url page="login" op="requestResetPassword"}" method="post">
+          {csrf}
+          <div class="form-group">
+            <label for="email">
+              {translate key="user.login.registeredEmail"}
+              <span class="required" aria-hidden="true">*</span>
+              <span class="sr-only">{translate key="common.required"}</span>
+            </label>
+            <input type="text" class="form-control" name="email" id="email" value="{$email|escape}" required>
+          </div>
+          <div class="form-group form-group-buttons">
+            <button class="btn btn-primary" type="submit">
+              {translate key="user.login.resetPassword"}
+            </button>
+
+            {if !$disableUserReg}
+              {capture assign=registerUrl}{url page="user" op="register" source=$source}{/capture}
+              <a href="{$registerUrl}" class="btn btn-link">
+                {translate key="user.login.registerNewAccount"}
+              </a>
+            {/if}
+          </div>
+        </form>
       </div>
     </div>
-	</div>
+  </div>
 </main>
 
 {include file="frontend/components/footer.tpl"}

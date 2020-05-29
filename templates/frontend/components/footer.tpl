@@ -14,21 +14,12 @@
 			{call_hook name="Templates::Common::Sidebar"}
 		</div>
 	</div>
-	<div class="container site-footer-content">
-		<div class="row">
-			{if $pageFooter}
-				<div class="col-md site-footer-content align-self-center">
-					{$pageFooter}
-				</div>
-			{/if}
-
-			<div class="col-md col-md-2 align-self-center text-right">
-				<a href="{url page="about" op="aboutThisPublishingSystem"}">
-					<img class="footer-brand-image" alt="{translate key="about.aboutThisPublishingSystem"}"
-					     src="{$baseUrl}/{$brandImage}">
-				</a>
-			</div>
-		</div>
+	<div class="container">
+    <div class="text-right">
+      <a href="{url page="about" op="aboutThisPublishingSystem"}">
+        <img class="footer-brand-image" alt="{translate key="about.aboutThisPublishingSystem"}" src="{$baseUrl}/{$brandImage}">
+      </a>
+    </div>
 	</div>
 </footer><!-- pkp_structure_footer_wrapper -->
 
