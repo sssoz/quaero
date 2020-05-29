@@ -23,7 +23,7 @@
 	<message key="plugins.themes.healthSciencesPIE.issuePubId">{$pubIdType}: {$pubId}</message>
 	<message key="plugins.themes.healthSciencesPIE.more">{$text}…</message>
 
-	<message key="plugins.themes.healthSciencesPIE.article.authorBio">Bio</message>
+	<message key="plugins.themes.healthSciencesPIE.article.authorBio">Biography</message>
 	<message key="plugins.themes.healthSciencesPIE.article.supplementaryFiles">Supplementary Files</message>
 
 	<message key="plugins.themes.healthSciencesPIE.register.haveAccount">Already have an account?</message>

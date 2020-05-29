@@ -9,6 +9,10 @@
   font-size: 0.85rem;
   color: @dark-grey;
 
+  strong {
+    color: @black;
+  }
+
   &:first-child {
     margin-top: 0;
   }
@@ -40,28 +44,6 @@
 			color: @mid-grey;
 		}
 	}
-}
-
-@media (max-width: 991px){
-	.authors-string {
-		display: none;
-	}
-}
-
-@media (min-width: 992px) {
-	.article-details-author.hideAuthor {
-		display: none;
-	}
-}
-
-// Article details section
-.article-details-issue-section {
-	text-transform: uppercase;
-}
-
-.article-details-block,
-.article-details .item {
-	margin-bottom: 3rem;
 }
 
 .article-details-heading,
@@ -215,11 +197,6 @@
 			font-size: 1.5rem;
 			color: @dark-grey;
 		}
-
-		.article-details-block:last-child,
-		.item:last-child {
-			margin-bottom: 0;
-		}
 	}
 
 	.article-details-galleys-btm {
@@ -253,113 +230,6 @@
 	.article-footer-hook {
 		margin-top: 40px;
 	}
-}
-
-@media (max-width: 991px) {
-
-	.article-details-galley {
-		display: inline-block;
-
-		&:not(:last-child) {
-			margin-right: 0.3rem;
-		}
-	}
-
-	.article-details-keywords-value {
-		& br {
-			display: none;
-		}
-
-		& span:not(:last-child):after {
-			content: ", ";
-		}
-	}
-
-	.article-blocks-mobile {
-
-		display: flex;
-		flex-direction: column;
-
-		& > .article-details-cover {
-			display: none;
-		}
-
-		& > .article-details-galleys {
-			order: 1;
-		}
-
-		& > .article-details-galleys-supplementary {
-			order: 2;
-		}
-
-		& > .article-details-abstract {
-			order: 3;
-		}
-
-		& > .article-details-doi.small-screen {
-			order: 4;
-		}
-
-		& > .article-details-pubid {
-			order: 5;
-		}
-
-		& > .article-details-keywords {
-			order: 6;
-		}
-
-		& > .article-details-how-to-cite {
-			order: 7;
-		}
-
-		& > .article-details-references {
-			order: 8;
-		}
-
-		& > .article-details-license {
-			order: 9;
-		}
-
-		// Ensure that all elements from the sidebar hook will be appear last.
-		& > * {
-			order: 10;
-			margin-bottom: 40px;
-			margin-top: 0;
-		}
-	}
-
-	.article-meta-mobile {
-		display: flex;
-		flex-direction: column;
-	}
-
-	.article-details-issue-section {
-		order: 1;
-		& a {
-			color: @mid-grey;
-		}
-	}
-
-	.article-details-published {
-		order: 2;
-		margin-top: 0;
-	}
-
-	.article-details-fulltitle {
-		order: 3;
-		margin-top: 40px;
-		margin-bottom: 20px;
-	}
-
-	.article-details-authors {
-		order: 4;
-	}
-
-	.article-details-abstract + .article-details-doi {
-		margin-top: -30px;
-	}
-
-
 }
 
 // Recommend author

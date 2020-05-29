@@ -106,45 +106,6 @@
       {/foreach}
     </ul>
 
-    {* Authors *}
-    {assign var="authorCount" value=$publication->getData('authors')|@count}
-    {assign var="authorBioIndex" value=0}
-    <section class="article-details-authors">
-      {foreach from=$publication->getData('authors') item=author key=authorKey}
-        {if $author->getLocalizedBiography()}
-          {* Store author biographies to print as modals in the footer *}
-          {capture append="authorBiographyModalsTemp"}
-            <section
-                class="modal fade"
-                id="authorBiographyModal{$authorKey+1}"
-                tabindex="0"
-                role="dialog"
-                aria-labelledby="authorBiographyModalTitle{$authorKey+1}"
-                aria-hidden="true"
-            >
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <header>
-                    <h3 id="authorBiographyModalTitle{$authorKey+1}">
-                      {$author->getFullName()|escape}
-                    </h3>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="{translate|escape key="common.close"}">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </header>
-                  {if $authorString->getLocalizedAffiliation()}
-                    <p>{$authorString->getLocalizedAffiliation()|escape}</p>
-                    <hr/>
-                  {/if}
-                  {$author->getLocalizedBiography()|strip_unsafe_html}
-                </div>
-              </div>
-            </section>
-          {/capture}
-        {/if}
-      {/foreach}
-    </section>
-
   {/if}
 </header>
 
@@ -301,6 +262,43 @@
         </div>
       </section>
     {/if}
+
+    {* Authors’ biographies *}
+    {assign var="authorCount" value=$publication->getData('authors')|@count}
+    {assign var="authorBioIndex" value=0}
+    <section>
+      <h2 class="sr-only">{translate key="plugins.themes.healthSciencesPIE.article.authorBio"}</h2>
+      {foreach from=$publication->getData('authors') item=author key=authorKey}
+        {if $author->getLocalizedBiography()}
+        <section
+            class="modal fade"
+            id="authorBiographyModal{$authorKey+1}"
+            tabindex="0"
+            role="dialog"
+            aria-labelledby="authorBiographyModalTitle{$authorKey+1}"
+            aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <header>
+                <h3 id="authorBiographyModalTitle{$authorKey+1}">
+                  {$author->getFullName()|escape}
+                </h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="{translate|escape key="common.close"}">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </header>
+              {if $authorString->getLocalizedAffiliation()}
+                <p>{$authorString->getLocalizedAffiliation()|escape}</p>
+                <hr/>
+              {/if}
+              {$author->getLocalizedBiography()|strip_unsafe_html}
+            </div>
+          </div>
+        </section>
+        {/if}
+      {/foreach}
+    </section>
 
     {* PubIds (other than DOI; requires plugins) *}
     {foreach from=$pubIdPlugins item=pubIdPlugin}
