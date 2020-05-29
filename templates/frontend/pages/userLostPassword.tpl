@@ -14,10 +14,10 @@
 
   <div class="row justify-content-center">
 
-    <div class="col-11 col-lg-9 page">
+    <div class="col-11 col-md-6 page">
       <header class="page-header justify-content-md-center">
-    			<h1>{translate key="user.login.resetPassword"}</h1>
-          <p>{translate key="user.login.resetPasswordInstructions"}</p>
+    		<h1>{translate key="user.login.resetPassword"}</h1>
+        <p>{translate key="user.login.resetPasswordInstructions"}</p>
     	</header>
 
       <div class="page-content justify-content-md-center">

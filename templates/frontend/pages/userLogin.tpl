@@ -10,24 +10,25 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="user.login"}
 
-<main class="container page-login">
-	<header class="row page-header justify-content-md-center">
-		<div class="col-md-8">
-			<h1>{translate key="user.login"}</h1>
-		</div>
-	</header>
-	<div class="row justify-content-md-center">
-    <div class="col-md-8 page-content">
+<main class="container">
 
-      {* A login message may be displayed if the user was redireceted to the
-         login page from another request. Examples include if login is required
-         before dowloading a file. *}
-      {if $loginMessage}
-        <p>
-          {translate key=$loginMessage}
-        </p>
-      {/if}
+  <div class="row justify-content-center">
 
+    <div class="col-11 col-md-6 page">
+      <header class="page-header justify-content-md-center">
+  			<h1>{translate key="user.login"}</h1>
+
+        {* A login message may be displayed if the user was redireceted to the
+           login page from another request. Examples include if login is required
+           before dowloading a file. *}
+        {if $loginMessage}
+          <p>
+            {translate key=$loginMessage}
+          </p>
+        {/if}
+    	</header>
+
+      <div class="page-content justify-content-md-center">
       {if $error}
         <div class="alert alert-danger" role="alert">
           {translate key=$error reason=$reason}
@@ -35,8 +36,8 @@
       {/if}
 
       {include file="frontend/components/loginForm.tpl" formType = "loginPage"}
-
+      </div>
     </div>
-	</div>
+  </div>
 </main>
 {include file="frontend/components/footer.tpl"}
