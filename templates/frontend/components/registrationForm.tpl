@@ -36,7 +36,7 @@
 				<label for="familyName">
 					{translate key="user.familyName"}
 				</label>
-				<input type="text" name="familyName" value="{$familyName|escape}" maxlength="255">
+				<input type="text" name="familyName" id="familyName" value="{$familyName|escape}" maxlength="255">
 			</div>
 			<div class="form-group">
 				<label for="affiliation">
