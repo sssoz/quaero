@@ -10,6 +10,7 @@
   color: @dark-grey;
 
   strong {
+    font-weight: 400;
     color: @black;
   }
 
@@ -28,80 +29,6 @@
 
 .article-details-meta-upper {
   text-transform: uppercase;
-}
-
-.article-details-issue-identifier {
-	margin-bottom: 0.5em;
-	font-family: @font;
-	color: @mid-grey;
-
-	a {
-		text-decoration: none;
-		color: @mid-grey;
-
-		&:hover,
-		&:focus {
-			color: @mid-grey;
-		}
-	}
-}
-
-.article-details-heading,
-.article-details .item > .label {
-	color: @mid-grey;
-}
-
-.article-details-cover {
-	max-width: 210px;
-}
-
-.article-details-author {
-	margin-bottom: 1rem;
-}
-
-.article-details-author-affiliation {
-	font-size: 0.9rem;
-	color: @mid-grey;
-}
-
-.article-details-author-orcid {
-	font-size: 0.8rem;
-
-	a {
-		text-decoration: none;
-
-		&:hover,
-		&:focus {
-			color: @mid-grey;
-		}
-	}
-}
-
-.article-details-bio-toggle {
-	padding: 0;
-	font-size: 0.9rem;
-	color: @primary;
-	border: none;
-	background: transparent;
-	cursor: pointer;
-
-	&:hover,
-	&:focus {
-		color: @mid-grey;
-	}
-}
-
-.article-details-galley:not(:last-child) {
-	margin-bottom: 0.5rem;
-}
-
-.article-details-galleys-supplementary .article-details-heading {
-	margin-bottom: 14px;
-}
-
-.article-details-how-to-cite-citation {
-	margin-bottom: 0.5rem;
-	font-size: 0.9rem
 }
 
 // Hide the bibliography number produced by some CSL styles
@@ -131,116 +58,9 @@
 	text-overflow: ellipsis;
 }
 
-@media (min-width: 992px) {
-
-	// Special treatment for authors blocks (article's header and details)
-	.authors-string {
-		margin-top: 1em;
-		margin-bottom: 1em;
-		padding-left: 0;
-
-		& li {
-			display: inline;
-			list-style-type: none;
-
-			&:not(:last-child):after {
-				content: ", ";
-			}
-		}
-
-		& .author-string-href {
-			color: @dark-grey;
-			cursor: pointer;
-
-			&:hover {
-				text-decoration: none;
-				color: @primary;
-			}
-		}
-	}
-
-	.orcidImage {
-		margin-left: 3px;
-		margin-right: 1px;
-	}
-
-	.author-string-href.active {
-		color: @primary;
-	}
-
-	.author-symbol {
-		font-family: sans-serif;
-		font-weight: bold;
-		margin-left: 2px;
-		color: @primary;
-
-		&.hide {
-			display: none;
-		}
-	}
-
-	.article-details-issue-identifier {
-		margin-bottom: 1em;
-		font-size: 1.1em;
-		line-height: 1.6em;
-	}
-
-	.article-details h1 {
-		font-size: 2.5rem;
-	}
-
-	.article-details-main {
-
-		.article-details-heading,
-		.item > .label {
-			margin-bottom: 1rem;
-			font-size: 1.5rem;
-			color: @dark-grey;
-		}
-	}
-
-	.article-details-galleys-btm {
-		display: block;
-	}
-
-	.galleys-without-abstract div {
-		display: block;
-
-		&:not(:last-child) {
-			margin-bottom: 10px;
-		}
-	}
-
-	.article-details-galleys-sidebar {
-		display: none;
-	}
-
-	.article-details-galley {
-		display: inline-block;
-	}
-
-	.article-details-galley:not(:last-child) {
-		margin-bottom: 0;
-	}
-
-	.article-details-references-value {
-		font-size: 0.9rem;
-	}
-
-	.article-footer-hook {
-		margin-top: 40px;
-	}
-}
-
 // Recommend author
 #articlesBySameAuthorList {
-	margin-bottom: 40px;
-
-	& ul {
-		list-style: none;
-		padding-left: 32px;
-		margin-top: 25px;
-	}
+	.unstyled-list;
 }
 
 #articlesBySameAuthorList li {

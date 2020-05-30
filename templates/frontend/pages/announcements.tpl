@@ -19,7 +19,9 @@
       <header class="page-header">
         <h1>{translate key="announcement.announcements"}</h1>
         <p>{$announcementsIntroduction|strip_unsafe_html}</p>
-        {include file="frontend/components/editLink.tpl" page="management" op="settings" path="website" anchor="announcements" sectionTitleKey="announcement.announcements"}
+        <p>
+          {include file="frontend/components/editLink.tpl" page="management" op="settings" path="website" anchor="announcements" sectionTitleKey="announcement.announcements"}
+        </p>
       </header>
 
       <div class="page-content">

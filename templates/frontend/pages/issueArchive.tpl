@@ -31,7 +31,7 @@
 
 	{* No issues have been published *}
 	{if empty($issues)}
-		<header class="page-header page-issue-header">
+		<header class="page-header">
 			{include file="frontend/components/notification.tpl" messageKey="current.noCurrentIssueDesc"}
 		</header>
 

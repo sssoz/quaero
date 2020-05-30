@@ -13,57 +13,60 @@
 {include file="frontend/components/header.tpl"}
 {/strip}
 
-<main class="container page-author-index">
-	<header class="row page-header justify-content-md-center">
-		<div class="col-md-8">
-			<h1>{translate key="search.authorIndex"}</h1>
-		</div>
-	</header>
-	<div class="row justify-content-md-center">
-    <div class="col-md-8 page-content">
-      <p>{foreach from=$alphaList item=letter}<a href="{url op="authors" searchInitial=$letter}">{if $letter == $searchInitial}<strong>{$letter|escape}</strong>{else}{$letter|escape}{/if}</a> {/foreach}<a href="{url op="authors"}">{if $searchInitial==''}<strong>{translate key="common.all"}</strong>{else}{translate key="common.all"}{/if}</a></p>
+<main class="container">
 
-      <div id="authors">
-      {iterate from=authors item=author}
-        {assign var=lastFirstLetter value=$firstLetter}
-        {assign var=firstLetter value=$author->getLastName()|escape|String_substr:0:1}
+  <div class="row justify-content-center">
 
-        {if $lastFirstLetter|lower != $firstLetter|lower}
-            <div id="{$firstLetter|escape}">
-          <h3>{$firstLetter|escape}</h3>
-            </div>
-        {/if}
+    <div class="col-11 col-lg-9 page">
+      <header class="page-header justify-content-md-center">
+    		<h1>{translate key="search.authorIndex"}</h1>
+    	</header>
 
-        {assign var=lastAuthorName value=$authorName}
-        {assign var=lastAuthorCountry value=$authorCountry}
+      <div class="page-content justify-content-md-center">
+        <p>{foreach from=$alphaList item=letter}<a href="{url op="authors" searchInitial=$letter}">{if $letter == $searchInitial}<strong>{$letter|escape}</strong>{else}{$letter|escape}{/if}</a> {/foreach}<a href="{url op="authors"}">{if $searchInitial==''}<strong>{translate key="common.all"}</strong>{else}{translate key="common.all"}{/if}</a></p>
 
-        {assign var=authorAffiliation value=$author->getLocalizedAffiliation()}
-        {assign var=authorCountry value=$author->getCountry()}
+        <div>
+        {iterate from=authors item=author}
+          {assign var=lastFirstLetter value=$firstLetter}
+          {assign var=firstLetter value=$author->getLastName()|escape|String_substr:0:1}
 
-        {assign var=authorFirstName value=$author->getFirstName()}
-        {assign var=authorMiddleName value=$author->getMiddleName()}
-        {assign var=authorLastName value=$author->getLastName()}
-        {assign var=authorName value="$authorLastName, $authorFirstName"}
-
-        {if $authorMiddleName != ''}{assign var=authorName value="$authorName $authorMiddleName"}{/if}
-        {strip}
-          <a href="{url op="authors" path="view" firstName=$authorFirstName middleName=$authorMiddleName lastName=$authorLastName affiliation=$authorAffiliation country=$authorCountry}">{$authorName|escape}</a>
-          {if $authorAffiliation}, {$authorAffiliation|escape}{/if}
-          {if $lastAuthorName == $authorName && $lastAuthorCountry != $authorCountry}
-            {* Disambiguate with country if necessary (i.e. if names are the same otherwise) *}
-            {if $authorCountry} ({$author->getCountryLocalized()}){/if}
+          {if $lastFirstLetter|lower != $firstLetter|lower}
+              <div id="{$firstLetter|escape}">
+            <h3>{$firstLetter|escape}</h3>
+              </div>
           {/if}
-        {/strip}
-        <br/>
-      {/iterate}
-      {if !$authors->wasEmpty()}
-        <br />
-        {page_info iterator=$authors}&nbsp;&nbsp;&nbsp;&nbsp;{page_links anchor="authors" iterator=$authors name="authors" searchInitial=$searchInitial}
-      {else}
-      {/if}
+
+          {assign var=lastAuthorName value=$authorName}
+          {assign var=lastAuthorCountry value=$authorCountry}
+
+          {assign var=authorAffiliation value=$author->getLocalizedAffiliation()}
+          {assign var=authorCountry value=$author->getCountry()}
+
+          {assign var=authorFirstName value=$author->getFirstName()}
+          {assign var=authorMiddleName value=$author->getMiddleName()}
+          {assign var=authorLastName value=$author->getLastName()}
+          {assign var=authorName value="$authorLastName, $authorFirstName"}
+
+          {if $authorMiddleName != ''}{assign var=authorName value="$authorName $authorMiddleName"}{/if}
+          {strip}
+            <a href="{url op="authors" path="view" firstName=$authorFirstName middleName=$authorMiddleName lastName=$authorLastName affiliation=$authorAffiliation country=$authorCountry}">{$authorName|escape}</a>
+            {if $authorAffiliation}, {$authorAffiliation|escape}{/if}
+            {if $lastAuthorName == $authorName && $lastAuthorCountry != $authorCountry}
+              {* Disambiguate with country if necessary (i.e. if names are the same otherwise) *}
+              {if $authorCountry} ({$author->getCountryLocalized()}){/if}
+            {/if}
+          {/strip}
+          <br/>
+        {/iterate}
+        {if !$authors->wasEmpty()}
+          <br />
+          {page_info iterator=$authors}&nbsp;&nbsp;&nbsp;&nbsp;{page_links anchor="authors" iterator=$authors name="authors" searchInitial=$searchInitial}
+        {else}
+        {/if}
+        </div>
       </div>
     </div>
-	</div>
+  </div>
 </main>
 
 {include file="frontend/components/footer.tpl"}

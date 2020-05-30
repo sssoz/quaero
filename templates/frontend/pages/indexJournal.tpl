@@ -46,7 +46,7 @@
     {/if}
 
     <section class="col-11 col-lg-9 page">
-      <header class="page-header page-issue-header">
+      <header class="page-header">
         {if $issue}
           <p>{translate key="journal.currentIssue"}</p>
 

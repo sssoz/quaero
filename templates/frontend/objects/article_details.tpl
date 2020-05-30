@@ -86,11 +86,11 @@
           <li>
             {if $authorString->getLocalizedBiography()}
             <a href="#" data-toggle="modal" data-target="#authorBiographyModal{$authorKey+1}">
-              <span>{$authorString->getFullName()|escape}</span>
+              {$authorString->getFullName()|escape}
               <sup>&plus;</sup>
             </a>
             {else}
-            {$authorString->getFullName()|escape}
+            <strong>{$authorString->getFullName()|escape}</strong>
             {/if}
             {if $authorString->getOrcid()}
               <a class="orcidImage" href="{$authorString->getOrcid()|escape}">
@@ -110,17 +110,24 @@
 </header>
 
 <div class="page-content justify-content-md-center">
-  {if $primaryGalleys}
-  {foreach from=$primaryGalleys item=galley}
-    {include file="frontend/objects/galley_link.tpl" parent=$article galley=$galley purchaseFee=$currentJournal->getSetting('purchaseArticleFee') purchaseCurrency=$currentJournal->getSetting('currency')}
-  {/foreach}
-  {/if}
 
   {* Abstract *}
   {if $publication->getLocalizedData('abstract')}
     <section>
       <h2>{translate key="article.abstract"}</h2>
       {$publication->getLocalizedData('abstract')|strip_unsafe_html}
+    </section>
+  {/if}
+
+  {* Galley buttons *}
+  {if $primaryGalleys}
+    <section>
+      <h2 class="sr-only">{translate key="plugins.importexport.common.export.representations"}</h2>
+      <p>
+        {foreach from=$primaryGalleys item=galley}
+          {include file="frontend/objects/galley_link.tpl" parent=$article galley=$galley purchaseFee=$currentJournal->getSetting('purchaseArticleFee') purchaseCurrency=$currentJournal->getSetting('currency')}
+        {/foreach}
+      </p>
     </section>
   {/if}
 

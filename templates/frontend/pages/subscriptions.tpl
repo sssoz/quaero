@@ -10,7 +10,7 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="about.subscriptions"}
 
-<main class="containe">
+<main class="container">
 	<header class="row page-header justify-content-md-center">
 		<div class="col-md-8">
 			<h1>{translate key="about.subscriptions"}</h1>

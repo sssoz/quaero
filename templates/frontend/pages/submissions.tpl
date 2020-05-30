@@ -39,6 +39,16 @@
 
       <div class="page-content justify-content-md-center">
 
+        {if $currentContext->getLocalizedSetting('authorGuidelines')}
+          <section>
+            <h2>
+              {translate key="about.authorGuidelines"}
+            </h2>
+            {$currentContext->getLocalizedSetting('authorGuidelines')}
+            <p>{include file="frontend/components/editLink.tpl" page="management" op="settings" path="publication" anchor="submissionStage" sectionTitleKey="about.authorGuidelines"}</p>
+          </section>
+        {/if}
+
         {if $submissionChecklist}
           <section>
             <h2>
@@ -53,16 +63,6 @@
               {/foreach}
             </ul>
             <p>{include file="frontend/components/editLink.tpl" page="management" op="settings" path="publication" anchor="submissionStage" sectionTitleKey="about.submissionPreparationChecklist"}</p>
-          </section>
-        {/if}
-
-        {if $currentContext->getLocalizedSetting('authorGuidelines')}
-          <section>
-            <h2>
-              {translate key="about.authorGuidelines"}
-            </h2>
-            {$currentContext->getLocalizedSetting('authorGuidelines')}
-            <p>{include file="frontend/components/editLink.tpl" page="management" op="settings" path="publication" anchor="submissionStage" sectionTitleKey="about.authorGuidelines"}</p>
           </section>
         {/if}
 

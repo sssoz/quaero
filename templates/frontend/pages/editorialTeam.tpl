@@ -22,7 +22,9 @@
 
       <div class="page-content justify-content-md-center">
         {$currentContext->getLocalizedSetting('editorialTeam')}
-        {include file="frontend/components/editLink.tpl" page="management" op="settings" path="context" anchor="masthead" sectionTitleKey="about.editorialTeam"}
+        <p>
+          {include file="frontend/components/editLink.tpl" page="management" op="settings" path="context" anchor="masthead" sectionTitleKey="about.editorialTeam"}
+        </p>
       </div>
     </div>
   </div>

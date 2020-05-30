@@ -9,17 +9,20 @@
  *}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$title}
 
-<main class="container page-custom">
-	<header class="row page-header justify-content-md-center">
-		<div class="col-md-8">
-			<h1>{$title|escape}</h1>
-		</div>
-	</header>
-	<div class="row justify-content-md-center">
-    <div class="col-md-8 page-content">
-      {$content}
+<main class="container">
+
+  <div class="row justify-content-center">
+
+    <div class="col-11 col-lg-9 page">
+      <header class="page-header justify-content-md-center">
+    		<h1>{$title|escape}</h1>
+    	</header>
+
+      <div class="page-content justify-content-md-center">
+        {$content}
+      </div>
     </div>
-	</div>
+  </div>
 </main>
 
 {include file="frontend/components/footer.tpl"}

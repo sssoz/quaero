@@ -30,9 +30,9 @@
     			{translate key=$message}
     		{/if}
   			{if $backLink}
-  				<div class="cmp_back_link">
+  				<p>
   					<a href="{$backLink}">{translate key=$backLinkLabel}</a>
-  				</div>
+  				</p>
   			{/if}
       </div>
     </div>

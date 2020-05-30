@@ -12,20 +12,23 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle=$pageTitle}
 
-<main class="container page-information">
-	<header class="row page-header justify-content-md-center">
-		<div class="col-md-8">
-			<h1>{translate key=$pageTitle}</h1>
-		</div>
-	</header>
-	<div class="row justify-content-md-center">
-    <div class="col-md-8 page-content">
-      {$content}
-      <p>
-        {include file="frontend/components/editLink.tpl" page="management" op="settings" path="website" anchor="information" sectionTitleKey="manager.website.information"}
-      </p>
+<main class="container">
+
+  <div class="row justify-content-center">
+
+    <div class="col-11 col-lg-9 page">
+      <header class="page-header justify-content-md-center">
+    		<h1>{translate key=$pageTitle}</h1>
+    	</header>
+
+      <div class="page-content justify-content-md-center">
+        {$content}
+        <p>
+          {include file="frontend/components/editLink.tpl" page="management" op="settings" path="website" anchor="information" sectionTitleKey="manager.website.information"}
+        </p>
+      </div>
     </div>
-	</div>
+  </div>
 </main>
 
 {include file="frontend/components/footer.tpl"}
