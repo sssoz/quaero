@@ -124,7 +124,7 @@
   {* Galley buttons *}
   {if $primaryGalleys}
     <section>
-      <h2 class="sr-only">{translate key="plugins.importexport.common.export.representations"}</h2>
+      <h2 class="sr-only">{translate key="submission.layout.galleys"}</h2>
       <p>
         {foreach from=$primaryGalleys item=galley}
           {include file="frontend/objects/galley_link.tpl" parent=$article galley=$galley purchaseFee=$currentJournal->getSetting('purchaseArticleFee') purchaseCurrency=$currentJournal->getSetting('currency')}
@@ -336,7 +336,7 @@
     {call_hook name="Templates::Article::Details"}
   </aside>
 
-  <div class="article-footer-hook">
+  <section>
     {call_hook name="Templates::Article::Footer::PageFooter"}
-  </div>
+  </section>
 </div>

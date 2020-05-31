@@ -43,14 +43,14 @@
                 <label for="query">
                   {translate key="common.searchQuery"}
                 </label>
-                <input type="text" id="query" name="query" value="{$query|escape}">
+                <input type="text" id="query" name="query" value="{$query|escape}" placeholder="{translate key='common.keywords'}">
               </p>
 
               <p class="col-6">
                 <label for="authors">
                   {translate key="search.author"}
                 </label>
-                <input type="text" id="authors" name="authors" value="{$authors|escape}">
+                <input type="text" id="authors" name="authors" value="{$authors|escape}" placeholder="{translate key='common.name'}">
               </p>
             </div>
 
@@ -58,13 +58,13 @@
               <label for="dateFromYear">
                 {translate key="search.dateFrom"}
               </label>
-              {html_select_date prefix="dateFrom" time=$dateFrom start_year=$yearStart end_year=$yearEnd year_empty="" month_empty="" day_empty="" field_order="YMD"}
+              {html_select_date prefix="dateFrom" time=$dateFrom start_year=$yearStart end_year=$yearEnd year_empty="{translate key='common.year'}" month_empty="{translate key='common.month'}" day_empty="{translate key='common.day'}" field_order="YMD"}
             </p>
             <p class="ymd-selects">
               <label for="dateToYear">
                 {translate key="search.dateTo"}
               </label>
-              {html_select_date prefix="dateTo" time=$dateTo start_year=$yearStart end_year=$yearEnd year_empty="" month_empty="" day_empty="" field_order="YMD"}
+              {html_select_date prefix="dateTo" time=$dateTo start_year=$yearStart end_year=$yearEnd year_empty="{translate key='common.year'}" month_empty="{translate key='common.month'}" day_empty="{translate key='common.day'}" field_order="YMD"}
             </p>
             <button class="btn btn-primary" type="submit">{translate key="common.search"}</button>
           </form>
