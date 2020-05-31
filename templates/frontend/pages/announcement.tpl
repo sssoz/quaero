@@ -15,7 +15,7 @@
 <main class="container">
   <div class="row justify-content-center">
 
-    <section class="col-11 col-lg-9 page">
+    <section class="col col-lg-9 page">
       <header class="page-header">
         <h1>{$announcement->getLocalizedTitle()|escape}</h1>
         <time class="announcement-date" datetime="{$announcement->getDatePosted()}">

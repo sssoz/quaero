@@ -18,7 +18,7 @@
 
   <div class="row justify-content-center">
 
-    <article class="col-11 col-lg-9 page">
+    <article class="col col-lg-9 page">
       {include file="frontend/objects/article_details.tpl"}
     </article>
 

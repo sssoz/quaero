@@ -15,7 +15,7 @@
 
   <div class="row justify-content-center">
 
-    <div class="col-11 col-lg-9 page">
+    <div class="col col-lg-9 page">
       <header class="page-header justify-content-md-center">
     		<h1>{translate key="user.register"}</h1>
     	</header>

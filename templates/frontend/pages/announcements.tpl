@@ -15,7 +15,7 @@
 <main class="container">
   <div class="row justify-content-center">
 
-    <section class="col-11 col-lg-9 page">
+    <section class="col col-lg-9 page">
       <header class="page-header">
         <h1>{translate key="announcement.announcements"}</h1>
         <p>{$announcementsIntroduction|strip_unsafe_html}</p>
