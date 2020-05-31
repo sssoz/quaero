@@ -18,12 +18,6 @@
  *}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$currentJournal->getLocalizedName()}
 
-{if $homepageImage}
-	<div class="homepage-image{if $issue} homepage-image-behind-issue{/if}">
-		<img src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}" alt="{$homepageImageAltText|escape}">
-	</div>
-{/if}
-
 <main class="container">
 
   <div class="row justify-content-center">
@@ -119,15 +113,15 @@
         {foreach from=$announcements item=announcement}
           <article class="col-md-4 homepage-announcement">
             <h3 class="homepage-announcement-title">{$announcement->getLocalizedTitle()|escape}</h3>
-            <p>{$announcement->getLocalizedDescriptionShort()|strip_unsafe_html}
-              <br>
+            <p>{$announcement->getLocalizedDescriptionShort()|strip_unsafe_html}</p>
+            <p>
               <a href="{url router=$smarty.const.ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}">
                 {capture name="more" assign="more"}{translate key="common.more"}{/capture}
                 {translate key="plugins.themes.healthSciencesPIE.more" text=$more}
               </a>
             </p>
             <footer>
-              <small class="homepage-announcement-date">{$announcement->getDatePosted()|date_format:$dateFormatLong}</small>
+              <time>{$announcement->getDatePosted()|date_format:$dateFormatLong}</time>
             </footer>
           </article>
         {/foreach}
