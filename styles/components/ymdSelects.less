@@ -1,0 +1,22 @@
+/* Inline Year/Month/Day selects */
+
+.ymd-selects {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+
+  label {
+    width: 100%;
+  }
+
+  select {
+    display: inline-block;
+    margin-right: 12.5%;
+    width: 25%;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

@@ -22,25 +22,17 @@
 		font-size: 14px;
 		font-weight: 400;
 		text-transform: uppercase;
+    color: @parchment;
 	}
 
 	.dropdown-menu {
 		padding: 0;
+    background-color: transparent;
+    border-left: 2px solid @parchment;
 	}
 
 	.dropdown-item {
 		padding-left: 1.5em;
-	}
-}
-
-.navbar-brand {
-	max-width: 75%;
-
-	img {
-		width: auto;
-		height: auto;
-		max-height: 1em;
-		max-width: 100%;
 	}
 }
 
@@ -49,17 +41,14 @@
   color: @parchment;
 }
 
-// Journals without a logo
 .navbar-logo-text {
 	display: block;
-	width: 100%;
+	width: 65%;
 	white-space: normal;
-	margin-left: -0.5em;
-	padding-left: 0.5em;
-	padding-right: 0.5em;
 	border: 1px solid transparent;
 	font-family: @font;
 	font-size: 14px;
+  line-height: 1.15;
   color: @parchment;
 }
 
@@ -80,27 +69,21 @@
 	}
 }
 
-.navbar-nav {
 
-	.nav-link,
-	.dropdown-item {
-		color: @parchment;
-
-		&:hover,
-		&:focus {
-			background: @primary;
-			color: @parchment;
-		}
-	}
-
-	.dropdown-menu {
-		background: @black;
-		border: none;
-	}
-}
 
 .badge {
 	font-size: 0.85em;
+}
+
+.navbar-logo-text {
+  @media (min-width: 992px) {
+    width: 75%;
+    font-size: 2.75rem;
+  }
+
+  @media (min-width: 1200px) {
+    width: 60%;
+  }
 }
 
 @media (min-width: 992px) {
@@ -114,8 +97,7 @@
 	}
 
 	.navbar {
-		padding-top: 0;
-		padding-bottom: 0;
+		padding: 0;
 	}
 
 	#userNav,
@@ -132,15 +114,11 @@
 
 	.navbar-logo {
 		display: block;
-		margin-left: auto;
-		margin-right: auto;
-		padding-top: 1rem;
 		padding-bottom: 1.5rem;
-		max-width: 60%;
-		text-align: center;
 
 		img {
 			max-height: 75px;
+      width: auto;
 		}
 
 		a {
@@ -153,10 +131,6 @@
 		}
 	}
 
-	.navbar-logo-text {
-		font-size: 2rem;
-	}
-
 	#primaryNav {
 		justify-content: space-around;
 		position: relative;
@@ -167,11 +141,11 @@
 		.nav-item {
 			position: static;
 			white-space: nowrap;
+      border-bottom: 2px solid transparent;
 
       &:focus,
       &:hover {
-        background-color: @parchment;
-        color: @primary;
+        border-color: @parchment;
       }
 		}
 
@@ -188,12 +162,17 @@
 		}
 
 		.dropdown-item {
+      width: initial;
 			padding: 0.5rem;
+			font-size: 0.85rem;
+			text-align: center;
+      border-bottom: 2px solid transparent;
 
 			&:hover,
 			&:focus {
-				background: @parchment;;
-				color: @contrast;
+        background-color: transparent;
+        color: @parchment;
+				border-color: @parchment;
 			}
 		}
 
@@ -210,19 +189,6 @@
 			padding: 1rem;
 			background-color: @black;
 			border-radius: 0;
-		}
-
-		.dropdown-item {
-			font-size: 0.85rem;
-			text-align: center;
-			width: initial;
-
-			&:focus,
-			&:hover {
-				color: @black;
-				background-color: @parchment;
-			}
-
 		}
 	}
 
@@ -250,7 +216,7 @@
 
 	#userNav .dropdown-menu,
 	.language-toggle .dropdown-menu {
-		padding: 0.5em;
+    border: 0;
 	}
 
 	#userNav .nav-link,
@@ -264,13 +230,15 @@
 
 	#userNav .dropdown-item,
 	.language-toggle .dropdown-item {
-		padding-left: 0.5em;
-		font-size: 14px;
+		padding-left: 1em;
+    background-color: @black;
 		color: @parchment;
+		font-size: 14px;
 		text-transform: none;
 
 		&:hover,
 		&:focus {
+      background-color: @primary;
 			color: @parchment;
 		}
 	}

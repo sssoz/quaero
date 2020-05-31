@@ -25,18 +25,18 @@
 	{if $showAuthor && $article->getPages()}
 		<header class="row">
 			<div class="col">
-				<div class="article-summary-authors">{$article->getAuthorString()|escape}</div>
+				<p class="article-details-meta">{$article->getAuthorString()|escape}</p>
 			</div>
 			<div class="col-3 col-md-2 col-lg-2">
-				<div class="article-summary-pages text-right">
+				<p class="article-details-meta text-right">
 					{$article->getPages()|escape}
-				</div>
+				</p>
 			</div>
 		</header>
 	{elseif $showAuthor}
-		<header class="article-summary-authors">{$article->getAuthorString()|escape}</header>
+		<header class="article-details-meta">{$article->getAuthorString()|escape}</header>
 	{elseif $article->getPages()}
-		<header class="article-summary-pages">
+		<header class="article-details-meta">
 			{$article->getPages()|escape}
 		</header>
 	{/if}
@@ -48,9 +48,9 @@
 	</h3>
 
 	{if $showDatePublished && $article->getDatePublished()}
-		<div class="article-summary-date">
+		<time class="article-details-meta">
 			{$article->getDatePublished()|date_format:$dateFormatLong}
-		</div>
+		</time>
 	{/if}
 
 	{* Get DOI from DOIPubIdPlugin object *}
@@ -62,23 +62,23 @@
 			{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
 			{if $pubId}
 				{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
-				<div class="article-summary-doi">
+				<p class="article-details-meta">
 					<a href="{$doiUrl}">{$doiUr}</a>
-				</div>
+				</p>
 			{/if}
 		{/foreach}
 	{* Get DOI from PublishedArticle object ($pubIdPlugin isn't assigned to indexJournal template) *}
 	{elseif $requestedOp === "index" && $article->getStoredPubId('doi')}
 		{assign var="doiUrl" value=$article->getStoredPubId('doi')|substr_replace:'https://doi.org/':0:0|escape}
 		{if $doiUrl}
-			<div class="article-summary-doi">
+			<p class="article-details-meta">
 				<a href="{$doiUrl}">{$doiUrl}</a>
-			</div>
+			</p>
 		{/if}
 	{/if}
 
 	{if !$hideGalleys && $article->getGalleys()}
-		<div class="article-summary-galleys">
+		<p>
 			{foreach from=$article->getGalleys() item=galley}
 				{if $primaryGenreIds}
 					{assign var="file" value=$galley->getFile()}
@@ -92,7 +92,7 @@
 				{/if}
 				{include file="frontend/objects/galley_link.tpl" parent=$article hasAccess=$hasArticleAccess}
 			{/foreach}
-		</div>
+		</p>
 	{/if}
 
 	{call_hook name="Templates::Issue::Issue::Article"}

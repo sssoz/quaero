@@ -23,25 +23,23 @@
   <div class="row justify-content-center">
 
     {if $showJournalDescription && $currentJournal->getLocalizedDescription()}
-    <section class="col col-lg-9 page">
-      <div class="container">
-        <header class="row page-header">
-          <h2 class="col-md-6">
-            {translate key="navigation.about"}
-          </h2>
-        </header>
-        {$currentJournal->getLocalizedDescription()}
-        <p>
-          {capture assign="aboutPageUrl"}{url router=$smarty.const.ROUTE_PAGE page="about"}{/capture}
-          <a href="{$aboutPageUrl}">{translate key="common.readMore"}</a>
-        </p>
-      </div>
+    <section class="col-12 col-lg-9 page">
+      <header class="row page-header">
+        <h2 class="col-md-6">
+          {translate key="navigation.about"}
+        </h2>
+      </header>
+      {$currentJournal->getLocalizedDescription()}
+      <p>
+        {capture assign="aboutPageUrl"}{url router=$smarty.const.ROUTE_PAGE page="about"}{/capture}
+        <a href="{$aboutPageUrl}">{translate key="common.readMore"}</a>
+      </p>
     </section>
     {/if}
 
     {* display announcements before full issue *}
     {if $numAnnouncementsHomepage && $announcements|@count}
-    <section class="col col-lg-9 page">
+    <section class="col-12 col-lg-9 page">
       <header class="page-header">
         <h2 class="sr-only">{translate key="announcement.announcementsHome"}</h2>
       </header>
@@ -63,7 +61,7 @@
     </section>
     {/if}
 
-    <section class="col col-lg-9 page">
+    <section class="col-12 col-lg-9 page">
       <header class="page-header">
         {if $issue}
           <p>{translate key="journal.currentIssue"}</p>

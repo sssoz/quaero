@@ -18,88 +18,93 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="common.search"}
 
-<main class="container page-search">
-	<header class="page-header">
-		<h1>
-			{if $query}
-				{translate key="plugins.themes.healthSciencesPIE.search.resultsFor" query=$query|escape}
-			{elseif $authors}
-				{translate key="plugins.themes.healthSciencesPIE.search.resultsFor" query=$authors|escape}
-			{else}
-				{translate key="common.search"}
-			{/if}
-		</h1>
-	</header>
-	<div class="row justify-content-lg-center">
-		<div class="col-lg-8 search-col-results">
-			<div class="search-results">
+<main class="container">
 
-				{* No results found *}
-				{if $results->wasEmpty()}
-					{if $error}
-						<div class="alert alert-danger" role="alert">{$error|escape}</div>
-					{else}
-						<div class="alert alert-primary" role="alert">{translate key="search.noResults"}</div>
-					{/if}
+  <div class="row justify-content-center">
 
-				{* Results pagination *}
-				{else}
-					{iterate from=results item=result}
-						{include file="frontend/objects/article_summary.tpl" article=$result.publishedSubmission journal=$result.journal showDatePublished=true hideGalleys=true}
-					{/iterate}
-					<div class="pagination">
-						{page_info iterator=$results}
-						{page_links anchor="results" iterator=$results name="search" query=$query searchJournal=$searchJournal authors=$authors title=$title abstract=$abstract galleyFullText=$galleyFullText discipline=$discipline subject=$subject type=$type coverage=$coverage indexTerms=$indexTerms dateFromMonth=$dateFromMonth dateFromDay=$dateFromDay dateFromYear=$dateFromYear dateToMonth=$dateToMonth dateToDay=$dateToDay dateToYear=$dateToYear orderBy=$orderBy orderDir=$orderDir}
-					</div>
-				{/if}
-			</div>
-		</div>
-		<div class="col-lg-4 search-col-filters">
-			<div class="search-filters">
-				<h2>{translate key="plugins.themes.healthSciencesPIE.search.params"}</h2>
+    <div class="col-12 col-lg-9 page">
+      <header class="page-header justify-content-md-center">
+    		<h1>
+          {if $query}
+    				{translate key="plugins.themes.healthSciencesPIE.search.resultsFor" query=$query|escape}
+    			{elseif $authors}
+    				{translate key="plugins.themes.healthSciencesPIE.search.resultsFor" query=$authors|escape}
+    			{else}
+    				{translate key="common.search"}
+    			{/if}
+        </h1>
+    	</header>
 
-				{capture name="searchFormUrl"}{url op="search" escape=false}{/capture}
-				{$smarty.capture.searchFormUrl|parse_url:$smarty.const.PHP_URL_QUERY|parse_str:$formUrlParameters}
-				<form class="form-search" method="get" action="{$smarty.capture.searchFormUrl|strtok:"?"|escape}">
-					{foreach from=$formUrlParameters key=paramKey item=paramValue}
-						<input type="hidden" name="{$paramKey|escape}" value="{$paramValue|escape}"/>
-					{/foreach}
+      <div class="page-content justify-content-md-center">
+        <section>
+          <h2>{translate key="plugins.themes.healthSciencesPIE.search.params"}</h2>
 
-					<div class="form-group form-group-query">
-						<label for="query">
-							{translate key="common.searchQuery"}
-						</label>
-						<input type="text" class="form-control" id="query" name="query" value="{$query|escape}">
-					</div>
-					<div class="form-group form-group-authors">
-						<label for="authors">
-							{translate key="search.author"}
-						</label>
-						<input type="text" class="form-control" id="authors" name="authors" value="{$authors|escape}">
-					</div>
-					<div class="form-group form-group-date-from">
-						<label for="dateFromYear">
-							{translate key="search.dateFrom"}
-						</label>
-						<div class="form-control-date">
-							{html_select_date class="form-control" prefix="dateFrom" time=$dateFrom start_year=$yearStart end_year=$yearEnd year_empty="" month_empty="" day_empty="" field_order="YMD"}
-						</div>
-					</div>
-					<div class="form-group form-group-date-to">
-						<label for="dateToYear">
-							{translate key="search.dateTo"}
-						</label>
-						<div class="form-control-date">
-							{html_select_date class="form-control" prefix="dateTo" time=$dateTo start_year=$yearStart end_year=$yearEnd year_empty="" month_empty="" day_empty="" field_order="YMD"}
-						</div>
-					</div>
-					<div class="form-group form-group-buttons">
-						<button class="btn btn-primary" type="submit">{translate key="common.search"}</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+          {capture name="searchFormUrl"}{url op="search" escape=false}{/capture}
+          {$smarty.capture.searchFormUrl|parse_url:$smarty.const.PHP_URL_QUERY|parse_str:$formUrlParameters}
+          <form class="form-search" method="get" action="{$smarty.capture.searchFormUrl|strtok:"?"|escape}">
+            {foreach from=$formUrlParameters key=paramKey item=paramValue}
+              <input type="hidden" name="{$paramKey|escape}" value="{$paramValue|escape}"/>
+            {/foreach}
+
+            <div class="row">
+              <p class="col-6">
+                <label for="query">
+                  {translate key="common.searchQuery"}
+                </label>
+                <input type="text" id="query" name="query" value="{$query|escape}">
+              </p>
+
+              <p class="col-6">
+                <label for="authors">
+                  {translate key="search.author"}
+                </label>
+                <input type="text" id="authors" name="authors" value="{$authors|escape}">
+              </p>
+            </div>
+
+            <p class="ymd-selects">
+              <label for="dateFromYear">
+                {translate key="search.dateFrom"}
+              </label>
+              {html_select_date prefix="dateFrom" time=$dateFrom start_year=$yearStart end_year=$yearEnd year_empty="" month_empty="" day_empty="" field_order="YMD"}
+            </p>
+            <p class="ymd-selects">
+              <label for="dateToYear">
+                {translate key="search.dateTo"}
+              </label>
+              {html_select_date prefix="dateTo" time=$dateTo start_year=$yearStart end_year=$yearEnd year_empty="" month_empty="" day_empty="" field_order="YMD"}
+            </p>
+            <button class="btn btn-primary" type="submit">{translate key="common.search"}</button>
+          </form>
+        </section>
+
+        <hr/>
+        
+        <section>
+          {* No results found *}
+          {if $results->wasEmpty()}
+            {if $error}
+              <div class="alert alert-danger" role="alert">{$error|escape}</div>
+            {else}
+              <div class="alert alert-primary" role="alert">{translate key="search.noResults"}</div>
+            {/if}
+
+          {* Results pagination *}
+          {else}
+          <ul class="unstyled-list issue-toc">
+            {iterate from=results item=result}
+              <li>
+              {include file="frontend/objects/article_summary.tpl" article=$result.publishedSubmission journal=$result.journal showDatePublished=true}
+              </li>
+            {/iterate}
+          </ul>
+            {page_info iterator=$results}
+            {page_links anchor="results" iterator=$results name="search" query=$query searchJournal=$searchJournal authors=$authors title=$title abstract=$abstract galleyFullText=$galleyFullText discipline=$discipline subject=$subject type=$type coverage=$coverage indexTerms=$indexTerms dateFromMonth=$dateFromMonth dateFromDay=$dateFromDay dateFromYear=$dateFromYear dateToMonth=$dateToMonth dateToDay=$dateToDay dateToYear=$dateToYear orderBy=$orderBy orderDir=$orderDir}
+          {/if}
+        </section>
+      </div>
+    </div>
+  </div>
 </main>
 
 {include file="frontend/components/footer.tpl"}

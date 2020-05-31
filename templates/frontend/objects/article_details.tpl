@@ -112,12 +112,14 @@
 <div class="page-content justify-content-md-center">
 
   {* Abstract *}
-  {if $publication->getLocalizedData('abstract')}
-    <section>
-      <h2>{translate key="article.abstract"}</h2>
+  <section>
+    <h2>{translate key="article.abstract"}</h2>
+    {if $publication->getLocalizedData('abstract')}
       {$publication->getLocalizedData('abstract')|strip_unsafe_html}
-    </section>
-  {/if}
+    {else}
+      <p><em>{translate key="plugins.themes.healthSciencesPIE.article.noAbstracts"}</em></p>
+    {/if}
+  </section>
 
   {* Galley buttons *}
   {if $primaryGalleys}

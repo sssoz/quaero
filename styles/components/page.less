@@ -1,5 +1,5 @@
 /**
- * @file styles/pages/page-common.less
+ * @file styles/components/page.less
  *
  * Copyright (c) 2014-2020 Simon Fraser University
  * Copyright (c) 2003-2020 John Willinsky
@@ -9,14 +9,19 @@
  */
 
 .page {
+  margin-top: 20px;
   padding: 2rem;
   background-color: @parchment;
+
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
 .page-header {
   margin-bottom: 2.5rem;
 
-	h1, h2 {
+	h1, h2:first-child {
     margin-top: 0;
 	}
 
@@ -26,36 +31,22 @@
   text-align: center;
 }
 
-.page-content {
-
-	p {
-		margin-top: 1.5rem;
-
-		p:first-child {
-			margin-top: 0;
-		}
-	}
-}
-
-@media(min-width: 576px) {
-  .page {
-    margin-top: 0;
-  }
-}
-
-@media(min-width: 768px) {
-	.page {
-    margin-top: 1.5rem;
-	}
-}
-
 @media (min-width: 992px) {
-
   .page {
     margin-bottom: 3rem;
 
     &:first-of-type {
       margin-top: -75px;
+    }
+  }
+}
+
+.page-content {
+  section {
+    margin-bottom: 3rem;
+
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 }

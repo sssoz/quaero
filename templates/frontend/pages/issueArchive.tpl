@@ -23,51 +23,54 @@
 {/capture}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$pageTitle}
 
-<main class="container page">
+<main class="container">
 
-	<header class="page-header">
-		<h1>{$pageTitle}</h1>
-	</header>
+  <div class="row justify-content-center">
 
-	{* No issues have been published *}
-	{if empty($issues)}
-		<header class="page-header">
-			{include file="frontend/components/notification.tpl" messageKey="current.noCurrentIssueDesc"}
-		</header>
+    <div class="col-12 col-lg-9 page">
+      <header class="page-header justify-content-md-center">
+    		<h1>{$pageTitle}</h1>
+    	</header>
 
-	{* List issues *}
-	{else}
-    <div class="row justify-content-around">
-      {foreach from=$issues item="issue"}
-      <div class="col-6 col-md-3">
-				{include file="frontend/objects/issue_summary.tpl" heading="h2"}
-			</div>
-      {/foreach}
+      <div class="row page-content justify-content-md-center">
+        {* No issues have been published *}
+        {if empty($issues)}
+          {include file="frontend/components/notification.tpl" messageKey="current.noCurrentIssueDesc"}
+        {* List issues *}
+        {else}
+          {foreach from=$issues item="issue"}
+          <div class="col-4 col-md-3">
+            {include file="frontend/objects/issue_summary.tpl" heading="h2"}
+          </div>
+          {/foreach}
+
+          {* Pagination *}
+          {capture assign="prevUrl"}
+            {if $prevPage > 1}
+              {url router=$smarty.const.ROUTE_PAGE page="issue" op="archive" path=$prevPage}
+            {elseif $prevPage === 1}
+              {url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}
+            {/if}
+          {/capture}
+          {capture assign="nextUrl"}
+            {if $nextPage}
+              {url router=$smarty.const.ROUTE_PAGE page="issue" op="archive" path=$nextPage}
+            {/if}
+          {/capture}
+          {include
+            file="frontend/components/pagination.tpl"
+            prevUrl=$prevUrl|trim
+            nextUrl=$nextUrl|trim
+            showingStart=$showingStart
+            showingEnd=$showingEnd
+            total=$total
+          }
+        {/if}
+      </div>
     </div>
-
-		{* Pagination *}
-		{capture assign="prevUrl"}
-			{if $prevPage > 1}
-				{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive" path=$prevPage}
-			{elseif $prevPage === 1}
-				{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}
-			{/if}
-		{/capture}
-		{capture assign="nextUrl"}
-			{if $nextPage}
-				{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive" path=$nextPage}
-			{/if}
-		{/capture}
-		{include
-			file="frontend/components/pagination.tpl"
-			prevUrl=$prevUrl|trim
-			nextUrl=$nextUrl|trim
-			showingStart=$showingStart
-			showingEnd=$showingEnd
-			total=$total
-		}
-	{/if}
+  </div>
 </main>
+
 
 
 {include file="frontend/components/footer.tpl"}

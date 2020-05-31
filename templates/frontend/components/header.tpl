@@ -57,41 +57,44 @@
 {* Header *}
 <header class="main-header">
 	<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
 
-		<{$siteNameTag} class="sr-only">{$pageTitleTranslated|escape}</{$siteNameTag}>
+    		{* <{$siteNameTag} class="sr-only">{$pageTitleTranslated|escape}</{$siteNameTag}> *}
 
-  	<div class="navbar-logo">
-  		<a href="{$homeUrl}">{$brand}</a>
-  	</div>
+      	<div class="navbar-logo">
+      		<a href="{$homeUrl}">{$brand}</a>
+      	</div>
 
-  	{* Main navigation *}
-  	<nav class="navbar navbar-expand-lg">
-  		<a class="navbar-brand" href="{$homeUrl}">{$brand}</a>
-  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar"
-  		        aria-controls="main-navbar" aria-expanded="false"
-  		        aria-label="{translate key="plugins.themes.healthSciencesPIE.nav.toggle"}">
-  			{translate key="plugins.themes.healthSciencesPIE.nav.menu"}
-  		</button>
+      	{* Main navigation *}
+      	<nav class="navbar navbar-expand-lg">
+      		<a class="navbar-brand" href="{$homeUrl}">{$brand}</a>
+      		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar"
+      		        aria-controls="main-navbar" aria-expanded="false"
+      		        aria-label="{translate key="plugins.themes.healthSciencesPIE.nav.toggle"}">
+      			{translate key="plugins.themes.healthSciencesPIE.nav.menu"}
+      		</button>
 
-  		<div class="collapse navbar-collapse justify-content-md-center" id="main-navbar">
-        {* user menu *}
-        {load_menu name="user" id="primaryNav-userNav" ulClass="navbar-nav" liClass="nav-item"}
-        {include file="frontend/components/languageSwitcher.tpl" id="languageSmallNav"}
-  			{* primary menu *}
-  			{capture assign="primaryMenu"}
-  				{load_menu name="primary" id="primaryNav" ulClass="navbar-nav" liClass="nav-item"}
-  			{/capture}
-  			{if !empty(trim($primaryMenu)) || $currentContext}
-  				{$primaryMenu}
-  			{/if}
-  		</div>
-  	</nav>
+      		<div class="collapse navbar-collapse justify-content-md-center" id="main-navbar">
+            {* user menu *}
+            {load_menu name="user" id="primaryNav-userNav" ulClass="navbar-nav" liClass="nav-item"}
+            {include file="frontend/components/languageSwitcher.tpl" id="languageSmallNav"}
+      			{* primary menu *}
+      			{capture assign="primaryMenu"}
+      				{load_menu name="primary" id="primaryNav" ulClass="navbar-nav" liClass="nav-item"}
+      			{/capture}
+      			{if !empty(trim($primaryMenu)) || $currentContext}
+      				{$primaryMenu}
+      			{/if}
+      		</div>
+      	</nav>
 
-  	{* Repeat the userNav for positioning on large screens *}
-  	{load_menu name="user" id="userNav" ulClass="navbar-nav" liClass="nav-item"}
+      	{* Repeat the userNav for positioning on large screens *}
+      	{load_menu name="user" id="userNav" ulClass="navbar-nav" liClass="nav-item"}
 
-  	{* Language switcher *}
-  	{include file="frontend/components/languageSwitcher.tpl" id="languageLargeNav"}
-
+      	{* Language switcher *}
+      	{include file="frontend/components/languageSwitcher.tpl" id="languageLargeNav"}
+      </div>
+    </div>
 	</div>
 </header>

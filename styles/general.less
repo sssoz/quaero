@@ -17,9 +17,10 @@ a {
 	}
 }
 
-p {
+p, ul, ol {
+  margin-bottom: 1.5rem;
 
-  &:last-of-type {
+  &:last-child {
     margin-bottom: 0;
   }
 }
@@ -36,6 +37,7 @@ fieldset {
 }
 
 label {
+  display: block;
   font-size: 0.85rem;
   color: @dark-grey;
 }
@@ -53,6 +55,7 @@ input[type="password"] {
 
 select {
   display: block;
+  padding-right: 20px;
   max-width: 100%;
   -webkit-appearance: none;
   -moz-appearance: none;
