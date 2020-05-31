@@ -24,15 +24,7 @@
 
     <div class="col-12 col-lg-9 page">
       <header class="page-header justify-content-md-center">
-    		<h1>
-          {if $query}
-    				{translate key="plugins.themes.healthSciencesPIE.search.resultsFor" query=$query|escape}
-    			{elseif $authors}
-    				{translate key="plugins.themes.healthSciencesPIE.search.resultsFor" query=$authors|escape}
-    			{else}
-    				{translate key="common.search"}
-    			{/if}
-        </h1>
+    		<h1>{translate key="common.search"}</h1>
     	</header>
 
       <div class="page-content justify-content-md-center">
@@ -79,8 +71,15 @@
         </section>
 
         <hr/>
-        
+
         <section>
+          <h2>
+            {if $query}
+              {translate key="plugins.themes.healthSciencesPIE.search.resultsFor" query=$query|escape}
+            {elseif $authors}
+              {translate key="plugins.themes.healthSciencesPIE.search.resultsFor" query=$authors|escape}
+            {/if}
+          </h2>
           {* No results found *}
           {if $results->wasEmpty()}
             {if $error}
