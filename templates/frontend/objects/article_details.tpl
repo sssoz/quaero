@@ -33,10 +33,10 @@
 <header class="page-header page-header-centered justify-content-md-center">
   {* Title and issue details *}
   {if $section}
-    <p class="article-details-meta article-details-meta-upper">{$section->getLocalizedTitle()|escape}</p>
+    <p class="metadata metadata-upper">{$section->getLocalizedTitle()|escape}</p>
   {/if}
   <h1>{$publication->getLocalizedFullTitle()|escape}</h1>
-  <p class="article-details-meta">
+  <p class="metadata">
     <a href="{url page="issue" op="view" path=$issue->getBestIssueId()}">{$issue->getIssueSeries()|escape}</a>
   </p>
 
@@ -59,15 +59,15 @@
     {assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
     {if $pubId}
       {assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
-      <p class="article-details-meta">
+      <p class="metadata">
         <a href="{$doiUrl}">{$doiUrl}</a>
-      <p class="article-details-meta">
+      <p class="metadata">
     {/if}
   {/foreach}
 
   {* Date published & updated *}
   {if $publication->getData('datePublished')}
-    <p class="article-details-meta">
+    <p class="metadata">
       {translate key="submissions.published"}
       {* If this is the original version *}
       {if $firstPublication->getID() === $publication->getId()}
@@ -80,7 +80,7 @@
   {/if}
 
   {if $publication->getData('authors')}
-    <ul class="unstyled-list-inline article-details-meta">
+    <ul class="unstyled-list-inline metadata">
       {foreach from=$publication->getData('authors') item=authorString key=authorStringKey}
         {strip}
           <li>
@@ -93,9 +93,9 @@
             <strong>{$authorString->getFullName()|escape}</strong>
             {/if}
             {if $authorString->getOrcid()}
-              <a class="orcidImage" href="{$authorString->getOrcid()|escape}">
-                <img src="{$baseUrl}/{$orcidImage}">
-                {$author->getOrcid()|escape}
+              <a href="{$authorString->getOrcid()|escape}" target="_blank" rel="noopener">
+                &nbsp;<img src="{$baseUrl}/{$orcidImage}" alt="{translate key='user.orcid'}" aria-hidden="true"/>
+                <span class="sr-only">{translate key="plugins.themes.healthSciencesPIE.article.orcidRecord"}</span>
               </a>
             {/if}
             {if $authorString->getLocalizedAffiliation()}
@@ -257,18 +257,19 @@
                 {$citationStyle.title|escape}
               </a>
             {/foreach}
-            {if count($citationDownloads)}
-              <h3 class="dropdown-header">
-                {translate key="submission.howToCite.downloadCitation"}
-              </h3>
-              {foreach from=$citationDownloads item="citationDownload"}
-                <a class="dropdown-item" href="{url page="citationstylelanguage" op="download" path=$citationDownload.id params=$citationArgs}">
-                  {$citationDownload.title|escape}
-                </a>
-              {/foreach}
-            {/if}
           </div>
         </div>
+
+        {if count($citationDownloads)}
+          <h3>
+            {translate key="submission.howToCite.downloadCitation"}
+          </h3>
+          {foreach from=$citationDownloads item="citationDownload"}
+            <a href="{url page="citationstylelanguage" op="download" path=$citationDownload.id params=$citationArgs}" class="btn">
+              {$citationDownload.title|escape}
+            </a>
+          {/foreach}
+        {/if}
       </section>
     {/if}
 

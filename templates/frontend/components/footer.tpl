@@ -16,7 +16,7 @@
 	</div>
 	<div class="container">
     <div class="text-right">
-      <a href="{url page="about" op="aboutThisPublishingSystem"}">
+      <a href="{url page="about" op="aboutThisPublishingSystem"}" target="blank" rel="noopener">
         <img class="footer-brand-image" alt="{translate key="about.aboutThisPublishingSystem"}" src="{$baseUrl}/{$brandImage}">
       </a>
     </div>

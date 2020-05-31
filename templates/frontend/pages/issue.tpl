@@ -66,13 +66,13 @@
     							</a>
     						{/capture}
     					{/if}
-    					<div class="page-issue-doi">
+    					<p class="metadata">
     						{if $pubIdPlugin->getPubIdType() == 'doi'}
     							{$pubId}
     						{else}
     							{translate key="plugins.themes.healthSciencesPIE.issuePubId" pubIdType=$pubIdPlugin->getPubIdDisplayType()|escape pubId=$pubId}
     						{/if}
-    					</div>
+    					</p>
     				{/if}
     			{/foreach}
     		</header>

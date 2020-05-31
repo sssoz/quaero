@@ -25,18 +25,18 @@
 	{if $showAuthor && $article->getPages()}
 		<header class="row">
 			<div class="col">
-				<p class="article-details-meta">{$article->getAuthorString()|escape}</p>
+				<p class="metadata">{$article->getAuthorString()|escape}</p>
 			</div>
 			<div class="col-3 col-md-2 col-lg-2">
-				<p class="article-details-meta text-right">
+				<p class="metadata text-right">
 					{$article->getPages()|escape}
 				</p>
 			</div>
 		</header>
 	{elseif $showAuthor}
-		<header class="article-details-meta">{$article->getAuthorString()|escape}</header>
+		<header class="metadata">{$article->getAuthorString()|escape}</header>
 	{elseif $article->getPages()}
-		<header class="article-details-meta">
+		<header class="metadata">
 			{$article->getPages()|escape}
 		</header>
 	{/if}
@@ -48,7 +48,7 @@
 	</h3>
 
 	{if $showDatePublished && $article->getDatePublished()}
-		<time class="article-details-meta">
+		<time class="metadata">
 			{$article->getDatePublished()|date_format:$dateFormatLong}
 		</time>
 	{/if}
@@ -62,7 +62,7 @@
 			{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
 			{if $pubId}
 				{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
-				<p class="article-details-meta">
+				<p class="metadata">
 					<a href="{$doiUrl}">{$doiUr}</a>
 				</p>
 			{/if}
@@ -71,7 +71,7 @@
 	{elseif $requestedOp === "index" && $article->getStoredPubId('doi')}
 		{assign var="doiUrl" value=$article->getStoredPubId('doi')|substr_replace:'https://doi.org/':0:0|escape}
 		{if $doiUrl}
-			<p class="article-details-meta">
+			<p class="metadata">
 				<a href="{$doiUrl}">{$doiUrl}</a>
 			</p>
 		{/if}

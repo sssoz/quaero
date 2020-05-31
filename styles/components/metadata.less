@@ -1,0 +1,26 @@
+.metadata {
+  margin: 0 0 1.5rem 0;
+  font-size: 0.85rem;
+  color: @dark-grey;
+
+  strong {
+    font-weight: 400;
+    color: @black;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  li:not(:last-child):after {
+    content: ", ";
+  }
+}
+
+.metadata-upper {
+  text-transform: uppercase;
+}

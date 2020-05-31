@@ -1,36 +1,3 @@
-.article-details {
-  h2, h3, h4, h5, h6 {
-    color: @dark-grey;
-  }
-}
-
-.article-details-meta {
-  margin: 0 0 1.5rem 0;
-  font-size: 0.85rem;
-  color: @dark-grey;
-
-  strong {
-    font-weight: 400;
-    color: @black;
-  }
-
-  &:first-child {
-    margin-top: 0;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-  li:not(:last-child):after {
-    content: ", ";
-  }
-}
-
-.article-details-meta-upper {
-  text-transform: uppercase;
-}
-
 // Hide the bibliography number produced by some CSL styles
 .article-details-how-to-cite .csl-left-margin {
 	display: none;
@@ -61,39 +28,4 @@
 // Recommend author
 #articlesBySameAuthorList {
 	.unstyled-list;
-}
-
-#articlesBySameAuthorList li {
-	position: relative;
-	margin-bottom: 20px;
-
-	&:before {
-		content: '';
-		border-top: 8px solid transparent;
-		border-bottom: 8px solid transparent;
-		border-left: 10px solid @primary-text;
-		position: absolute;
-		height: 10px;
-		left: -30px;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		margin: auto
-	}
-}
-
-#articlesBySameAuthorList a {
-	z-index: 2;
-	position: relative;
-}
-
-#articlesBySameAuthorPages {
-	display: flex;
-	margin-top: 40px;
-
-	& a, strong {
-		border: 1px solid @mid-grey;
-		display: block;
-		padding: 5px 8px;
-	}
 }
