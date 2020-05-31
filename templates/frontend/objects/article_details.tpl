@@ -208,11 +208,11 @@
     {if $supplementaryGalleys}
       <section>
         <h2>{translate key="plugins.themes.healthSciencesPIE.article.supplementaryFiles"}</h2>
-        {foreach from=$supplementaryGalleys item=galley}
-          <div class="article-details-galley">
+        <p>
+          {foreach from=$supplementaryGalleys item=galley}
             {include file="frontend/objects/galley_link.tpl" parent=$article galley=$galley isSupplementary="1"}
-          </div>
-        {/foreach}
+          {/foreach}
+        </p>
       </section>
     {/if}
 
@@ -264,51 +264,62 @@
           <h3>
             {translate key="submission.howToCite.downloadCitation"}
           </h3>
-          {foreach from=$citationDownloads item="citationDownload"}
+          <p>
+            {foreach from=$citationDownloads item="citationDownload"}
             <a href="{url page="citationstylelanguage" op="download" path=$citationDownload.id params=$citationArgs}" class="btn">
               {$citationDownload.title|escape}
             </a>
-          {/foreach}
+            {/foreach}
+          </p>
         {/if}
       </section>
     {/if}
 
     {* Authors’ biographies *}
-    {assign var="authorCount" value=$publication->getData('authors')|@count}
-    {assign var="authorBioIndex" value=0}
-    <section>
-      <h2 class="sr-only">{translate key="plugins.themes.healthSciencesPIE.article.authorBio"}</h2>
-      {foreach from=$publication->getData('authors') item=author key=authorKey}
-        {if $author->getLocalizedBiography()}
-        <section
-            class="modal fade"
-            id="authorBiographyModal{$authorKey+1}"
-            tabindex="0"
-            role="dialog"
-            aria-labelledby="authorBiographyModalTitle{$authorKey+1}"
-            aria-hidden="true"
-        >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <header>
-                <h3 id="authorBiographyModalTitle{$authorKey+1}">
-                  {$author->getFullName()|escape}
-                </h3>
-                <button type="button" class="close" data-dismiss="modal" aria-label="{translate|escape key="common.close"}">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </header>
-              {if $authorString->getLocalizedAffiliation()}
-                <p>{$authorString->getLocalizedAffiliation()|escape}</p>
-                <hr/>
-              {/if}
-              {$author->getLocalizedBiography()|strip_unsafe_html}
+    {assign var="hasBiographies" value=0}
+			{foreach from=$publication->getData('authors') item=author}
+				{if $author->getLocalizedData('biography')}
+					{assign var="hasBiographies" value=$hasBiographies+1}
+				{/if}
+			{/foreach}
+
+    {if $hasBiographies}
+      {assign var="authorCount" value=$publication->getData('authors')|@count}
+      {assign var="authorBioIndex" value=0}
+      <section>
+        <h2 class="sr-only">{translate key="plugins.themes.healthSciencesPIE.article.authorBio"}</h2>
+        {foreach from=$publication->getData('authors') item=author key=authorKey}
+          {if $author->getLocalizedBiography()}
+          <section
+              class="modal fade"
+              id="authorBiographyModal{$authorKey+1}"
+              tabindex="0"
+              role="dialog"
+              aria-labelledby="authorBiographyModalTitle{$authorKey+1}"
+              aria-hidden="true"
+          >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <header>
+                  <h3 id="authorBiographyModalTitle{$authorKey+1}">
+                    {$author->getFullName()|escape}
+                  </h3>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="{translate|escape key="common.close"}">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </header>
+                {if $author->getLocalizedAffiliation()}
+                  <p>{$author->getLocalizedAffiliation()|escape}</p>
+                  <hr/>
+                {/if}
+                {$author->getLocalizedBiography()|strip_unsafe_html}
+              </div>
             </div>
-          </div>
-        </section>
-        {/if}
-      {/foreach}
-    </section>
+          </section>
+          {/if}
+        {/foreach}
+      </section>
+    {/if}
 
     {* PubIds (other than DOI; requires plugins) *}
     {foreach from=$pubIdPlugins item=pubIdPlugin}
@@ -321,7 +332,7 @@
           <h2>
             {$pubIdPlugin->getPubIdDisplayType()|escape}
           </h2>
-          <div class="article-details-pubid-value">
+          <p>
             {if $pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
               <a id="pub-id::{$pubIdPlugin->getPubIdType()|escape}" href="{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}">
                 {$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
@@ -329,7 +340,7 @@
             {else}
               {$pubId|escape}
             {/if}
-          </div>
+          </p>
         </section>
       {/if}
     {/foreach}
@@ -337,7 +348,5 @@
     {call_hook name="Templates::Article::Details"}
   </aside>
 
-  <section>
-    {call_hook name="Templates::Article::Footer::PageFooter"}
-  </section>
+  {call_hook name="Templates::Article::Footer::PageFooter"}
 </div>
