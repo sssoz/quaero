@@ -134,12 +134,6 @@
     </section>
   </div><!-- .row -->
 
-  <p class="text-center">
-    <a class="btn" href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}">
-      {translate key="journal.viewAllIssues"}
-    </a>
-  </p>
-
   {* Additional Homepage Content *}
   {if $additionalHomeContent}
     <div class="col-12 col-lg-9 page">{$additionalHomeContent}</div>
