@@ -22,45 +22,7 @@
 
   <div class="row justify-content-center">
 
-    {if $showJournalDescription && $currentJournal->getLocalizedDescription()}
-    <section class="col-12 col-lg-9 page">
-      <header class="row page-header">
-        <h2 class="col-md-6">
-          {translate key="navigation.about"}
-        </h2>
-      </header>
-      {$currentJournal->getLocalizedDescription()}
-      <p>
-        {capture assign="aboutPageUrl"}{url router=$smarty.const.ROUTE_PAGE page="about"}{/capture}
-        <a href="{$aboutPageUrl}">{translate key="common.readMore"}</a>
-      </p>
-    </section>
-    {/if}
-
-    {* display announcements before full issue *}
-    {if $numAnnouncementsHomepage && $announcements|@count}
-    <section class="col-12 col-lg-9 page">
-      <header class="page-header">
-        <h2 class="sr-only">{translate key="announcement.announcementsHome"}</h2>
-      </header>
-      {foreach from=$announcements item=announcement}
-        <article class="col-md-4">
-          <h3>{$announcement->getLocalizedTitle()|escape}</h3>
-          <p>{$announcement->getLocalizedDescriptionShort()|strip_unsafe_html}</p>
-          <p>
-            <a href="{url router=$smarty.const.ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}">
-              {capture name="more" assign="more"}{translate key="common.more"}{/capture}
-              {translate key="plugins.themes.healthSciencesPIE.more" text=$more}
-            </a>
-          </p>
-          <footer>
-            <time>{$announcement->getDatePosted()|date_format:$dateFormatLong}</time>
-          </footer>
-        </article>
-      {/foreach}
-    </section>
-    {/if}
-
+    {* Issue TOC *}
     <section class="col-12 col-lg-9 page">
       <header class="page-header">
         {if $issue}
@@ -132,6 +94,22 @@
         {include file="frontend/objects/issue_toc.tpl" sectionHeading="h3" hideGalleys=true}
       {/if}
     </section>
+
+    {* Journal description *}
+    {if $showJournalDescription && $currentJournal->getLocalizedDescription()}
+    <section class="col-12 col-lg-9 page">
+      <header class="row page-header">
+        <h2 class="col-md-6">
+          {translate key="navigation.about"}
+        </h2>
+      </header>
+      {$currentJournal->getLocalizedDescription()}
+      <p>
+        {capture assign="aboutPageUrl"}{url router=$smarty.const.ROUTE_PAGE page="about"}{/capture}
+        <a href="{$aboutPageUrl}">{translate key="common.readMore"}</a>
+      </p>
+    </section>
+    {/if}
   </div><!-- .row -->
 
   {* Additional Homepage Content *}
