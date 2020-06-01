@@ -1,20 +1,20 @@
 <?php
 
 /**
- * @file plugins/themes/healthSciencesPIEPIE/PIEThemePlugin.inc.php
+ * @file plugins/themes/quaeroPIE/QuaeroThemePlugin.inc.php
  *
  * Copyright (c) 2014-2020 Simon Fraser University
  * Copyright (c) 2003-2020 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PIEThemePlugin
- * @ingroup plugins_themes_healthSciencesPIE
+ * @class QuaeroThemePlugin
+ * @ingroup plugins_themes_quaero
  *
  * @brief Health Sciences theme
  */
 
 import('lib.pkp.classes.plugins.ThemePlugin');
-class PIEThemePlugin extends ThemePlugin {
+class QuaeroThemePlugin extends ThemePlugin {
 
 	/**
 	 * Load the custom styles for our theme
@@ -22,16 +22,13 @@ class PIEThemePlugin extends ThemePlugin {
 	 */
 	public function init() {
 
-    // Initialize the parent theme
-		$this->setParent('healthsciencesthemeplugin');
-
     // Option to show journal summary on the homepage; turned off by default
     $this->addOption('journalDescription', 'radio', array(
-			'label' => 'plugins.themes.healthSciencesPIE.options.journalDescription.label',
-			'description' => 'plugins.themes.healthSciencesPIE.options.journalDescription.description',
+			'label' => 'plugins.themes.quaero.options.journalDescription.label',
+			'description' => 'plugins.themes.quaero.options.journalDescription.description',
 			'options' => array(
-				0 => 'plugins.themes.healthSciencesPIE.options.journalDescription.disable',
-				1 => 'plugins.themes.healthSciencesPIE.options.journalDescription.enable'
+				0 => 'plugins.themes.quaero.options.journalDescription.disable',
+				1 => 'plugins.themes.quaero.options.journalDescription.enable'
 			)
 		));
 
@@ -108,7 +105,7 @@ class PIEThemePlugin extends ThemePlugin {
 	 * @return string
 	 */
 	public function getDisplayName() {
-			return __('plugins.themes.healthSciencesPIE.name');
+			return __('plugins.themes.quaero.name');
 	}
 
 	/**
@@ -116,7 +113,7 @@ class PIEThemePlugin extends ThemePlugin {
 	 * @return string
 	 */
 	public function getDescription() {
-			return __('plugins.themes.healthSciencesPIE.description');
+			return __('plugins.themes.quaero.description');
 	}
 
 	/**

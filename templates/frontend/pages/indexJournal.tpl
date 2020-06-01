@@ -33,7 +33,7 @@
           </h2>
 
           <time datetime="{$issue->getDatePublished()}">
-            {translate key="plugins.themes.healthSciencesPIE.currentIssuePublished" date=$issue->getDatePublished()|date_format:$dateFormatLong}
+            {translate key="plugins.themes.quaero.currentIssuePublished" date=$issue->getDatePublished()|date_format:$dateFormatLong}
           </time>
 
           {* make the entire block conditional if there aren't any additional issue data *}
@@ -55,7 +55,7 @@
                           {if $issue->getLocalizedTitle()}
                             {$issue->getLocalizedTitle()|escape}
                           {else}
-                            {translate key="plugins.themes.healthSciencesPIE.issueDescription"}
+                            {translate key="plugins.themes.quaero.issueDescription"}
                           {/if}
                         </div>
                         {$issue->getLocalizedDescription()|strip_unsafe_html}

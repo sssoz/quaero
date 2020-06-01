@@ -22,10 +22,10 @@
 
       <div class="page-content justify-content-md-center">
         <p>
-          {translate key="plugins.themes.healthSciencesPIE.register.haveAccount"}
+          {translate key="plugins.themes.quaero.register.haveAccount"}
           {capture assign="rolesProfileUrl"}{url page="user" op="profile" path="roles"}{/capture}
           <a href="{url page="login" source=$rolesProfileUrl}" class="login">
-            {translate key="plugins.themes.healthSciencesPIE.register.loginHere"}
+            {translate key="plugins.themes.quaero.register.loginHere"}
           </a>
         </p>
 

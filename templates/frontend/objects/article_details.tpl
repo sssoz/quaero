@@ -95,7 +95,7 @@
             {if $authorString->getOrcid()}
               <a href="{$authorString->getOrcid()|escape}" target="_blank" rel="noopener">
                 &nbsp;<img src="{$baseUrl}/{$orcidImage}" alt="{translate key='user.orcid'}" aria-hidden="true"/>
-                <span class="sr-only">{translate key="plugins.themes.healthSciencesPIE.article.orcidRecord"}</span>
+                <span class="sr-only">{translate key="plugins.themes.quaero.article.orcidRecord"}</span>
               </a>
             {/if}
             {if $authorString->getLocalizedAffiliation()}
@@ -117,7 +117,7 @@
     {if $publication->getLocalizedData('abstract')}
       {$publication->getLocalizedData('abstract')|strip_unsafe_html}
     {else}
-      <p><em>{translate key="plugins.themes.healthSciencesPIE.article.noAbstracts"}</em></p>
+      <p><em>{translate key="plugins.themes.quaero.article.noAbstracts"}</em></p>
     {/if}
   </section>
 
@@ -207,7 +207,7 @@
     {* Supplementary galleys *}
     {if $supplementaryGalleys}
       <section>
-        <h2>{translate key="plugins.themes.healthSciencesPIE.article.supplementaryFiles"}</h2>
+        <h2>{translate key="plugins.themes.quaero.article.supplementaryFiles"}</h2>
         <p>
           {foreach from=$supplementaryGalleys item=galley}
             {include file="frontend/objects/galley_link.tpl" parent=$article galley=$galley isSupplementary="1"}
@@ -287,7 +287,7 @@
       {assign var="authorCount" value=$publication->getData('authors')|@count}
       {assign var="authorBioIndex" value=0}
       <section>
-        <h2 class="sr-only">{translate key="plugins.themes.healthSciencesPIE.article.authorBio"}</h2>
+        <h2 class="sr-only">{translate key="plugins.themes.quaero.article.authorBio"}</h2>
         {foreach from=$publication->getData('authors') item=author key=authorKey}
           {if $author->getLocalizedBiography()}
           <section

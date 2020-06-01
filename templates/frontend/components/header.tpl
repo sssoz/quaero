@@ -71,8 +71,8 @@
       		<a class="navbar-brand" href="{$homeUrl}">{$brand}</a>
       		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar"
       		        aria-controls="main-navbar" aria-expanded="false"
-      		        aria-label="{translate key="plugins.themes.healthSciencesPIE.nav.toggle"}">
-      			{translate key="plugins.themes.healthSciencesPIE.nav.menu"}
+      		        aria-label="{translate key="plugins.themes.quaero.nav.toggle"}">
+      			{translate key="plugins.themes.quaero.nav.menu"}
       		</button>
 
       		<div class="collapse navbar-collapse justify-content-md-center" id="main-navbar">

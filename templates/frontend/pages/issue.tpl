@@ -44,14 +44,14 @@
               {if $issue->getLocalizedTitle()}
                 {$issue->getLocalizedTitle()}
               {else}
-                {translate key="plugins.themes.healthSciencesPIE.issueDescription"}
+                {translate key="plugins.themes.quaero.issueDescription"}
               {/if}
             </h2>
             {$issue->getLocalizedDescription()|strip_unsafe_html}
           {/if}
 
     			<time datetime="{$issue->getDatePublished()}">
-    				{translate key="plugins.themes.healthSciencesPIE.currentIssuePublished" date=$issue->getDatePublished()|date_format:$dateFormatLong}
+    				{translate key="plugins.themes.quaero.currentIssuePublished" date=$issue->getDatePublished()|date_format:$dateFormatLong}
     			</time>
 
     			{* PUb IDs (eg - DOI) *}
@@ -70,7 +70,7 @@
     						{if $pubIdPlugin->getPubIdType() == 'doi'}
     							{$pubId}
     						{else}
-    							{translate key="plugins.themes.healthSciencesPIE.issuePubId" pubIdType=$pubIdPlugin->getPubIdDisplayType()|escape pubId=$pubId}
+    							{translate key="plugins.themes.quaero.issuePubId" pubIdType=$pubIdPlugin->getPubIdDisplayType()|escape pubId=$pubId}
     						{/if}
     					</p>
     				{/if}

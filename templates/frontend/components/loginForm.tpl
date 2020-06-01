@@ -30,10 +30,10 @@
   {if !$disableUserReg}
   <p>
     <small>
-      {translate key="plugins.themes.healthSciencesPIE.register.noAccount"}
+      {translate key="plugins.themes.quaero.register.noAccount"}
       {capture assign=registerUrl}{url page="user" op="register" source=$source}{/capture}
       <a href="{$registerUrl}">
-        {translate key="plugins.themes.healthSciencesPIE.register.registerHere"}
+        {translate key="plugins.themes.quaero.register.registerHere"}
       </a>
     </small>
   </p>

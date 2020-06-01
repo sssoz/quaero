@@ -29,7 +29,7 @@
 
       <div class="page-content justify-content-md-center">
         <section>
-          <h2>{translate key="plugins.themes.healthSciencesPIE.search.params"}</h2>
+          <h2>{translate key="plugins.themes.quaero.search.params"}</h2>
 
           {capture name="searchFormUrl"}{url op="search" escape=false}{/capture}
           {$smarty.capture.searchFormUrl|parse_url:$smarty.const.PHP_URL_QUERY|parse_str:$formUrlParameters}
@@ -75,9 +75,9 @@
         <section>
           <h2>
             {if $query}
-              {translate key="plugins.themes.healthSciencesPIE.search.resultsFor" query=$query|escape}
+              {translate key="plugins.themes.quaero.search.resultsFor" query=$query|escape}
             {elseif $authors}
-              {translate key="plugins.themes.healthSciencesPIE.search.resultsFor" query=$authors|escape}
+              {translate key="plugins.themes.quaero.search.resultsFor" query=$authors|escape}
             {/if}
           </h2>
           {* No results found *}
