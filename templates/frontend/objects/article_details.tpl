@@ -30,7 +30,7 @@
  * @uses $ccLicenseBadge string An image and text with details about the license
  *}
 
-<header class="page-header page-header-centered justify-content-md-center">
+<header class="page-header justify-content-md-center">
   {* Title and issue details *}
   {if $section}
     <p class="metadata metadata-upper">{$section->getLocalizedTitle()|escape}</p>

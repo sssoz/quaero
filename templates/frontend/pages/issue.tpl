@@ -23,13 +23,13 @@
 
     	{* Display a message if no current issue exists *}
     	{if !$issue}
-    		<header class="page-header page-header-centered">
+    		<header class="page-header">
     			{include file="frontend/components/notification.tpl" messageKey="current.noCurrentIssueDesc"}
     		</header>
 
     	{* Display an issue with the Table of Contents *}
     	{else}
-    		<header class="page-header page-header-centered">
+    		<header class="page-header">
 
     		{* Indicate if this is only a preview *}
     		{if !$issue->getPublished()}
