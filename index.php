@@ -12,7 +12,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @ingroup plugins_themes_quaero
- * @brief Wrapper for Health Sciences theme plugin.
+ * @brief Wrapper for Quaero theme plugin.
  *
  */
 

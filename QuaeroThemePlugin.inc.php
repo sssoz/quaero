@@ -10,7 +10,7 @@
  * @class QuaeroThemePlugin
  * @ingroup plugins_themes_quaero
  *
- * @brief Health Sciences theme
+ * @brief Quaero theme
  */
 
 import('lib.pkp.classes.plugins.ThemePlugin');

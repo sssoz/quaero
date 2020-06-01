@@ -12,8 +12,8 @@
   -->
 
 <locale name="en_US" full_name="U.S. English">
-	<message key="plugins.themes.quaero.name">Philosophical Inquiry in Education Theme</message>
-	<message key="plugins.themes.quaero.description">A child theme of Health Sciences for PIE.</message>
+	<message key="plugins.themes.quaero.name">Quaero</message>
+	<message key="plugins.themes.quaero.description">A custom theme for the journal Philosophical Inquiry in Education.</message>
 
 	<message key="plugins.themes.quaero.nav.toggle">Toggle Navigation</message>
   <message key="plugins.themes.quaero.nav.menu">Menu</message>
