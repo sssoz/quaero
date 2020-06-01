@@ -129,7 +129,7 @@
       </header>
 
       {if $issue}
-        {include file="frontend/objects/issue_toc.tpl" sectionHeading="h3"}
+        {include file="frontend/objects/issue_toc.tpl" sectionHeading="h3" hideGalleys=true}
       {/if}
     </section>
   </div><!-- .row -->

@@ -78,7 +78,7 @@
 	{/if}
 
 	{if !$hideGalleys && $article->getGalleys()}
-		<p>
+		<footer>
 			{foreach from=$article->getGalleys() item=galley}
 				{if $primaryGenreIds}
 					{assign var="file" value=$galley->getFile()}
@@ -92,7 +92,7 @@
 				{/if}
 				{include file="frontend/objects/galley_link.tpl" parent=$article hasAccess=$hasArticleAccess}
 			{/foreach}
-		</p>
+		</footer>
 	{/if}
 
 	{call_hook name="Templates::Issue::Issue::Article"}

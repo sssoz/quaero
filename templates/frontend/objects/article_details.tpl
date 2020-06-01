@@ -67,11 +67,11 @@
 
   {* Date published & updated *}
   {if $publication->getData('datePublished')}
-    <p class="metadata">
+    <time class="metadata">
       {translate key="submissions.published"}
       {* If this is the original version *}
       {if $firstPublication->getID() === $publication->getId()}
-        {$firstPublication->getData('datePublished')|date_format:$dateFormatShort}
+        {$firstPublication->getData('datePublished')|date_format:$dateFormatLong}
       {* If this is an updated version *}
       {else}
         {translate key="submission.updatedOn" datePublished=$firstPublication->getData('datePublished')|date_format:$dateFormatShort dateUpdated=$publication->getData('datePublished')|date_format:$dateFormatShort}
