@@ -29,11 +29,6 @@
 {/capture}
 
 <article class="issue-summary">
-	{if $issue->getLocalizedCoverImageUrl()}
-		<a href="{url op="view" path=$issue->getBestIssueId()}">
-			<img class="issue-summary-cover" src="{$issue->getLocalizedCoverImageUrl()|escape}"{if $issue->getLocalizedCoverImageAltText() != ''} alt="{$issue->getLocalizedCoverImageAltText()|escape}"{/if}>
-		</a>
-	{/if}
   <a href="{url op="view" path=$issue->getBestIssueId()}" class="issue-summary-link">
     <{$heading} class="issue-summary-series">
       {$issueTitle|escape}

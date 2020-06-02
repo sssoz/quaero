@@ -87,10 +87,6 @@
           {/foreach}
         {/if}
 
-        {if $issue->getLocalizedCoverImageUrl()}
-        <img class="page-issue-cover" src="{$issue->getLocalizedCoverImageUrl()|escape}"{if $issue->getLocalizedCoverImageAltText() != ''} alt="{$issue->getLocalizedCoverImageAltText()|escape}"{/if}>
-        {/if}
-
         <!-- TOC -->
     		{if !$issue->getLocalizedDescription() || !$issue->getLocalizedCoverImageUrl()}<div class="issue-wrapper">{/if}
     			{include file="frontend/objects/issue_toc.tpl" sectionHeading="h2"}
