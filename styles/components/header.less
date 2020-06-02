@@ -1,6 +1,6 @@
 .main-header {
 	background-color: @primary;
-  background-image: url("/plugins/themes/quaero/templates/images/bg-noise.png");
+  background-image: url("/pie/plugins/themes/quaero/templates/images/bg-noise.png");
   border-top: 20px solid @black;
 }
 
@@ -49,6 +49,10 @@
 	font-size: 14px;
   line-height: 1.15;
   color: @parchment;
+}
+
+.navbar-logo-tagline {
+  display: none;
 }
 
 #languageSmallNav {
@@ -126,6 +130,13 @@
 			}
 		}
 	}
+
+  .navbar-logo-tagline {
+    display: block;
+    margin-top: 1rem;
+    color: @parchment;
+    font-style: italic;
+  }
 
 	#primaryNav {
 		justify-content: space-between;

@@ -64,6 +64,7 @@
 
       	<div class="navbar-logo">
       		<a href="{$homeUrl}">{$brand}</a>
+          <span class="navbar-logo-tagline">The Journal of the Canadian Philosophy of Education Society</span>
       	</div>
 
       	{* Main navigation *}
